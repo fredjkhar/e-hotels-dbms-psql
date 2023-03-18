@@ -1,7 +1,11 @@
 package com.ehotels.server.model;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class HotelGroup {
     private int id;
+    private String name;
     private int hotels_nbr;
     private String phone_nbr;
     private String email;
@@ -12,8 +16,7 @@ public class HotelGroup {
     private String postal_code;
     private String country;
 
-    public HotelGroup() {
-    }
+
 
     public int getId() {
         return id;
@@ -21,6 +24,14 @@ public class HotelGroup {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getHotels_nbr() {
@@ -98,7 +109,8 @@ public class HotelGroup {
     @Override
     public String toString() {
         return "HotelGroup{" +
-                "group_id=" + id +
+                "id=" + id +
+                "name=" + name +
                 ", hotels_nbr=" + hotels_nbr +
                 ", phone_nbr='" + phone_nbr + '\'' +
                 ", email='" + email + '\'' +

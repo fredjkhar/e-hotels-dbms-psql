@@ -27,23 +27,23 @@ public class HotelGroupService implements HotelGroupRepo {
 
     @Override
     public HotelGroup select(int id) {
-        String query = "SELECT * FROM hotel_group WHERE group_id=?";
+        String query = "SELECT * FROM hotel_group WHERE id=?";
         return jdbcTemplate.queryForObject(query, BeanPropertyRowMapper.newInstance(HotelGroup.class), id);
     }
 
     @Override
     public void insert(HotelGroup hotelGroup) {
-        String query = "INSERT INTO hotel_group (group_id, hotels_nbr, phone_nbr, email, unit_nbr, address, city, province, postal_code, country) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        jdbcTemplate.update(query, hotelGroup.getId(), hotelGroup.getHotels_nbr(), hotelGroup.getPhone_nbr(), hotelGroup.getEmail(),
+        String query = "INSERT INTO hotel_group (id, name, hotels_nbr, phone_nbr, email, unit_nbr, address, city, province, postal_code, country) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        jdbcTemplate.update(query, hotelGroup.getId(), hotelGroup.getName(), hotelGroup.getHotels_nbr(), hotelGroup.getPhone_nbr(), hotelGroup.getEmail(),
                 hotelGroup.getUnit_nbr(), hotelGroup.getAddress(), hotelGroup.getCity(), hotelGroup.getProvince(),
                 hotelGroup.getPostal_code(), hotelGroup.getCountry());
     }
 
     @Override
     public int update(HotelGroup hotelGroup) {
-        String query = "UPDATE hotel_group SET hotels_nbr=?, phone_nbr=?, email=?, unit_nbr=?, address=?, city=?, province=?, " +
-                "postal_code=?, country=? WHERE group_id=?";
+        String query = "UPDATE hotel_group SET name=? hotels_nbr=?, phone_nbr=?, email=?, unit_nbr=?, address=?, city=?, province=?, " +
+                "postal_code=?, country=? WHERE id=?";
         return jdbcTemplate.update(query, hotelGroup.getHotels_nbr(), hotelGroup.getPhone_nbr(), hotelGroup.getEmail(),
                 hotelGroup.getUnit_nbr(), hotelGroup.getAddress(), hotelGroup.getCity(), hotelGroup.getProvince(),
                 hotelGroup.getPostal_code(), hotelGroup.getCountry(), hotelGroup.getId());
