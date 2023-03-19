@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Cards.css";
-import CardItem from "./CardItem";
-import hotel1 from "../assets/hotel1.jpg";
+import "./cards.css";
+import CardItem from "../CardItem/cardItem";
+import hotel1 from "../../assets/images/hotel1.jpg";
 
 function Cards() {
   return (

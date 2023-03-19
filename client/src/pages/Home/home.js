@@ -1,7 +1,6 @@
 import React from "react";
-import "../styles/Home.css";
-import Cards from '../components/Cards'
-import imgHotel1 from "../assets/hotel1.jpg";
+import "./home.css";
+import Cards from '../../components/Cards/cards'
 
 export default function Home(props) {
 
