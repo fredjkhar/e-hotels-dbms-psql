@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/Navbar.css";
+import "./navbar.css";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
