@@ -1,46 +1,46 @@
 import React, { useState } from "react";
-import "./navbar.css";
-import ApartmentIcon from "@mui/icons-material/Apartment";
 import { Link } from "react-router-dom";
-import Button from '@mui/material/Button';
+import { useContext } from "../../context/contextProvider";
+import ApartmentIcon from "@mui/icons-material/Apartment";
 
-export default function Navbar(props) {
-  const [openHotels, setOpenHotels] = useState(false);
+import "./navbar.css";
+
+const Navbar = () => {
+  var { chaines } = useContext();
+  const [openChaines, setOpenChaines] = useState(false);
+
+  function DropdownItem(props) {
+    return (
+      <li>
+        <Link className="navbar__dropdownItem" to={`/${props.text}`} >{props.text}</Link>
+      </li>
+    );
+  }
 
   return (
     <div className="navbar">
-      <div className="leftSide">
-        <div className="logo">
+      <div className="navbar__leftSide">
+        <div className="navbar__logo">
           <ApartmentIcon fontSize="inherit" color="inherit" />
         </div>
-        <Link to="/" className="logoTitle">   E-Hotel </Link>
-    
+        <Link to="/" className="navbar__title">E-Hotel</Link>
       </div>
 
-      <div className="rightSide">
-        <div className="dropDownHotel">
-          <div
-            className="dropDownTrigger" onClick={() => { setOpenHotels(!openHotels); }}  >
-            <p> Nos Hotels </p>
-          </div>
-          <div
-            className={`dropDownHotelList ${  openHotels ? "active" : "inactive" }`} >
-            <ul>
-              {props.items.map((item, index) => ( <DropdownItem key={index} text={item.text} /> ))}
-            </ul>
-          </div>
-        </div>
-        <Link to="/" className="linkChaines"> Nos Chaines </Link>
-      
-      </div>
+      <ul className="navbar__rightSide">
+        <li>
+          <Link to="/" className="navbar__link `{}`" onClick={() => {setOpenChaines(!openChaines)}}>Chaines</Link>
+          <ul className={`navbar__dropdown ${!openChaines && "inactive"}`}>
+            {chaines.map((chaines, index) => (
+              <DropdownItem key={index} text={chaines.name} />
+            ))}
+          </ul>
+        </li>
+        <li><Link to="/" className="navbar__link">Hotels</Link></li>
+        <li><Link to="/" className="navbar__link">Connexion</Link></li>
+      </ul>
+
     </div>
   );
 }
 
-function DropdownItem(props) {
-  return (
-    <li className="dropdownItem">
-      <Link to={`/${props.text}`} className="dropdownLink">{props.text}</Link>
-    </li>
-  );
-}
+export default Navbar;
