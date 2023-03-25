@@ -18,7 +18,7 @@ import java.util.Objects;
  * Hotel model.
  */
 @RestController
-@RequestMapping("/api/hotels") //Base URL what does this mean
+@RequestMapping("/api/hotels") //Base URL
 public class HotelController {
 
     private static final Logger logger = LoggerFactory.getLogger(HotelController.class);

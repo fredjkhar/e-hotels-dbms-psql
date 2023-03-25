@@ -30,7 +30,7 @@ public class RoomController {
     @GetMapping
     public ResponseEntity<List<Room>> getAllRooms() {
         List<Room> rooms = service.selectAll();
-        //Return 404 not found is no rooms are found
+        //Return 404 not found if no rooms are found
         return rooms.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(rooms);
     }
 
@@ -61,7 +61,7 @@ public class RoomController {
     public ResponseEntity<String> deleteAllRooms(){
         try{
             int numDeleted = service.deleteAll();
-            String message = String.format("Successfully deleted %d (all) rooms from Rooms", numDeleted);
+            String message = String.format("Successfully deleted %d (all) rooms from room", numDeleted);
             logger.info(message);
             //Return an "ok" response with the message
             return ResponseEntity.ok(message);

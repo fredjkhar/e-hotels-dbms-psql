@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS employee;
 DROP TABLE IF EXISTS room;
 DROP TABLE IF EXISTS hotel;
 DROP TABLE IF EXISTS hotel_group;
@@ -42,3 +43,21 @@ CREATE TABLE room (
     FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id)
 );
 
+CREATE TABLE employee (
+    employee_NAS INT NOT NULL PRIMARY KEY,
+    last_name VARCHAR(255) NOT NULL,
+    first_name VARCHAR(255) NOT NULL,
+    street_number INT NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    city VARCHAR(255) NOT NULL,
+    province VARCHAR(255) NOT NULL,
+    country VARCHAR(255) NOT NULL,
+    postal_code VARCHAR(6) NOT NULL,
+    salary FLOAT NOT NULL,
+    phone_number VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    role VARCHAR(255) NOT NULL,
+    overtime FLOAT NOT NULL,
+    hotel_id INT NOT NULL,
+    FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id)
+);

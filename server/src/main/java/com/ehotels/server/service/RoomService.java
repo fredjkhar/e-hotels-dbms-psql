@@ -24,21 +24,21 @@ public class RoomService implements RoomRepo {
     }
 
     @Override
-    public Room select(int number) {
-        String query = "SELECT * from room WHERE number=?";
-        return jdbcTemplate.queryForObject(query, BeanPropertyRowMapper.newInstance(Room.class), number);
+    public Room select(int room_number) {
+        String query = "SELECT * from room WHERE room_number=?";
+        return jdbcTemplate.queryForObject(query, BeanPropertyRowMapper.newInstance(Room.class), room_number);
     }
 
     @Override
     public int insert(Room room) {
-        String query = "INSERT INTO hotel (number, price, view, capacity, problems, hotel_id)" +
+        String query = "INSERT INTO room (room_number, price, view, capacity, problems, hotel_id)" +
                 "VALUES(?, ?, ?, ?, ?, ?)";
         return jdbcTemplate.update(query, room.getRoom_number(), room.getPrice(), room.getView(), room.getCapacity(), room.getProblems(), room.getHotel_id());
     }
 
     @Override
     public int update(Room room) {
-        String query = "UPDATE room SET price=? view=? capacity=? problems? hotel_id=? WHERE number=?";
+        String query = "UPDATE room SET price=? view=? capacity=? problems=? hotel_id=? WHERE room_number=?";
         return jdbcTemplate.update(query, room.getPrice(), room.getView(), room.getCapacity(), room.getProblems(), room.getHotel_id(), room.getRoom_number());
 
     }
@@ -50,8 +50,8 @@ public class RoomService implements RoomRepo {
     }
 
     @Override
-    public int delete(int number) {
-        String query = "DELETE FROM room where number=?";
-        return jdbcTemplate.update(query, number);
+    public int delete(int room_number) {
+        String query = "DELETE FROM room where room_number=?";
+        return jdbcTemplate.update(query, room_number);
     }
 }

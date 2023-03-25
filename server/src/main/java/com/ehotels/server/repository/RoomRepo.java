@@ -8,7 +8,7 @@ public interface RoomRepo {
 
     List<Room> selectAll();
 
-    Room select(int number);
+    Room select(int room_number);
 
     int insert(Room room);
 
@@ -16,6 +16,6 @@ public interface RoomRepo {
 
     int deleteAll();
 
-    int delete(int number);
+    int delete(int room_number);
 
 }

@@ -24,3 +24,10 @@ INSERT INTO room VALUES (9, 250.00, 'City view', 4, NULL, 4);
 INSERT INTO room VALUES (10, 175.00, 'City view', 2, 'Bed sheets dirty', 5);
 INSERT INTO room VALUES (11, 200.00, 'City view', 2, NULL, 5);
 INSERT INTO room VALUES (12, 225.00, 'City view', 4, NULL, 5);
+
+INSERT INTO employee VALUES (111111111, 'Smith', 'John', 123, '6th Ave', 'New York', 'NY', 'USA', '10001', 50000, '212-555-1234', 'jsmith@example.com', 'Front Desk Agent', 0.0, 1);
+INSERT INTO employee VALUES (222222222, 'Johnson', 'Lisa', 123, '6th Ave', 'New York', 'NY', 'USA', '10001', 55000, '212-555-2345', 'ljohnson@example.com', 'Housekeeping Manager', 5.5, 1);
+INSERT INTO employee VALUES (333333333, 'Garcia', 'Jose', 455, 'N Park Dr', 'Chicago', 'IL', 'USA', '60611', 45000, '312-555-3456', 'jgarcia@example.com', 'Food and Beverage Supervisor', 0.0, 2);
+INSERT INTO employee VALUES (444444444, 'Lee', 'David', 900, 'Wilshire Blvd', 'Los Angeles', 'CA', 'USA', '90017', 60000, '213-555-4567', 'dlee@example.com', 'General Manager', 0.0, 3);
+INSERT INTO employee VALUES (555555555, 'Chen', 'Jessica', 400, 'SE 2nd Ave', 'Miami', 'FL', 'USA', '33131', 40000, '305-555-5678', 'jchen@example.com', 'Front Desk Agent', 2.0, 4);
+INSERT INTO employee VALUES (666666666, 'Jackson', 'Michael', 520, 'Texas Ave', 'Houston', 'TX', 'USA', '77002', 75000, '713-555-6789', 'mjackson@example.com', 'Sales Manager', 0.0, 5);
