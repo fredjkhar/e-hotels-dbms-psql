@@ -17,6 +17,7 @@ import java.util.Objects;
  * and responses for CRUD (Create, Read, Update, Delete) operations on
  * Hotel model.
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/api/hotels") //Base URL
 public class HotelController {
