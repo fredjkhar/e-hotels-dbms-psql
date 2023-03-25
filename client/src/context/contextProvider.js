@@ -35,6 +35,6 @@ const ContextProvider = ({ children }) => {
   );
 };
 
-export const useContext = () => React.useContext(AppContext);
+export const useAppContext = () => React.useContext(AppContext);
 
 export default ContextProvider;

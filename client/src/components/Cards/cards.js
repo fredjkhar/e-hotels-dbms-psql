@@ -1,49 +1,24 @@
 import React from "react";
 import "./cards.css";
 import CardItem from "../CardItem/cardItem";
-import hotel1 from "../../assets/images/hotel1.jpg";
+import { useAppContext } from "../../context/contextProvider";
 
 function Cards() {
+  const { chaines } = useAppContext();
+
   return (
     <div className="cards">
-      <h1>Nos meilleures chaines</h1>
+      <h1 className="cards__header-1">Nos meilleures chaines</h1>
       <div className="cards__container">
-        <div className="cards__wrapper">
-          <ul className="cards__items">
+        {chaines.map((chaine, index) => (
           <CardItem
-              src={hotel1}
-              text="visit this nice hotel"
-              label="hotel"
-              path="/hotel1"
-            />
-            <CardItem
-              src={hotel1}
-              text="visit this nice hotel"
-              label="hotel"
-              path="/hotel1"
-            />
-          </ul>
-          <ul className="cards__items">
-          <CardItem
-              src={hotel1}
-              text="visit this nice hotel"
-              label="hotel"
-              path="/hotel1"
-            />
-            <CardItem
-              src={hotel1}
-              text="visit this nice hotel"
-              label="hotel"
-              path="/hotel1"
-            />
-            <CardItem
-              src={hotel1}
-              text="visit this nice hotel"
-              label="hotel"
-              path="/hotel1"
-            />
-          </ul>
-        </div>
+            key={index}
+            src={require(`../../assets/icons/chaine-${chaine.id}.png`)}
+            path={`/${chaine.name}`}
+            id={chaine.id}
+            name={chaine.name}
+          />
+        ))}
       </div>
     </div>
   );

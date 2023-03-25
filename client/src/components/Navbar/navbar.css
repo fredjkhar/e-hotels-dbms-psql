@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 1em 5% 1em 0;
   box-shadow: 0 0 10px #e6e6e6;
   width: 100%;
   height: 65px;
@@ -38,7 +37,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   list-style: none;
   background-color: white;
   margin: 0;
@@ -85,23 +84,4 @@
 .navbar__dropdownItem:hover {
   color: rgb(194, 0, 47);
   border-color: #c2002f;
-}
-
-@media screen and (max-width: 768px) {
-  .navbar__dropdown {
-    display: none;
-  }
-
-  .navbar__link {
-    display: none;
-  }
-
-  .navbar__leftSide {
-    flex: 1;
-  }
-
-  .navbar__rightSide {
-    flex: 1;
-    justify-content: flex-end;
-  }
 }
