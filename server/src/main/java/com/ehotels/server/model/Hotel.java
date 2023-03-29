@@ -17,7 +17,6 @@ public class Hotel {
     private String email;
     private double rating;
     private int stars_nbr;
-
     private int min_price;
     private int hotel_group_id;
 
