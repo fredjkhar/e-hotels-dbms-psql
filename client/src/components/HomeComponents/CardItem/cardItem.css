@@ -1,0 +1,17 @@
+.card__item__link{
+    max-width: 120px;
+}
+
+.card__item__img {
+    max-width: 120px;
+}
+
+.card__item {
+    width: 120px;
+    height: 120px;
+    display: inline-flex;
+    margin: 5px;
+    flex: 1 0 calc(33.33% - 10px);
+    justify-content: center;
+    align-items: center;
+}

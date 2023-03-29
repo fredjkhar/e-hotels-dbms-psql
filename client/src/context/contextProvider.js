@@ -5,9 +5,15 @@ const AppContext = React.createContext();
 const BASE_URL = "http://localhost:8080";
 
 const ContextProvider = ({ children }) => {
-  const [loaded, setLoaded] = useState(false);
+  // Resources
+  const [loaded, setLoaded] = useState(0);
   const [chaines, setChaines] = useState(null);
   const [hotels, setHotels] = useState(null);
+
+  //Filter values
+  const [priceRange, setPriceRange] = useState(200);
+  const [minRating, setMinRating] = useState(0);
+  var [groupName, setGroupName] = useState(null);
 
   // Fetch hotelGroups from DB on website load.
   useEffect(() => {
@@ -18,18 +24,32 @@ const ContextProvider = ({ children }) => {
         setLoaded(true);
       })
       .catch((error) => console.error("Error: ", error));
-  }, []);
 
-  // Fetch hotels from DB on website load.
-  useEffect(() => {
     fetch(BASE_URL + "/api/hotels")
       .then((response) => response.json())
-      .then((responseData) => setHotels(responseData))
+      .then((responseData) => {
+        setHotels(responseData);
+        setLoaded(true);
+      })
       .catch((error) => console.error("Error: ", error));
   }, []);
 
+  // Fetch hotels from DB on website load.
+  useEffect(() => {}, []);
+
   return (
-    <AppContext.Provider value={{ chaines, hotels }}>
+    <AppContext.Provider
+      value={{
+        chaines,
+        hotels,
+        priceRange,
+        setPriceRange,
+        minRating,
+        setMinRating,
+        groupName,
+        setGroupName,
+      }}
+    >
       {loaded && children}
     </AppContext.Provider>
   );

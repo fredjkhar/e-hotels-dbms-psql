@@ -1,0 +1,33 @@
+.filters__container {
+    width: 10%;
+    margin-top: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 1rem;
+}
+
+.filters__container > div, .filters__price{
+    width: fit-content;
+}
+
+.filter-header {
+    width: 100%;
+    font-size: 1.2rem;
+    padding-bottom: 1rem;
+}
+
+.form__label {
+    padding-top: 1rem;
+    width: fit-content;
+}
+
+.filter__star {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #90caf9;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px 10px;
+    width: fit-content;
+}

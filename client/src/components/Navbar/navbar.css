@@ -52,6 +52,10 @@
   text-decoration: none;
 }
 
+.navbar__chaines-link {
+  cursor: pointer;
+}
+
 .navbar__dropdown {
   position: absolute;
   margin: -40px;

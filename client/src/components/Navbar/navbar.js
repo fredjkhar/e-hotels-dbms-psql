@@ -19,7 +19,7 @@ const Navbar = () => {
       </div>
       <ul className="navbar__rightSide">
         <li>
-          <Link to="/" className="navbar__link" onClick={() => {setOpenChaines(!openChaines)}}>Chaines</Link>
+          <div className="navbar__link navbar__chaines-link" onClick={() => {setOpenChaines(!openChaines)}}>Chaines</div>
           <ul className={`navbar__dropdown ${!openChaines && "inactive"}`}>
             {chaines.map((chaines, index) => (
               <li key={index}>
@@ -28,7 +28,7 @@ const Navbar = () => {
             ))}
           </ul>
         </li>
-        <li><Link to="/" className="navbar__link">Hotels</Link></li>
+        <li><Link to="/hotels" className="navbar__link">Hotels</Link></li>
         <li><Link to="/" className="navbar__link">Connexion</Link></li>
       </ul>
     </div>
