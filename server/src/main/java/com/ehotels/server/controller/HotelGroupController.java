@@ -18,6 +18,7 @@ import java.util.Objects;
 * HotelGroup model.
 */
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/hotelGroups") //Base URL
 public class HotelGroupController {

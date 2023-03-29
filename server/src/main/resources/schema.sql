@@ -1,5 +1,6 @@
-
-
+DROP TABLE IF EXISTS employee;
+DROP TABLE IF EXISTS room;
+DROP TABLE IF EXISTS hotel;
 DROP TABLE IF EXISTS hotel_group;
 DROP TABLE IF EXISTS location;
 DROP TABLE IF EXISTS client;
@@ -18,8 +19,7 @@ CREATE TABLE hotel_group (
   postal_code VARCHAR(6) NOT NULL,
   country VARCHAR(255) NOT NULL
 );
-<<<<<<< Updated upstream
-=======
+
 
 CREATE TABLE hotel (
   hotel_id INT NOT NULL PRIMARY KEY,
@@ -65,6 +65,7 @@ CREATE TABLE employee (
     hotel_id INT NOT NULL,
     FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id)
 );
+
 CREATE TABLE client(
       NAS_client INT NOT NULL PRIMARY KEY,
       last_name VARCHAR(255) NOT NULL,
@@ -102,4 +103,4 @@ CREATE TABLE reservation(
     FOREIGN KEY (nbr) REFERENCES room(nbr)
 
 );
->>>>>>> Stashed changes
+

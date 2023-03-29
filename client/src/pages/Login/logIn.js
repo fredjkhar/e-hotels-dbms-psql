@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/Connexion.css";
+import "./connexion.css";
 export default function Connexion() {
     return(
       
