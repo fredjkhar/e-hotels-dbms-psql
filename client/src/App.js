@@ -2,7 +2,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import ContextProvider from "./context/contextProvider";
 import Navbar from "./components/Navbar/navbar";
-import RoutesComponent from "./Routes/routesComponent";
+import RoutesComponent from "./routes/routesComponent";
 
 import "./App.css";
 

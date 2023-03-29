@@ -1,0 +1,8 @@
+.stars__container {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px;
+    padding-left: 0;
+}

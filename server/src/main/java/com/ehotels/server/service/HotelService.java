@@ -34,13 +34,13 @@ public class HotelService implements HotelRepo {
     public int insert(Hotel hotel) {
         String query = "INSERT INTO hotel (hotel_id, name, street_number, street, city, province, country, postal_code, phone_number, email, rating, hotel_group_id)" +
                 "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        return jdbcTemplate.update(query, hotel.getHotel_id(), hotel.getName(), hotel.getStreet_number(), hotel.getStreet(), hotel.getCity(), hotel.getProvince(), hotel.getCountry(), hotel.getPostal_code(), hotel.getPhone_number(), hotel.getEmail(), hotel.getRating(), hotel.getHotel_group_id());
+        return jdbcTemplate.update(query, hotel.getHotel_id(), hotel.getName(), hotel.getStreet_number(), hotel.getStreet(), hotel.getCity(), hotel.getProvince(), hotel.getCountry(), hotel.getPostal_code(), hotel.getPhone_number(), hotel.getEmail(), hotel.getRating(), hotel.getStars_nbr(), hotel.getMin_price(), hotel.getHotel_group_id());
     }
 
     @Override
     public int update(Hotel hotel) {
         String query = "UPDATE hotel SET name=? street_number=? street=? city=? province=? country=? postal_code=? phone_number=? email=? rating=? hotel_group_id=? WHERE hotel_id=?";
-        return jdbcTemplate.update(query, hotel.getName(), hotel.getStreet_number(), hotel.getStreet(), hotel.getCity(), hotel.getProvince(), hotel.getCountry(), hotel.getPostal_code(), hotel.getPhone_number(), hotel.getEmail(), hotel.getRating(), hotel.getHotel_group_id(),  hotel.getHotel_id());
+        return jdbcTemplate.update(query, hotel.getName(), hotel.getStreet_number(), hotel.getStreet(), hotel.getCity(), hotel.getProvince(), hotel.getCountry(), hotel.getPostal_code(), hotel.getPhone_number(), hotel.getEmail(), hotel.getRating(), hotel.getHotel_group_id(), hotel.getStars_nbr(), hotel.getMin_price(), hotel.getHotel_id());
     }
 
     @Override

@@ -16,6 +16,9 @@ public class Hotel {
     private String phone_number;
     private String email;
     private double rating;
+    private int stars_nbr;
+
+    private int min_price;
     private int hotel_group_id;
 
 
@@ -104,7 +107,23 @@ public class Hotel {
     }
 
     public void setRating(double rating) {
-            this.rating = rating;
+        this.rating = rating;
+    }
+
+    public int getStars_nbr() {
+        return stars_nbr;
+    }
+
+    public void setStars_nbr(int stars_nbr) {
+        this.stars_nbr = stars_nbr;
+    }
+
+    public int getMin_price() {
+        return min_price;
+    }
+
+    public void setMin_price(int min_price) {
+        this.min_price = min_price;
     }
 
     public int getHotel_group_id() {
@@ -115,20 +134,20 @@ public class Hotel {
         this.hotel_group_id = hotel_group_id;
     }
 
-    public String toString(){
+    public String toString() {
         return "Hotel{" +
                 "hotel_id=" + hotel_id +
-                ", name='" +name+ '\'' +
-                ", street_number=" +street_number+
-                ", street='" +street+ '\'' +
-                ", city='" +city+ '\''+
-                ", province='" + province + '\''+
-                ", country='" + country+ '\'' +
-                ", postal_code='"+postal_code+'\''+
-                ", phone_number='" +phone_number+ '\''+
-                ", email='"+email+'\''+
-                ", rating="+rating+
-                ", hotel_group_id=" +hotel_group_id +
+                ", name='" + name + '\'' +
+                ", street_number=" + street_number +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", province='" + province + '\'' +
+                ", country='" + country + '\'' +
+                ", postal_code='" + postal_code + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                ", email='" + email + '\'' +
+                ", rating=" + rating +
+                ", hotel_group_id=" + hotel_group_id +
                 "}";
     }
 }

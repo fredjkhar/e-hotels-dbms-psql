@@ -19,7 +19,7 @@ import java.util.Objects;
  */
 @CrossOrigin
 @RestController
-@RequestMapping("/api/hotels") //Base URL
+@RequestMapping("/api/hotels") //Base URI
 public class HotelController {
 
     private static final Logger logger = LoggerFactory.getLogger(HotelController.class);
@@ -30,20 +30,19 @@ public class HotelController {
     public HotelController(HotelService service){
         Objects.requireNonNull(service);
         this.service = service;
-
     }
 
     @GetMapping
     public ResponseEntity<List<Hotel>> getAllHotels() {
         List<Hotel> hotels = service.selectAll();
-        //Return 404 not found is no rooms are found
+        //Return 404 not found if no rooms are found
         return hotels.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(hotels);
     }
 
     @GetMapping("/{hotel_id}")
     public ResponseEntity<Hotel> getHotelByHotelId(@PathVariable("hotel_id") int hotel_id){
         Hotel hotel = service.select(hotel_id);
-        //Return 404 not found is no hotels are found
+        //Return 404 not found if no hotels are found
         return hotel == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(hotel);
     }
 
@@ -58,7 +57,7 @@ public class HotelController {
             return ResponseEntity.ok(message);
         } catch(Exception e){
             logger.error("Failed to create Hotel: {}", hotel, e);
-            // Return a 500 Internal Server Error if server failed to create a room record
+            // Return a 500 Internal Server Error if server failed to create a hotel record
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }

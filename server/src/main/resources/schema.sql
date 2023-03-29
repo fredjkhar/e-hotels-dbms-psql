@@ -33,6 +33,8 @@ CREATE TABLE hotel (
   phone_number VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   rating FLOAT NOT NULL,
+  stars_nbr INT NOT NULL,
+  min_price INT NOT NULL,
   hotel_group_id INT NOT NULL,
   FOREIGN KEY (hotel_group_id) REFERENCES hotel_group(id)
 );
