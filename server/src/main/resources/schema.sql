@@ -1,10 +1,10 @@
+DROP TABLE IF EXISTS reservation;
+DROP TABLE IF EXISTS location;
+DROP TABLE IF EXISTS client;
 DROP TABLE IF EXISTS employee;
 DROP TABLE IF EXISTS room;
 DROP TABLE IF EXISTS hotel;
 DROP TABLE IF EXISTS hotel_group;
-DROP TABLE IF EXISTS location;
-DROP TABLE IF EXISTS client;
-DROP TABLE IF EXISTS reservation;
 
 CREATE TABLE hotel_group (
   id INT NOT NULL PRIMARY KEY,
@@ -91,9 +91,12 @@ CREATE TABLE location(
       location_id INT NOT NULL PRIMARY KEY,
       startDate DATE NOT NULL,
       endDate DATE NOT NULL,
+      NAS_client INT NOT NULL,
+      employee_NAS INT NOT NULL,
+      room_number INT NOT NULL,
       FOREIGN KEY (NAS_client) REFERENCES client(NAS_client),
-      FOREIGN KEY (NAS_employe) REFERENCES employee(NAS_employe),
-      FOREIGN KEY (nbr) REFERENCES room(nbr)
+      FOREIGN KEY (employee_NAS) REFERENCES employee(employee_NAS),
+      FOREIGN KEY (room_number) REFERENCES room(room_number)
 );
 
 CREATE TABLE reservation(
@@ -101,8 +104,10 @@ CREATE TABLE reservation(
     reservation_id INT NOT NULL PRIMARY KEY,
     startDate DATE NOT NULL,
     endDate DATE NOT NULL,
+    NAS_client INT NOT NULL,
+    room_number INT NOT NULL,
     FOREIGN KEY (NAS_client) REFERENCES client(NAS_client),
-    FOREIGN KEY (nbr) REFERENCES room(nbr)
+    FOREIGN KEY (room_number) REFERENCES room(room_number)
 
 );
 
