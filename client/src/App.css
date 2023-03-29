@@ -6,13 +6,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  font-family: "Nunito",sans-serif;
-  position: relative; /* Add position: relative to the parent element */
+  position: relative; 
 }
 
 body {
   padding: 0;
   margin: 0;
+  font-family: "Nunito",sans-serif;
   background-color: #F5F8FC;
 }
 
