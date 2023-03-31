@@ -146,6 +146,8 @@ public class Hotel {
                 ", phone_number='" + phone_number + '\'' +
                 ", email='" + email + '\'' +
                 ", rating=" + rating +
+                ", stars_nbr=" + stars_nbr+
+                ", min_price=" +min_price+
                 ", hotel_group_id=" + hotel_group_id +
                 "}";
     }
