@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/commodites") //Base URL
+@RequestMapping("/api/commodites") //Base URI
 public class CommoditeController {
 
     private static final Logger logger = LoggerFactory.getLogger(CommoditeController.class);

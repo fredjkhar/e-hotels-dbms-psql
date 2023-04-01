@@ -58,32 +58,32 @@ CREATE TABLE employee (
     city VARCHAR(255) NOT NULL,
     province VARCHAR(255) NOT NULL,
     country VARCHAR(255) NOT NULL,
-    postal_code VARCHAR(6) NOT NULL,
+    postal_code VARCHAR(7) NOT NULL,
     salary FLOAT NOT NULL,
     phone_number VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     role VARCHAR(255) NOT NULL,
     overtime FLOAT NOT NULL,
     hotel_id INT NOT NULL,
-    FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id)
+    FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id),
+    CHECK (role IN ('gestionnaire', 'réceptionniste', 'administrateur' ,'cuisiner', 'nettoyeur'))
 );
 
 CREATE TABLE client(
       NAS_client INT NOT NULL PRIMARY KEY,
-      last_name VARCHAR(255) NOT NULL,
       first_name VARCHAR(255) NOT NULL,
-      age INT NOT NULL,
-      street_number INT NOT NULL,
+      last_name VARCHAR(255) NOT NULL,
+      age INT NOT NULL CHECK (age >= 18),
+      street_num INT NOT NULL,
       street VARCHAR(255) NOT NULL,
       city VARCHAR(255) NOT NULL,
       province VARCHAR(255) NOT NULL,
       country VARCHAR(255) NOT NULL,
-      postal_code VARCHAR(6) NOT NULL,
-      phone_number VARCHAR(255) NOT NULL,
+      postal_code VARCHAR(7) NOT NULL,
+      phone_num VARCHAR(255) NOT NULL,
       email VARCHAR(255) NOT NULL,
-      registrationDate FLOAT NOT NULL,
-      password INT NOT NULL
-
+      registration_date VARCHAR(255) NOT NULL,
+      password VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE location(

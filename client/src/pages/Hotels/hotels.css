@@ -6,7 +6,7 @@
 }
 
 .hotels__container {
-    width: 60%;
+    width: 1000px;
     display: flex;
     flex-direction: column;
     height: auto;

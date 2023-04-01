@@ -4,7 +4,8 @@ import { useAppContext } from "../context/contextProvider"
 
 import Home from "../pages/Home/home";
 import Hotels from "../pages/Hotels/hotels";
-import Connexion from "../pages/Connexion/connexion";
+import Connection from "../pages/Connection/connection";
+import Manager from "../pages/Manager/manager";
 
 const RoutesComponent = () => {
   const { chaines } = useAppContext();
@@ -12,12 +13,14 @@ const RoutesComponent = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/hotels" element={<Hotels />} />
+      <Route path="/manager" element={<Manager />} />
 
-      {chaines.map((chaine, index) => (
-        <Route key={index} path={`/${chaine.name}`} element={<Hotels key={chaine.name} />} />
+      {chaines.map((chain, index) => (
+        <Route key={index} path={`/${chain.name}`} element={<Hotels />} />
       ))}
       
-      <Route path="/connexion" element={<Connexion />} />
+      <Route path="/connection" element={<Connection />} />
     </Routes>
   );
 };

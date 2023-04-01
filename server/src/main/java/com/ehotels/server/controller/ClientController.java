@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/clients") //Base URL
+@RequestMapping("/api/clients") //Base URI
 public class ClientController {
 
     private static final Logger logger = LoggerFactory.getLogger(ClientController.class);
@@ -107,7 +107,7 @@ public class ClientController {
         }
         catch (Exception e){
             logger.error("Failed to update client with NAS {}",NAS_client, e);
-            // Return a 500 Internal Server Error if server failed to UPDATE an clientrecord
+            // Return a 500 Internal Server Error if server failed to UPDATE a client record
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }

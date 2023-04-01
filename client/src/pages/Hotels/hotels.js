@@ -7,28 +7,33 @@ import Filters from "../../components/HotelComponents/Filters/filters";
 import "./hotels.css";
 
 const Hotels = () => {
-  const { hotels, priceRange, minRating, groupName } = useAppContext();
+  const { hotels, chaines, priceRange, minRating, chaineName, star } =
+    useAppContext();
   const [displayedHotels, setDisplayedHotels] = useState(hotels);
 
   useEffect(() => {
-    if (groupName) {
+    if (chaineName !== "All") {
+      let _chaines = chaines.filter((chaine) => chaine.name === chaineName);
       setDisplayedHotels(
-        hotels.filter((hotel) => {
-          return (
-            hotel.hotel_group_id === groupName &&
+        hotels.filter(
+          (hotel) =>
+            hotel.hotel_group_id === _chaines[0].id &&
             hotel.min_price <= priceRange &&
-            hotel.rating >= minRating
-          );
-        })
+            hotel.rating >= minRating &&
+            star === 0 ? true : hotel.stars_nbr === star
+        )
       );
     } else {
       setDisplayedHotels(
-        hotels.filter((hotel) => {
-          return hotel.min_price <= priceRange && hotel.rating >= minRating;
-        })
+        hotels.filter(
+          (hotel) =>
+            hotel.min_price <= priceRange &&
+            hotel.rating >= minRating &&
+            star === 0 ? true : hotel.stars_nbr === star
+        )
       );
     }
-  }, [priceRange, minRating, groupName]);
+  }, [priceRange, minRating, chaineName, chaines, hotels, star]);
 
   return (
     <div className="hotels__wrapper">

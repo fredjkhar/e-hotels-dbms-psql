@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/locations") //Base URL
+@RequestMapping("/api/locations") //Base URI
 public class LocationController {
 
     private static final Logger logger = LoggerFactory.getLogger(LocationController.class);

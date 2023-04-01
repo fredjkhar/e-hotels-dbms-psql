@@ -38,7 +38,7 @@ public class EmployeeService implements EmployeeRepo {
 
     @Override
     public int update(Employee employee) {
-        String query = "UPDATE employee SET last_name=? first_name=? street_number=? street=? city=? province=? country=? postal_code=? salary=? phone_number=? email=? role=? overtime=? hotel_id=? WHERE employee_NAS=?";
+        String query = "UPDATE employee SET last_name=?, first_name=?, street_number=?, street=?, city=?, province=?, country=?, postal_code=?, salary=?, phone_number=?, email=?, role=?, overtime=?, hotel_id=?, WHERE employee_NAS=?";
         return jdbcTemplate.update(query, employee.getLast_name(), employee.getFirst_name(), employee.getStreet_number(), employee.getStreet(), employee.getCity(), employee.getProvince(), employee.getCountry(), employee.getPostal_code(), employee.getSalary(), employee.getPhone_number(), employee.getEmail(), employee.getRole(), employee.getOvertime(), employee.getHotel_id(), employee.getEmployee_NAS());
      }
 

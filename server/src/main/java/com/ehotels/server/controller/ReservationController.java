@@ -13,7 +13,7 @@ import java.util.Objects;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/reservations") //Base URL
+@RequestMapping("/api/reservations") //Base URI
 public class ReservationController {
 
     private static final Logger logger = LoggerFactory.getLogger(ReservationController.class);

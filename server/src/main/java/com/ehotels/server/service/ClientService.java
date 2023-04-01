@@ -7,15 +7,17 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-
 import java.util.List;
+
 @Repository
 public class ClientService implements ClientRepo {
 
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public ClientService(JdbcTemplate jdbcTemplate){this.jdbcTemplate = jdbcTemplate;}
+    public ClientService(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     @Override
     public List<Client> selectAll() {
@@ -31,15 +33,15 @@ public class ClientService implements ClientRepo {
 
     @Override
     public int insert(Client client) {
-        String query = "INSERT INTO client (NAS_client, last_name, first_name, age, street_number, street, city, province, country, postal_code, phone_number, email, registrationDate, password)"+
-                "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        return jdbcTemplate.update(query, client.getNAS_client(), client.getLastName(), client.getFirstName(), client.getStreetNum(), client.getStreet(), client.getCity(), client.getProvince(), client.getCountry(), client.getPostalCode(), client.getPhoneNum(), client.getEmail(), client.getRegistrationDate(), client.getPassword());
+        String query = "INSERT INTO client (NAS_client, first_name, last_name, age, street_num, street, city, province, country, postal_code, phone_num, email, registration_date, password) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(query, client.getNAS_client(), client.getFirst_name(), client.getLast_name(), client.getAge(), client.getStreet_num(), client.getStreet(), client.getCity(), client.getProvince(), client.getCountry(), client.getPostal_code(), client.getPhone_num(), client.getEmail(), client.getRegistration_date(), client.getPassword());
     }
 
     @Override
     public int update(Client client) {
-        String query = "UPDATE client SET NAS_client=? last_name=? first_name=? age=? street_number=? street=? city=? province=? country=? postal_code=? phone_number=? email=? registrationDate=? password=? WHERE NAS_client=?";
-        return jdbcTemplate.update(query, client.getLastName(), client.getFirstName(), client.getStreetNum(), client.getStreet(), client.getCity(), client.getProvince(), client.getCountry(), client.getPostalCode(), client.getPhoneNum(), client.getEmail(), client.getRegistrationDate(), client.getPassword(), client.getNAS_client());
+        String query = "UPDATE client SET NAS_client=?, first_name=?, last_name=?, age=?, street_num=?, street=?, city=?, province=?, country=?, postal_code=?, phone_num=?, email=?, registration_date=?, password=? WHERE NAS_client=?";
+        return jdbcTemplate.update(query, client.getNAS_client(), client.getFirst_name(), client.getLast_name(), client.getAge(), client.getStreet_num(), client.getStreet(), client.getCity(), client.getProvince(), client.getCountry(), client.getPostal_code(), client.getPhone_num(), client.getEmail(), client.getRegistration_date(), client.getPassword(), client.getNAS_client());
     }
 
     @Override

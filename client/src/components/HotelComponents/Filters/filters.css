@@ -1,18 +1,19 @@
 .filters__container {
-    width: 10%;
+    min-width: 180px;
     margin-top: 2rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     padding-left: 1rem;
 }
 
 .filters__container > div, .filters__price{
-    width: fit-content;
+   width: 180px;
 }
 
 .filter-header {
     width: 100%;
     font-size: 1.2rem;
     padding-bottom: 1rem;
+    margin-top: 5px;
 }
 
 .form__label {
@@ -29,5 +30,24 @@
     border-radius: 5px;
     margin: 5px;
     padding: 5px 10px;
+    cursor: pointer;
     width: fit-content;
+}
+
+.filter__star-clicked {
+    background-color: #90caf9;
+}
+
+.filter__star:hover {
+    background-color: #90caf9;
+}
+
+.filters__link {
+    text-decoration: none;
+    color: black;
+}
+
+.stars__radio {
+    display: flex;
+    flex-wrap: wrap;
 }
