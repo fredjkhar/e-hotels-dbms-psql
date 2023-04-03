@@ -4,7 +4,7 @@
 ## Prerequisites
 Before following installation steps, ensure that you have installed the following on your machine
 - Node.js 18 or higher
-- Java 19 or higher
+- Java 19
 - [Maven](https://maven.apache.org/install.html)
 - Postgres server
 

@@ -1,0 +1,12 @@
+.rating__container {
+    margin-top: 2rem;
+}
+
+.rating__box {
+    border-radius: 10px;
+    color: white;
+    padding: 5px;
+    width: fit-content;
+    display: inline;
+    margin-right: 10px;
+}

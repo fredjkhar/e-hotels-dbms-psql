@@ -6,36 +6,28 @@ const BASE_URL = "http://localhost:8080";
 
 const ContextProvider = ({ children }) => {
   // Resources
-  const [loaded, setLoaded] = useState(0);
   const [chaines, setChaines] = useState(null);
   const [hotels, setHotels] = useState(null);
 
   //Filter values
-  const [priceRange, setPriceRange] = useState(200);
+  const [chaineName, setChaineName] = useState("All");
+  const [priceRange, setPriceRange] = useState(400);
   const [minRating, setMinRating] = useState(0);
-  var [groupName, setGroupName] = useState(null);
+  const [groupName, setGroupName] = useState(null);
+  const [star, setStar] = useState(0);
 
   // Fetch hotelGroups from DB on website load.
   useEffect(() => {
     fetch(BASE_URL + "/api/hotelGroups")
       .then((response) => response.json())
-      .then((responseData) => {
-        setChaines(responseData)
-        setLoaded(true);
-      })
+      .then((responseData) => setChaines(responseData))
       .catch((error) => console.error("Error: ", error));
 
     fetch(BASE_URL + "/api/hotels")
       .then((response) => response.json())
-      .then((responseData) => {
-        setHotels(responseData);
-        setLoaded(true);
-      })
+      .then((responseData) => setHotels(responseData))
       .catch((error) => console.error("Error: ", error));
   }, []);
-
-  // Fetch hotels from DB on website load.
-  useEffect(() => {}, []);
 
   return (
     <AppContext.Provider
@@ -48,9 +40,13 @@ const ContextProvider = ({ children }) => {
         setMinRating,
         groupName,
         setGroupName,
+        chaineName,
+        setChaineName,
+        star,
+        setStar
       }}
     >
-      {loaded && children}
+      {chaines && hotels && children}
     </AppContext.Provider>
   );
 };

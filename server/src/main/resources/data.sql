@@ -1,9 +1,13 @@
+
+-- HotelGroup Insert Queries START
 INSERT INTO hotel_group VALUES (1, 'Hilton', 10, '123-456-7890', 'hilton@example.com', 5, '123 Main St', 'New York', 'NY', '10001', 'USA');
 INSERT INTO hotel_group VALUES (2, 'Marriott', 15, '555-555-5555', 'marriott@example.com', 10, '456 Broadway', 'Chicago', 'IL', '60611', 'USA');
 INSERT INTO hotel_group VALUES (3, 'InterContinental', 5, '999-999-9999', 'intercontinental@example.com', 3, '789 Main St', 'Los Angeles', 'CA', '90001', 'USA');
 INSERT INTO hotel_group VALUES (4, 'Hyatt', 8, '111-111-1111', 'hyatt@example.com', 4, '1 Park Ave', 'Miami', 'FL', '33131', 'USA');
 INSERT INTO hotel_group VALUES (5, 'Accor', 12, '222-222-2222', 'accor@example.com', 6, '345 Fifth Ave', 'Houston', 'TX', '77002', 'USA');
+-- HotelGroup Insert Queries END
 
+-- Hotel Insert Queries START
 INSERT INTO hotel VALUES (1, 'Hilton Times Square', 234, 'West 42nd Street', 'New York', 'NY', 'USA', '10036', '212-840-8222', 'times.square@hilton.com', 4.5, 5, 200, 1);
 INSERT INTO hotel VALUES (2, 'Hilton New York Fashion District', 152, 'West 26th Street', 'New York', 'NY', 'USA', '10001', '212-858-5888', 'fashion.district@hilton.com', 4.2, 4, 150, 1);
 INSERT INTO hotel VALUES (3, 'Hilton Garden Inn Times Square', 790, 'Eighth Avenue', 'New York', 'NY', 'USA', '10019', '212-581-7000', 'times.square.garden@hilton.com', 4.1, 3, 120, 1);
@@ -48,7 +52,9 @@ INSERT INTO hotel VALUES (37, 'Novotel New York Times Square', 226, 'W 52nd St',
 INSERT INTO hotel VALUES (38, 'Fairmont Royal York', 100, 'Front St W', 'Toronto', 'ON', 'Canada', 'M5J1E3', '+1 416-368-2511', 'fairmonttoronto@example.com', 4.7, 4, 180, 5);
 INSERT INTO hotel VALUES (39, 'Sheraton Vancouver Wall Centre', 1088, 'Burrard St', 'Vancouver', 'BC', 'Canada', 'V6Z2R9', '+1 604-331-1000', 'sheratonvancouver@example.com', 4.5, 4, 150, 5);
 INSERT INTO hotel VALUES (40, 'Novotel Ottawa', 33, 'Nicholas St', 'Ottawa', 'ON', 'Canada', 'K1N9M7', '+1 613-230-3033', 'novotelottawa@example.com', 4.2, 3, 100, 5);
+-- Hotel Insert Queries END
 
+-- Room Insert Queries START
 INSERT INTO room VALUES (101, 150.00, 'City View', 1, 'Stained carpet', 1);
 INSERT INTO room VALUES (201, 200.00, 'Times Square View', 2, NULL, 1);
 INSERT INTO room VALUES (301, 250.00, 'Hudson River View', 3, 'Noisy plumbing', 1);
@@ -288,9 +294,43 @@ INSERT INTO room VALUES (740, 816.00, 'City View', 7, NULL, 40);
 INSERT INTO room VALUES (840, 1071.50, 'Ocean View', 8, NULL, 40);
 INSERT INTO room VALUES (940, 1230.00, 'City View', 9, 'Faulty air conditioning', 40);
 INSERT INTO room VALUES (1040, 1393.50, 'Ocean View', 10, NULL, 40);
+-- Room Insert Queries END
 
 
+-- Client Insert Queries START
+INSERT INTO client VALUES (10000001, 'Smith', 'John', 30, 123, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M5V2R9', '555-555-5555', 'john.smith@email.com', '2022-03-15', 'j5Dp#h');
+INSERT INTO client VALUES (10000002, 'Johnson', 'Jane', 25, 456, 'Broadway', 'New York', 'New York', 'United States', '10001', '555-555-5555', 'jane.johnson@email.com', '2022-04-01', '3qZdKj8');
+INSERT INTO client VALUES (10000003, 'Dubois', 'Pierre', 35, 789, 'Rue de la Paix', 'Paris', '', 'France', '75001', '555-555-5555', 'pierre.dubois@email.com', '2022-02-20', 'S!f6t');
+INSERT INTO client VALUES (10000004, 'Tanaka', 'Yuki', 28, 321, 'Minami 1-jo Nishi 2-chome', 'Sapporo', 'Hokkaido', 'Japan', '060801', '555-555-5555', 'yuki.tanaka@email.com', '2022-03-10', '9LmR7*');
+INSERT INTO client VALUES (10000005, 'Garcia', 'Juan', 42, 987, 'Avenida Juarez', 'Mexico City', 'Mexico City', 'Mexico', '06010', '555-555-5555', 'juan.garcia@email.com', '2022-01-01', '2sG9@');
 
+INSERT INTO client VALUES (10000006, 'Smith', 'Mendez', 25, 123, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M5V2G9', '416-555-1234', 'john.smith@example.com', '2021-01-01', 'x#7NpYf');
+INSERT INTO client VALUES (10000007, 'Gonzalez', 'Maria', 30, 456, 'Elm St', 'Madrid', 'Madrid', 'Spain', '28001', '+34 91 123 4567', 'maria.gonzalez@example.com', '2022-03-15', 'Tc4jK5#');
+INSERT INTO client VALUES (10000008, 'Kim', 'Ji-hye', 22, 789, 'Mapo-gu', 'Seoul', 'Seoul', 'South Korea', '04197', '+82 2-123-4567', 'jihye.kim@example.com', '2023-01-02', 'p8@hUzA6');
+INSERT INTO client VALUES (10000009, 'Jones', 'David', 40, 1011, 'Park Ave', 'New York', 'New York', 'USA', '10028', '+1 212-555-1212', 'david.jones@example.com', '2022-06-30', 'W2sE4t8y#');
+INSERT INTO client VALUES (10000010, 'Nguyen', 'Linh', 27, 1213, 'Le Duan St', 'Ho Chi Minh City', 'Ho Chi Minh City', 'Vietnam', '70000', '+84 28 1234 5678', 'linh.nguyen@example.com', '2023-02-10', 'k9HsT6x#z');
+
+INSERT INTO client VALUES (100000011, 'Smith', 'John', 28, 123, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M5V5T3', '555-555-5555', 'john.smith@email.com', '2020-01-01', 'password13');
+INSERT INTO client VALUES (100000012, 'Johnson', 'Emily', 35, 456, 'Oak Ave', 'New York', 'New York', 'United States', '10001', '555-555-5555', 'emily.johnson@email.com', '2020-02-01', 'password456');
+INSERT INTO client VALUES (100000013, 'Garcia', 'Luis', 22, 789, 'Calle Principal', 'Mexico City', 'Mexico City', 'Mexico', '05000', '555-555-5555', 'luis.garcia@email.com', '2020-03-01', 'password789');
+INSERT INTO client VALUES (100000014, 'Dubois', 'Marie', 41, 12, 'Rue de la Paix', 'Paris', 'Île-de-France', 'France', '75001', '555-555-5555', 'marie.dubois@email.com', '2020-04-01', 'password123');
+INSERT INTO client VALUES (100000015, 'Williams', 'Oliver', 26, 34, 'Queen St', 'Melbourne', 'Victoria', 'Australia', '3000', '555-555-5555', 'oliver.williams@email.com', '2020-05-01', 'password4576');
+-- Client Insert Queries END
+
+
+-- Employee Insert Queries START
+INSERT INTO employee VALUES (1000000, 'Smith', 'John', 123, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M1M1M1', 50000, '416-555-1234', 'john.smith@email.com', 'gestionnaire', 0, 1);
+INSERT INTO employee VALUES (1000001, 'Lee', 'David', 456, 'Oak St', 'Toronto', 'Ontario', 'Canada', 'M2M2M2', 45000, '416-555-5678', 'david.lee@email.com', 'réceptionniste', 0, 1);
+INSERT INTO employee VALUES (1000002, 'Chen', 'Amy', 789, 'Maple St', 'Toronto', 'Ontario', 'Canada', 'M3M3M3', 40000, '416-555-9012', 'amy.chen@email.com', 'administrateur', 0, 1);
+INSERT INTO employee VALUES (1000003, 'Wong', 'Kevin', 234, 'Pine St', 'Toronto', 'Ontario', 'Canada', 'M4M4M4', 55000, '416-555-3456', 'kevin.wong@email.com', 'cuisiner', 0, 1);
+INSERT INTO employee VALUES (1000004, 'Garcia', 'Maria', 567, 'Cedar St', 'Toronto', 'Ontario', 'Canada', 'M5M5M5', 35000, '416-555-7890', 'maria.garcia@email.com', 'nettoyeur', 0, 1);
+
+INSERT INTO employee VALUES (1000005, 'Doe', 'John', 1234, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M5V 2L1', 50000, '416-555-1234', 'johndoe@email.com', 'réceptionniste', 0, 1);
+INSERT INTO employee VALUES (1000006, 'Smith', 'Jane', 5678, 'Queen St', 'Toronto', 'Ontario', 'Canada', 'M5V 1H3', 60000, '416-555-5678', 'janesmith@email.com', 'administrateur', 0, 1);
+INSERT INTO employee VALUES (1000007, 'Garcia', 'Carlos', 9012, 'King St', 'Toronto', 'Ontario', 'Canada', 'M5V 3P4', 45000, '416-555-9012', 'carlosgarcia@email.com', 'cuisiner', 5, 1);
+INSERT INTO employee VALUES (1000008, 'Lee', 'Jin', 3456, 'Yonge St', 'Toronto', 'Ontario', 'Canada', 'M5V 4J6', 55000, '416-555-3456', 'jinlee@email.com', 'nettoyeur', 0, 1);
+INSERT INTO employee VALUES (1000009, 'Chen', 'Wei', 7890, 'Bay St', 'Toronto', 'Ontario', 'Canada', 'M5V 2W8', 50000, '416-555-7890', 'weichen@email.com', 'réceptionniste', 2, 1);
+-- Employee Insert Queries END
 
 
 

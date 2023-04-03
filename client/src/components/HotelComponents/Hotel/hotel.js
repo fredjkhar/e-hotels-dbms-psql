@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Stars from "../Stars/stars";
 import Rating from "../Rating/rating";
 
@@ -10,7 +10,7 @@ const Hotel = (props) => {
     <div className="hotel__container">
       <img
         className="hotel__img"
-        src={require("../../../assets/images/hotel.jpg")}
+        src={require(`../../../assets/images/hotel-${Math.round(Math.random()*4)}.jpg`)}
         alt="hotel"
       />
       <div className="hotel__info">
@@ -33,6 +33,7 @@ const Hotel = (props) => {
           <img
             className="hotel__more-than"
             src={require("../../../assets/icons/more-than-24.png")}
+            alt="more than icon"
           />
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../context/contextProvider";
 import ApartmentIcon from "@mui/icons-material/Apartment";
@@ -7,7 +7,7 @@ import { auth } from "../../firebase";
 import "./navbar.css";
 
 const Navbar = () => {
-  var { chaines } = useAppContext();
+  var { chaines, setChaineName } = useAppContext();
   const [openChaines, setOpenChaines] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -18,10 +18,6 @@ const Navbar = () => {
 
     return unsubscribe;
   }, []);
-
-  const handleSignOut = () => {
-    auth.signOut();
-  };
 
   return (
     <div className="navbar">
@@ -35,6 +31,9 @@ const Navbar = () => {
       </div>
       <ul className="navbar__rightSide">
         <li>
+          <Link to="/Manager" className="navbar__link">Manager</Link>
+        </li>
+        <li>
           <h1
             className="navbar__link"
             onClick={() => {
@@ -44,28 +43,32 @@ const Navbar = () => {
             Chaines
           </h1>
           <ul className={`navbar__dropdown ${!openChaines && "inactive"}`}>
-            {chaines.map((chaines, index) => (
+            {chaines.map((chaine, index) => (
               <li key={index}>
                 <Link
                   className={"navbar__dropdownItem"}
-                  to={`/${chaines.name}`}
+                  to={`/${chaine.name}`}
+                  onClick={() => {
+                    setOpenChaines(false);
+                    setChaineName(chaine.name);
+                  }}
                 >
-                  {chaines.name}
+                  {chaine.name}
                 </Link>
               </li>
             ))}
           </ul>
         </li>
         <li>
-          <Link to="/" className="navbar__link">
+          <Link to="/hotels" className="navbar__link" onClick={() => setChaineName("All")}>
             Hotels
           </Link>
         </li>
         <li>
           {currentUser ? (
-          <Link className="navbar__link" onClick={handleSignOut}>
-          Sign Out
-        </Link>
+            <Link className="navbar__link" onClick={() => auth.signOut()}>
+              Sign Out
+            </Link>
           ) : (
             <Link to="/connexion" className="navbar__link">
               Log in
