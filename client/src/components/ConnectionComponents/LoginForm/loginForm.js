@@ -1,22 +1,28 @@
-import {signInWithEmailAndPassword} from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
+import { useAppContext } from "../../../context/contextProvider";
 import { auth } from "../../../firebase";
 
 import "./loginForm.css";
 
 export default function LoginForm({ onToggleForm }) {
+  const { setRole } = useAppContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const logIn = (e) =>{
+  const logIn = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log(userCredential)
-    })
-    .catch((error) => {
-      console.log(error)
-    });
-  }
+      .then((userCredential) => {
+        console.log(userCredential);
+        if (email === "manager@ehotels.com" && password === "manager123")
+          setRole("manager");
+        else if (email.includes("ehotels.com")) setRole("employee");
+        else setRole("user");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <form className="login__form" onSubmit={logIn}>
       <div className="login__form__box">

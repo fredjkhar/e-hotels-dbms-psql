@@ -11,28 +11,22 @@ function Connection() {
   const [currentUser, setCurrentUser] = useState(null);
   const navigate= useNavigate();
 
-
-  const handleToggleForm = () => {
-    setShowLogin(!showLogin);
-  };
-
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
     });
-
+    setShowLogin(!showLogin)
     return unsubscribe;
   }, []);
-
 
   return (
     <div>
      {currentUser ? (
         navigate("/")
       ) : showLogin ? (
-        <LoginForm onToggleForm={handleToggleForm} />
+        <LoginForm onToggleForm={() => setShowLogin(!showLogin)} />
       ) : (
-        <SignupForm onToggleForm={handleToggleForm} />
+        <SignupForm onToggleForm={() => setShowLogin(!showLogin)} />
       )}
     </div>
   );

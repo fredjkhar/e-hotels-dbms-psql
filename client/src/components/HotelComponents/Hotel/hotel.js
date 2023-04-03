@@ -10,7 +10,7 @@ const Hotel = (props) => {
     <div className="hotel__container">
       <img
         className="hotel__img"
-        src={require(`../../../assets/images/hotel-${Math.round(Math.random()*4)}.jpg`)}
+        src={require(`../../../assets/images/hotel-${hotel.hotel_id}-min.jpg`)}
         alt="hotel"
       />
       <div className="hotel__info">

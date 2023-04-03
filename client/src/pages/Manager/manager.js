@@ -39,12 +39,19 @@ const Manager = () => {
           <div className="query__button" onClick={() => putRequest(setRes, `/api/employees/${getId("employee_NAS")}`, args)} >Update an employee record by NAS</div>
           <div className="query__button" onClick={() => deleteRequestById(setRes, `/api/employees/${args}`, args)} >Delete a employee record by NAS</div>
 
-          <div className="manager__input-header">Hotel queries</div>
-          <div className="query__button" onClick={() => getRequest(setRes, "/api/hotels") } >Select all hotels</div>
-          <div className="query__button" onClick={() => getRequestById(setRes, `/api/hotels/${args}`, args)} >Select an employee by id</div>
-          <div className="query__button" onClick={() => postRequest(setRes, "/api/hotels", args)} >Create an hotel record</div>
-          <div className="query__button" onClick={() => putRequest(setRes, `/api/hotels/${getId("employee_NAS")}`, args)} >Update a hotel record by id</div>
-          <div className="query__button" onClick={() => deleteRequestById(setRes, `/api/hotels/${args}`, args)} >Delete a hotel record by id</div>
+          <div className="manager__input-header">Reservation queries</div>
+          <div className="query__button" onClick={() => getRequest(setRes, "/api/reservations") } >Select all reservations</div>
+          <div className="query__button" onClick={() => getRequestById(setRes, `/api/reservations/${args}`, args)} >Select a reservation by ID</div>
+          <div className="query__button" onClick={() => postRequest(setRes, "/api/reservations", args)} >Create a reservation record</div>
+          <div className="query__button" onClick={() => putRequest(setRes, `/api/reservations/${getId("reservation_id")}`, args)} >Update a reservation record by ID</div>
+          <div className="query__button" onClick={() => deleteRequestById(setRes, `/api/reservations/${args}`, args)} >Delete a reservation record by ID</div>
+
+          <div className="manager__input-header">Rent queries</div>
+          <div className="query__button" onClick={() => getRequest(setRes, "/api/locations") } >Select all rents</div>
+          <div className="query__button" onClick={() => getRequestById(setRes, `/api/locations/${args}`, args)} >Select a rent by ID</div>
+          <div className="query__button" onClick={() => postRequest(setRes, "/api/locations", args)} >Create a rent record</div>
+          <div className="query__button" onClick={() => putRequest(setRes, `/api/locations/${getId("reservation_id")}`, args)} >Update a rent record by ID</div>
+          <div className="query__button" onClick={() => deleteRequestById(setRes, `/api/locations/${args}`, args)} >Delete a rent record by ID</div>
         
         </div>
         <div className="manager__input-right">
