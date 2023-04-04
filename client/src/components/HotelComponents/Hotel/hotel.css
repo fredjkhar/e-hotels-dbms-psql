@@ -65,7 +65,7 @@
 }
 
 .view-deals__btn:hover {
-    transform: scale(1.03);
+    transform: scale(1.1);
     transition: all 0.5s ease-in-out;
     cursor: pointer;
 }

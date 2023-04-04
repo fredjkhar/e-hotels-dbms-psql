@@ -11,14 +11,10 @@ const ContextProvider = ({ children }) => {
 
   //Filter values
   const [chaineName, setChaineName] = useState("All");
-  const [areaName, setAreaName] = useState("All");
   const [priceRange, setPriceRange] = useState(400);
   const [minRating, setMinRating] = useState(0);
   const [groupName, setGroupName] = useState(null);
   const [star, setStar] = useState(0);
-
-  //Role value (three possible values/states: ['manager', 'user', 'employee'] or empty string)
-  const [role, setRole] = useState("");
 
   // Fetch hotelGroups from DB on website load.
   useEffect(() => {
@@ -46,12 +42,8 @@ const ContextProvider = ({ children }) => {
         setGroupName,
         chaineName,
         setChaineName,
-        areaName,
-        setAreaName,
         star,
-        setStar,
-        role,
-        setRole
+        setStar
       }}
     >
       {chaines && hotels && children}

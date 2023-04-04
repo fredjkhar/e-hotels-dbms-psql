@@ -1,66 +1,44 @@
-import React, { useState, useRef } from "react";
-import { signUp } from "../../../helpers/auth";
-import { Link } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useState } from "react";
+import { auth } from "../../../firebase";
 
 import "./signupForm.css";
 
-export default function SignupForm() {
+export default function SignupForm({ onToggleForm }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [repeatPassword, setRepeatPassword] = useState("");
-
-  const passwordInput = useRef(null);
-  const repeatPasswordInput = useRef(null);
-
-  const handleSubmit = (e) => {
+  const signUp = (e) => {
     e.preventDefault();
-    if (password === repeatPassword) {
-      if (password.length > 5) {
-        signUp(e, email, password);
-      } else {
-        passwordInput.current.setCustomValidity("Password too short");
-      }
-    } else {
-      repeatPasswordInput.current.setCustomValidity("Passwords don't match");
-    }
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log(userCredential);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
-
   return (
-    <form className="signup__form" onSubmit={(e) => handleSubmit(e)}>
+    <form className="signup__form" onSubmit={signUp}>
       <div className="signup__form__box">
         <h1 className="signup__form__header">Sign up</h1>
-        <Link to="/login" style={{ textDecoration: "none" }}>
-          <h1 className="signup__form__login">
-            Already have an account? Log in
-          </h1>
-        </Link>
+        <h1 className="signup__form__login" onClick={onToggleForm}>
+          Already have an account? Log in
+        </h1>
         <input
           className="signup__form__input-field"
           type="email"
           placeholder="Enter your email"
-          value={email}
-          required
+          value = {email}
           onChange={(e) => setEmail(e.target.value)}
         ></input>
         <input
           className="signup__form__input-field"
           type="password"
           placeholder="Enter your password"
-          value={password}
-          required
+          value = {password}
           onChange={(e) => setPassword(e.target.value)}
-          ref={passwordInput}
         ></input>
-        <input
-          className="signup__form__input-field"
-          type="password"
-          required
-          placeholder="Repeat your password"
-          value={repeatPassword}
-          onChange={(e) => setRepeatPassword(e.target.value)}
-          ref={repeatPasswordInput}
-        ></input>
-        <button className="signup__form__button">Sign up</button>
+        <button className="signup__form__button"> Sign up </button>
       </div>
     </form>
   );

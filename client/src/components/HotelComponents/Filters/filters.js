@@ -18,15 +18,12 @@ import "./filters.css";
 
 const Filters = () => {
   const {
-    hotels,
     setPriceRange,
     minRating,
     setMinRating,
     chaines,
     chaineName,
     setChaineName,
-    areaName,
-    setAreaName,
     star,
     setStar,
   } = useAppContext();
@@ -41,9 +38,8 @@ const Filters = () => {
     for (let i = 1; i < 6; i++) {
       stars.push(
         <div
-          onClick={() => (star === i ? setStar(0) : setStar(i))}
           key={i}
-          className={"filter__star " + (star === i && "filter__star-clicked")}
+          className="filter__star"
         >
           <span>{i}</span>
           <img
@@ -57,15 +53,6 @@ const Filters = () => {
     return stars;
   };
 
-  const getAreas = () => {
-    let areas = [];
-    hotels.forEach((hotel) => {
-      let str = hotel.city + ", " + hotel.country;
-      if (!areas.includes(str)) areas.push(str);
-    });
-    return areas;
-  };
-
   return (
     <div className="filters__container">
       <div className="filter-header">Filter by</div>
@@ -77,14 +64,16 @@ const Filters = () => {
         >
           Hotel chain
         </Typography>
-        <FormControl sx={{ marginBottom: 1, minWidth: 190 }}>
+        <FormControl sx={{ marginBottom: 1, minWidth: 170 }}>
           <Select
+            sx={{ color: blue[200] }}
             value={chaineName}
             inputProps={{ "aria-label": "Without label" }}
             onChange={(e) => setChaineName(e.target.value)}
+            defaultValue={"All"}
           >
             <MenuItem value="All">
-              <Link className="filters__link" to="/hotels">
+              <Link className="filters__link" to={"/hotels"}>
                 <em>All</em>
               </Link>
             </MenuItem>
@@ -93,33 +82,6 @@ const Filters = () => {
                 <Link className="filters__link" to={`/${chaine.name}`}>
                   {chaine.name}
                 </Link>
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-      </div>
-      <div className="location__radio-filter">
-        <Typography
-          className="form__label"
-          id="location__radio-filter-header"
-          gutterBottom
-        >
-          Area
-        </Typography>
-        <FormControl sx={{ marginBottom: 1, minWidth: 190 }}>
-          <Select
-            value={areaName}
-            inputProps={{ "aria-label": "Without label" }}
-            onChange={(e) => {
-              setAreaName(e.target.value);
-            }}
-          >
-            <MenuItem value="All">
-              <em>All</em>
-            </MenuItem>
-            {getAreas().map((area, index) => (
-              <MenuItem key={index} value={area}>
-                {area}
               </MenuItem>
             ))}
           </Select>
@@ -137,7 +99,7 @@ const Filters = () => {
           <i>{valueText(price)}</i>
         </Typography>
         <Slider
-          sx={{ color: blue[200], width: 180 }}
+          sx={{ color: blue[200], width: 160 }}
           className="price__range-filter"
           aria-label="Price"
           defaultValue={400}
@@ -165,7 +127,9 @@ const Filters = () => {
             defaultValue="Any"
             name="guest__radio-filter"
             value={minRating}
-            onChange={(e) => setMinRating(e.target.value)}
+            onChange={(e, value) => {
+              setMinRating(value);
+            }}
           >
             <FormControlLabel
               value={0}
@@ -199,6 +163,24 @@ const Filters = () => {
           Star ratings
         </Typography>
         <div className="stars__radio">{createStars()}</div>
+      </div>
+      <div className="location__radio-filter">
+        <Typography
+          className="form__label"
+          id="location__radio-filter-header"
+          gutterBottom
+        >
+          Area
+        </Typography>
+      </div>
+      <div className="amenities__radio-filter">
+        <Typography
+          className="form__label"
+          id="amenities__radio-filter-header"
+          gutterBottom
+        >
+          Amenities
+        </Typography>
       </div>
     </div>
   );

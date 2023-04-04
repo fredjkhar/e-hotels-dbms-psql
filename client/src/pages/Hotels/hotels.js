@@ -7,16 +7,9 @@ import Filters from "../../components/HotelComponents/Filters/filters";
 import "./hotels.css";
 
 const Hotels = () => {
-  const { hotels, chaines, priceRange, minRating, chaineName, areaName, star } =
+  const { hotels, chaines, priceRange, minRating, chaineName, star } =
     useAppContext();
   const [displayedHotels, setDisplayedHotels] = useState(hotels);
-
-  const filterByAreaName = (area, city, country) => {
-    let commaIndex = area.indexOf(", ");
-    let _city = area.substring(0, commaIndex);
-    let _country = area.substring(commaIndex + 2, area.length);
-    return city === _city && country === _country;
-  };
 
   useEffect(() => {
     if (chaineName !== "All") {
@@ -27,10 +20,7 @@ const Hotels = () => {
             hotel.hotel_group_id === _chaines[0].id &&
             hotel.min_price <= priceRange &&
             hotel.rating >= minRating &&
-            (star === 0 ? true : hotel.stars_nbr === star) &&
-            (areaName === "All"
-              ? true
-              : filterByAreaName(areaName, hotel.city, hotel.country))
+            star === 0 ? true : hotel.stars_nbr === star
         )
       );
     } else {
@@ -39,14 +29,11 @@ const Hotels = () => {
           (hotel) =>
             hotel.min_price <= priceRange &&
             hotel.rating >= minRating &&
-            (star === 0 ? true : hotel.stars_nbr === star) &&
-            (areaName === "All"
-              ? true
-              : filterByAreaName(areaName, hotel.city, hotel.country))
+            star === 0 ? true : hotel.stars_nbr === star
         )
       );
     }
-  }, [priceRange, minRating, chaineName, chaines, hotels, star, areaName]);
+  }, [priceRange, minRating, chaineName, chaines, hotels, star]);
 
   return (
     <div className="hotels__wrapper">

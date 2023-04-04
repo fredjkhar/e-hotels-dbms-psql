@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../context/contextProvider";
 import ApartmentIcon from "@mui/icons-material/Apartment";
-import { auth } from "../../helpers/firebase";
+import { auth } from "../../firebase";
 
 import "./navbar.css";
 
 const Navbar = () => {
-  var { chaines, setChaineName, role, setRole } = useAppContext();
+  var { chaines, setChaineName } = useAppContext();
   const [openChaines, setOpenChaines] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
@@ -31,19 +31,7 @@ const Navbar = () => {
       </div>
       <ul className="navbar__rightSide">
         <li>
-          {role === "manager" ? (
-            <Link to="/manager" className="navbar__link">
-              Console
-            </Link>
-          ) : role === "employee" ? (
-            <Link to="/employee" className="navbar__link">
-              Console
-            </Link>
-          ) : role === "user" ? (
-            <Link to="/user" className="navbar__link">
-              My reservations
-            </Link>
-          ) : null}
+          <Link to="/Manager" className="navbar__link">Manager</Link>
         </li>
         <li>
           <h1
@@ -72,36 +60,18 @@ const Navbar = () => {
           </ul>
         </li>
         <li>
-          <Link
-            to="/hotels"
-            className="navbar__link"
-            onClick={() => setChaineName("All")}
-          >
+          <Link to="/hotels" className="navbar__link" onClick={() => setChaineName("All")}>
             Hotels
           </Link>
         </li>
         <li>
           {currentUser ? (
-            <Link
-              to="/"
-              className="navbar__link"
-              onClick={() => {
-                auth.signOut();
-                setRole("");
-              }}
-            >
+            <Link className="navbar__link" onClick={() => auth.signOut()}>
               Sign Out
             </Link>
           ) : (
-            <Link to="/login" className="navbar__link">
+            <Link to="/connexion" className="navbar__link">
               Log in
-            </Link>
-          )}
-        </li>
-        <li>
-          {currentUser ? null : (
-            <Link to="/signup" className="navbar__link">
-              Sign up
             </Link>
           )}
         </li>
