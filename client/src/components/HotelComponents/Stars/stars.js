@@ -23,12 +23,12 @@ const Stars = (props) => {
 
   return (
     <div className="stars__container">
-      <div style={{ width: width, overflow: "hidden"}}>
+      <div style={{ width: width, overflow: "hidden" }}>
         <div style={{ width: "calc(16px * 5)" }}>
           {stars.map((star) => star)}
         </div>
       </div>
-      <div style={{marginLeft: "10px"}}>Hotel</div>
+      <div style={{ marginLeft: "10px" }}>Hotel</div>
     </div>
   );
 };

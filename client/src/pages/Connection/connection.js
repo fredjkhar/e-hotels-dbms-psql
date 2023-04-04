@@ -1,15 +1,13 @@
-
-import React, { useState, useEffect} from "react";
-import LoginForm from '../../components/ConnectionComponents/LoginForm/loginForm'
-import SignupForm from '../../components/ConnectionComponents/SignupForm/signupForm'
+import React, { useState, useEffect } from "react";
+import LoginForm from "../../components/ConnectionComponents/LoginForm/loginForm";
+import SignupForm from "../../components/ConnectionComponents/SignupForm/signupForm";
 import { auth } from "../../helpers/firebase";
 import { useNavigate } from "react-router-dom";
-
 
 function Connection(props) {
   let status = props.status;
   const [currentUser, setCurrentUser] = useState(null);
-  const navigate= useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -19,8 +17,8 @@ function Connection(props) {
   }, []);
 
   return (
-    <div style={{height: "100%"}}>
-     {currentUser ? (
+    <div style={{ height: "100%" }}>
+      {currentUser ? (
         navigate("/")
       ) : status === "login" ? (
         <LoginForm />
@@ -32,4 +30,3 @@ function Connection(props) {
 }
 
 export default Connection;
-

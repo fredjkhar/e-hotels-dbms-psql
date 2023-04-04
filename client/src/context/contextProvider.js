@@ -51,7 +51,7 @@ const ContextProvider = ({ children }) => {
         star,
         setStar,
         role,
-        setRole
+        setRole,
       }}
     >
       {chaines && hotels && children}

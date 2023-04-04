@@ -1,13 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import './user.css'
+import "./user.css";
 
 const User = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return <div></div>;
 };
 
 export default User;
