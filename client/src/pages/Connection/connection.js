@@ -19,7 +19,7 @@ function Connection(props) {
   }, []);
 
   return (
-    <div>
+    <div style={{height: "100%"}}>
      {currentUser ? (
         navigate("/")
       ) : status === "login" ? (
