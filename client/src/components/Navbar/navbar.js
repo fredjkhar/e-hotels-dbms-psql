@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAppContext } from "../../context/contextProvider";
 import ApartmentIcon from "@mui/icons-material/Apartment";
-import { auth } from "../../firebase";
+import { auth } from "../../helpers/firebase";
 
 import "./navbar.css";
 

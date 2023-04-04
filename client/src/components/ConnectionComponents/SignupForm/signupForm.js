@@ -1,24 +1,14 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { auth } from "../../../firebase";
+import { signUp } from "../../../helpers/auth";
 
 import "./signupForm.css";
 
 export default function SignupForm({ onToggleForm }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const signUp = (e) => {
-    e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        console.log(userCredential);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+
   return (
-    <form className="signup__form" onSubmit={signUp}>
+    <form className="signup__form" onSubmit={(e) => signUp(e, email, password)}>
       <div className="signup__form__box">
         <h1 className="signup__form__header">Sign up</h1>
         <h1 className="signup__form__login" onClick={onToggleForm}>

@@ -28,15 +28,15 @@ const Manager = () => {
           <div className="manager__input-header">Client queries</div>
           <div className="query__button" onClick={() => getRequest(setRes, "/api/clients") } >Select all clients</div>
           <div className="query__button" onClick={() => getRequestById(setRes, `/api/clients/${args}`, args)} >Select a client by NAS</div>
-          <div className="query__button" onClick={() => postRequest(setRes, "/api/clients", args)} >Create a client record</div>
-          <div className="query__button" onClick={() => putRequest(setRes, `/api/clients/${getId("nas_client")}`, args)} >Update a client record by NAS</div>
+          <div className="query__button" onClick={(e) => postRequest(e, setRes, "/api/clients", args)} >Create a client record</div>
+          <div className="query__button" onClick={(e) => putRequest(e, setRes, `/api/clients/${getId("nas_client")}`, args)} >Update a client record by NAS</div>
           <div className="query__button" onClick={() => deleteRequestById(setRes, `/api/clients/${args}`, args)} >Delete a client record by NAS</div>
 
           <div className="manager__input-header">Employee queries</div>
           <div className="query__button" onClick={() => getRequest(setRes, "/api/employees") } >Select all employees</div>
           <div className="query__button" onClick={() => getRequestById(setRes, `/api/employees/${args}`, args)} >Select an employee by NAS</div>
-          <div className="query__button" onClick={() => postRequest(setRes, "/api/employees", args)} >Create an employee record</div>
-          <div className="query__button" onClick={() => putRequest(setRes, `/api/employees/${getId("employee_NAS")}`, args)} >Update an employee record by NAS</div>
+          <div className="query__button" onClick={(e) => postRequest(e, setRes, "/api/employees", args)} >Create an employee record</div>
+          <div className="query__button" onClick={(e) => putRequest(e, setRes, `/api/employees/${getId("employee_NAS")}`, args)} >Update an employee record by NAS</div>
           <div className="query__button" onClick={() => deleteRequestById(setRes, `/api/employees/${args}`, args)} >Delete a employee record by NAS</div>
 
           <div className="manager__input-header">Reservation queries</div>
