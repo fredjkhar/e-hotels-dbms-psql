@@ -62,6 +62,7 @@ CREATE TABLE employee (
     salary FLOAT NOT NULL,
     phone_number VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     role VARCHAR(255) NOT NULL,
     overtime FLOAT NOT NULL,
     hotel_id INT NOT NULL,

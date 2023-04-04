@@ -16,6 +16,7 @@ public class Employee {
     private double salary;
     private String phone_number;
     private String email;
+    private String password;
     private String role;
     private double overtime;
     private int hotel_id;
@@ -116,6 +117,14 @@ public class Employee {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getRole() {
         return role;
     }
@@ -140,23 +149,25 @@ public class Employee {
         this.hotel_id = hotel_id;
     }
 
-    public String toString(){
+    @Override
+    public String toString() {
         return "Employee{" +
                 "employee_NAS=" + employee_NAS +
                 ", last_name='" + last_name + '\'' +
                 ", first_name='" + first_name + '\'' +
-                ", street_number=" +street_number+
-                ", street='" +street+ '\'' +
-                ", city='" +city+ '\''+
-                ", province='" + province + '\''+
-                ", country='" + country+ '\'' +
-                ", postal_code='"+postal_code+'\''+
-                ", salary=" +salary+
-                ", phone_number='" +phone_number+ '\''+
-                ", email='"+email+'\''+
-                ", role='" +role+ '\''+
-                ", overtime=" +overtime+
+                ", street_number=" + street_number +
+                ", street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", province='" + province + '\'' +
+                ", country='" + country + '\'' +
+                ", postal_code='" + postal_code + '\'' +
+                ", salary=" + salary +
+                ", phone_number='" + phone_number + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                ", overtime=" + overtime +
                 ", hotel_id=" + hotel_id +
-                "}";
+                '}';
     }
 }

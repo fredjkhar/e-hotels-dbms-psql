@@ -2,37 +2,30 @@
 import React, { useState, useEffect} from "react";
 import LoginForm from '../../components/ConnectionComponents/LoginForm/loginForm'
 import SignupForm from '../../components/ConnectionComponents/SignupForm/signupForm'
-import { auth } from "../../firebase";
+import { auth } from "../../helpers/firebase";
 import { useNavigate } from "react-router-dom";
 
 
-function Connection() {
-  const [showLogin, setShowLogin] = useState(true);
+function Connection(props) {
+  let status = props.status;
   const [currentUser, setCurrentUser] = useState(null);
   const navigate= useNavigate();
-
-
-  const handleToggleForm = () => {
-    setShowLogin(!showLogin);
-  };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
     });
-
     return unsubscribe;
   }, []);
 
-
   return (
-    <div>
+    <div style={{height: "100%"}}>
      {currentUser ? (
         navigate("/")
-      ) : showLogin ? (
-        <LoginForm onToggleForm={handleToggleForm} />
+      ) : status === "login" ? (
+        <LoginForm />
       ) : (
-        <SignupForm onToggleForm={handleToggleForm} />
+        <SignupForm />
       )}
     </div>
   );

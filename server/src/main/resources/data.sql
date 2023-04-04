@@ -319,17 +319,65 @@ INSERT INTO client VALUES (100000015, 'Williams', 'Oliver', 26, 34, 'Queen St', 
 
 
 -- Employee Insert Queries START
-INSERT INTO employee VALUES (1000000, 'Smith', 'John', 123, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M1M1M1', 50000, '416-555-1234', 'john.smith@email.com', 'gestionnaire', 0, 1);
-INSERT INTO employee VALUES (1000001, 'Lee', 'David', 456, 'Oak St', 'Toronto', 'Ontario', 'Canada', 'M2M2M2', 45000, '416-555-5678', 'david.lee@email.com', 'réceptionniste', 0, 1);
-INSERT INTO employee VALUES (1000002, 'Chen', 'Amy', 789, 'Maple St', 'Toronto', 'Ontario', 'Canada', 'M3M3M3', 40000, '416-555-9012', 'amy.chen@email.com', 'administrateur', 0, 1);
-INSERT INTO employee VALUES (1000003, 'Wong', 'Kevin', 234, 'Pine St', 'Toronto', 'Ontario', 'Canada', 'M4M4M4', 55000, '416-555-3456', 'kevin.wong@email.com', 'cuisiner', 0, 1);
-INSERT INTO employee VALUES (1000004, 'Garcia', 'Maria', 567, 'Cedar St', 'Toronto', 'Ontario', 'Canada', 'M5M5M5', 35000, '416-555-7890', 'maria.garcia@email.com', 'nettoyeur', 0, 1);
+-- hotel_id = 1
+INSERT INTO employee VALUES (1000000, 'Smith', 'John', 123, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M1M1M1', 50000, '416-555-1234', 'john.smith@email.com', '54#pZd', 'gestionnaire', 0, 1);
+INSERT INTO employee VALUES (1000001, 'Lee', 'David', 456, 'Oak St', 'Toronto', 'Ontario', 'Canada', 'M2M2M2', 45000, '416-555-5678', 'david.lee@email.com', 'G8$qW7', 'réceptionniste', 0, 1);
+INSERT INTO employee VALUES (1000002, 'Chen', 'Amy', 789, 'Maple St', 'Toronto', 'Ontario', 'Canada', 'M3M3M3', 40000, '416-555-9012', 'amy.chen@email.com', 'hN43k!', 'administrateur', 0, 1);
+INSERT INTO employee VALUES (1000003, 'Wong', 'Kevin', 234, 'Pine St', 'Toronto', 'Ontario', 'Canada', 'M4M4M4', 55000, '416-555-3456', 'kevin.wong@email.com', 'R944@b', 'cuisiner', 0, 1);
+INSERT INTO employee VALUES (1000004, 'Garcia', 'Maria', 567, 'Cedar St', 'Toronto', 'Ontario', 'Canada', 'M5M5M5', 35000, '416-555-7890', 'maria.garcia@email.com', 'fL674j#K', 'nettoyeur', 0, 1);
+INSERT INTO employee VALUES (1000005, 'Doe', 'John', 1234, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M5V 2L1', 50000, '416-555-1234', 'johndoe@email.com', 'P2c47Bv!x', 'réceptionniste', 0, 1);
+INSERT INTO employee VALUES (1000006, 'Smith', 'Jane', 5678, 'Queen St', 'Toronto', 'Ontario', 'Canada', 'M5V 1H3', 60000, '416-555-5678', 'janesmith@email.com', 'J4tY479#m', 'administrateur', 0, 1);
+INSERT INTO employee VALUES (1000007, 'Garcia', 'Carlos', 9012, 'King St', 'Toronto', 'Ontario', 'Canada', 'M5V 3P4', 45000, '416-555-9012', 'carlosgarcia@email.com', 'D6a37U@zF', 'cuisiner', 5, 1);
+INSERT INTO employee VALUES (1000008, 'Lee', 'Jin', 3456, 'Yonge St', 'Toronto', 'Ontario', 'Canada', 'M5V 4J6', 55000, '416-555-3456', 'jinlee@email.com', 'V7g47Xe!', 'nettoyeur', 0, 1);
+INSERT INTO employee VALUES (1000009, 'Chen', 'Wei', 7890, 'Bay St', 'Toronto', 'Ontario', 'Canada', 'M5V 2W8', 50000, '416-555-7890', 'weichen@email.com', 'Q18sT#pL9', 'réceptionniste', 2, 1);
 
-INSERT INTO employee VALUES (1000005, 'Doe', 'John', 1234, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M5V 2L1', 50000, '416-555-1234', 'johndoe@email.com', 'réceptionniste', 0, 1);
-INSERT INTO employee VALUES (1000006, 'Smith', 'Jane', 5678, 'Queen St', 'Toronto', 'Ontario', 'Canada', 'M5V 1H3', 60000, '416-555-5678', 'janesmith@email.com', 'administrateur', 0, 1);
-INSERT INTO employee VALUES (1000007, 'Garcia', 'Carlos', 9012, 'King St', 'Toronto', 'Ontario', 'Canada', 'M5V 3P4', 45000, '416-555-9012', 'carlosgarcia@email.com', 'cuisiner', 5, 1);
-INSERT INTO employee VALUES (1000008, 'Lee', 'Jin', 3456, 'Yonge St', 'Toronto', 'Ontario', 'Canada', 'M5V 4J6', 55000, '416-555-3456', 'jinlee@email.com', 'nettoyeur', 0, 1);
-INSERT INTO employee VALUES (1000009, 'Chen', 'Wei', 7890, 'Bay St', 'Toronto', 'Ontario', 'Canada', 'M5V 2W8', 50000, '416-555-7890', 'weichen@email.com', 'réceptionniste', 2, 1);
+--hotel_id = 2
+INSERT INTO employee VALUES (1000010, 'Doe', 'John', 123, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M1N2P3', 50000.0, '555-1234', 'johndoe@example.com', 'p@ssword1', 'réceptionniste', 0.0, 2);
+INSERT INTO employee VALUES (1000011, 'Smith', 'Jane', 456, 'First Ave', 'Vancouver', 'British Columbia', 'Canada', 'V5K3L4', 60000.0, '555-5678', 'janesmith@example.com', 'p@ssword2', 'gestionnaire', 0.0, 2);
+INSERT INTO employee VALUES (1000012, 'Garcia', 'Maria', 789, 'Oak St', 'Calgary', 'Alberta', 'Canada', 'T2P2G8', 55000.0, '555-9012', 'mariagarcia@example.com', 'p@ssword3', 'nettoyeur', 0.0, 2);
+INSERT INTO employee VALUES (1000013, 'Kim', 'David', 111, 'Elm St', 'Montreal', 'Quebec', 'Canada', 'H1A1R6', 65000.0, '555-3456', 'davidkim@example.com', 'p@ssword4', 'administrateur', 0.0, 2);
+INSERT INTO employee VALUES (1000014, 'Chen', 'Michelle', 222, 'Park Ave', 'Halifax', 'Nova Scotia', 'Canada', 'B3H2Y5', 70000.0, '555-7890', 'michellechen@example.com', 'p@ssword5', 'cuisiner', 0.0, 2);
+INSERT INTO employee VALUES (1000015, 'Smith', 'John', 123, 'Main St', 'Toronto', 'Ontario', 'Canada', 'A1B2C3', 50000.0, '416-555-1234', 'john.smith@example.com', 'password1', 'réceptionniste', 0.0, 2);
+INSERT INTO employee VALUES (1000016, 'Johnson', 'Mary', 456, 'Oak St', 'Montreal', 'Quebec', 'Canada', 'D4E5F6', 60000.0, '514-555-5678', 'mary.johnson@example.com', 'password2', 'administrateur', 0.0, 2);
+INSERT INTO employee VALUES (1000017, 'Lee', 'David', 789, 'Maple St', 'Vancouver', 'British Columbia', 'Canada', 'G7H8I9', 70000.0, '604-555-9012', 'david.lee@example.com', 'password3', 'cuisiner', 0.0, 2);
+INSERT INTO employee VALUES (1000018, 'Kim', 'Sarah', 246, 'Elm St', 'Calgary', 'Alberta', 'Canada', 'J1K2L3', 80000.0, '403-555-3456', 'sarah.kim@example.com', 'password4', 'nettoyeur', 0.0, 2);
+INSERT INTO employee VALUES (1000019, 'Garcia', 'Juan', 369, 'Pine St', 'Halifax', 'Nova Scotia', 'Canada', 'M4N5O6', 90000.0, '902-555-7890', 'juan.garcia@example.com', 'password5', 'administrateur', 0.0, 2);
+
+-- hotel_id = 3
+INSERT INTO employee VALUES (1000020, 'Smith', 'John', 123, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M5V 2H1', 50000.0, '416-123-4567', 'john.smith@example.com', 'p@sSw0rD12', 'réceptionniste', 0.0, 3);
+INSERT INTO employee VALUES (1000021, 'Johnson', 'Emily', 456, 'Broadway', 'Vancouver', 'British Columbia', 'Canada', 'V6G 2V5', 55000.0, '604-234-5678', 'emily.johnson@example.com', 't#EhG7fDx9', 'gestionnaire', 0.0, 3);
+INSERT INTO employee VALUES (1000022, 'Garcia', 'Antonio', 789, 'Oak St', 'Montreal', 'Quebec', 'Canada', 'H3A 2R6', 60000.0, '514-345-6789', 'antonio.garcia@example.com', 'J8k#nH5xL2', 'cuisiner', 0.0, 3);
+INSERT INTO employee VALUES (1000023, 'Smith', 'Emily', 101, 'Elm St', 'Toronto', 'Ontario', 'Canada', 'M4S 1R8', 55000.0, '416-456-7890', 'emily.smith@example.com', 'd#SfT6hR7k', 'nettoyeur', 0.0, 3);
+INSERT INTO employee VALUES (1000024, 'Garcia', 'Maria', 321, 'Park Ave', 'Calgary', 'Alberta', 'Canada', 'T2P 3R5', 65000.0, '403-567-8901', 'maria.garcia@example.com', '5j#LdN8qP6', 'réceptionniste', 0.0, 3);
+INSERT INTO employee VALUES (1000025, 'Johnson', 'Michael', 456, 'Main St', 'Vancouver', 'British Columbia', 'Canada', 'V6G 2V5', 70000.0, '604-678-9012', 'michael.johnson@example.com', 'u9#tEiK7zL', 'administrateur', 0.0, 3);
+INSERT INTO employee VALUES (1000026, 'Lee', 'Min', 789, 'Broadway', 'Montreal', 'Quebec', 'Canada', 'H3A 2R6', 75000.0, '514-789-0123', 'min.lee@example.com', 'p4#AqS7kG9', 'cuisiner', 0.0, 3);
+INSERT INTO employee VALUES (1000027, 'Brown', 'Olivia', 101, 'Oak St', 'Toronto', 'Ontario', 'Canada', 'M4S 1R8', 80000.0, '416-890-1234', 'olivia.brown@example.com', 'w7#LkR5uT2', 'nettoyeur', 0.0, 3);
+INSERT INTO employee VALUES (1000028, 'Lee', 'William', 321, 'Park Ave', 'Calgary', 'Alberta', 'Canada', 'T2P 3R5', 85000.0, '403-901-2345', 'william.lee@example.com', 'x3#fRt6jP9', 'réceptionniste', 0.0, 3);
+INSERT INTO employee VALUES (1000029, 'Brown', 'Jacob', 123, 'Elm St', 'Vancouver', 'British Columbia', 'Canada', 'V6G 2V5', 90000.0, '604-234-5678', 'jacob.brown@example.com', 'z9#sTb4gH6', 'administrateur', 0.0, 3);
+
+-- hotel_id = 4
+INSERT INTO employee VALUES (1000030, 'Smith', 'John', 123, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M4C 1A4', 45000.00, '416-555-1234', 'john.smith@example.com', 'password01', 'réceptionniste', 0.0, 4);
+INSERT INTO employee VALUES (1000031, 'Garcia', 'Maria', 456, 'Broadway Ave', 'Vancouver', 'British Columbia', 'Canada', 'V5K 2J6', 50000.00, '604-555-5678', 'maria.garcia@example.com', 'password02', 'administrateur', 0.0, 4);
+INSERT INTO employee VALUES (1000032, 'Nguyen', 'Thi', 789, '4th St', 'Montreal', 'Quebec', 'Canada', 'H3G 1M8', 60000.00, '514-555-9012', 'thi.nguyen@example.com', 'password03', 'cuisiner', 0.0, 4);
+INSERT INTO employee VALUES (1000033, 'Lee', 'Jae', 1011, '5th Ave', 'Toronto', 'Ontario', 'Canada', 'M4S 1Z1', 55000.00, '416-555-3456', 'jae.lee@example.com', 'password04', 'gestionnaire', 0.0, 4);
+INSERT INTO employee VALUES (1000034, 'Wang', 'Ling', 1213, '6th St', 'Vancouver', 'British Columbia', 'Canada', 'V6S 0A3', 48000.00, '604-555-7890', 'ling.wang@example.com', 'password05', 'réceptionniste', 0.0, 4);
+INSERT INTO employee VALUES (1000035, 'Gomez', 'Antonio', 1415, '7th Ave', 'Montreal', 'Quebec', 'Canada', 'H3B 1Y8', 52000.00, '514-555-2345', 'antonio.gomez@example.com', 'password06', 'administrateur', 0.0, 4);
+INSERT INTO employee VALUES (1000036, 'Kim', 'Min', 1617, '8th St', 'Toronto', 'Ontario', 'Canada', 'M4P 1L7', 65000.00, '416-555-6789', 'min.kim@example.com', 'password07', 'cuisiner', 0.0, 4);
+INSERT INTO employee VALUES (1000037, 'Chen', 'Xin', 1819, '9th Ave', 'Vancouver', 'British Columbia', 'Canada', 'V5T 1K1', 50000.00, '604-555-1234', 'xin.chen@example.com', 'password08', 'nettoyeur', 0.0, 4);
+INSERT INTO employee VALUES (1000038, 'Singh', 'Raj', 2021, '10th St', 'Montreal', 'Quebec', 'Canada', 'H3E 1L6', 55000.00, '514-555-5678', 'raj.singh@example.com', 'password09', 'réceptionniste', 0.0, 4);
+INSERT INTO employee VALUES (1000039, 'Choi', 'Hyun', 2223, '11th Ave', 'Toronto', 'Ontario', 'Canada', 'M4R 1N4', 60000.00, '416-555-9012', 'hyun.choi@example.com', 'password10', 'administrateur', 0.0, 4);
+
+-- hotel_id = 5
+INSERT INTO employee VALUES (1000040, 'Johnson', 'Sarah', 1234, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M5G 1N8', 50000.00, '416-555-1234', 'sarah.johnson@example.com', 'P@ssword123', 'réceptionniste', 2.5, 4);
+INSERT INTO employee VALUES (1000041, 'Garcia', 'Juan', 5678, 'Broadway', 'Montreal', 'Quebec', 'Canada', 'H2X 1Y6', 60000.00, '514-555-5678', 'juan.garcia@example.com', 'P@ssword123', 'gestionnaire', 3.5, 4);
+INSERT INTO employee VALUES (1000042, 'Kim', 'Jung', 9101, 'King St', 'Vancouver', 'British Columbia', 'Canada', 'V6B 2W3', 55000.00, '604-555-9101', 'jung.kim@example.com', 'P@ssword123', 'cuisiner', 1.5, 4);
+INSERT INTO employee VALUES (1000043, 'Smith', 'Emma', 1212, 'Broadway', 'Toronto', 'Ontario', 'Canada', 'M4P 1E8', 65000.00, '416-555-1212', 'emma.smith@example.com', 'P@ssword123', 'nettoyeur', 2.0, 4);
+INSERT INTO employee VALUES (1000044, 'Lee', 'Min', 1313, 'Queen St', 'Toronto', 'Ontario', 'Canada', 'M5C 2M6', 45000.00, '416-555-1313', 'min.lee@example.com', 'P@ssword123', 'réceptionniste', 3.0, 4);
+INSERT INTO employee VALUES (1000045, 'Nguyen', 'Linh', 1414, 'Yonge St', 'Toronto', 'Ontario', 'Canada', 'M4T 1W5', 55000.00, '416-555-1414', 'linh.nguyen@example.com', 'P@ssword123', 'administrateur', 1.0, 4);
+INSERT INTO employee VALUES (1000046, 'Chen', 'Hao', 1515, 'Robson St', 'Vancouver', 'British Columbia', 'Canada', 'V6Z 1X5', 48000.00, '604-555-1515', 'hao.chen@example.com', 'P@ssword123', 'cuisiner', 2.0, 4);
+INSERT INTO employee VALUES (1000047, 'Brown', 'Olivia', 1616, 'King St', 'Toronto', 'Ontario', 'Canada', 'M5H 1A1', 70000.00, '416-555-1616', 'olivia.brown@example.com', 'P@ssword123', 'nettoyeur', 2.5, 4);
+INSERT INTO employee VALUES (1000048, 'Wang', 'Tao', 1717, 'Robson St', 'Vancouver', 'British Columbia', 'Canada', 'V6Z1X5', 52000.00, '604-555-1717', 'tao.wang@example.com', 'P@ssword123', 'réceptionniste', 1.5, 4);
+INSERT INTO employee VALUES (1000049, 'Gomez', 'Luis', 1818, 'Sainte-Catherine St', 'Montreal', 'Quebec', 'Canada', 'H3B 1B5', 58000.00, '514-555-1818', 'luis.gomez@example.com', 'P@ssword123', 'administrateur', 2.5, 4);
 -- Employee Insert Queries END
 
 
