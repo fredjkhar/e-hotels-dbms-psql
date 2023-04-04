@@ -2,10 +2,11 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { useAppContext } from "../../../context/contextProvider";
 import { auth } from "../../../helpers/firebase";
+import { Link } from "react-router-dom";
 
 import "./loginForm.css";
 
-export default function LoginForm({ onToggleForm }) {
+export default function LoginForm() {
   const { setRole } = useAppContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,9 +44,11 @@ export default function LoginForm({ onToggleForm }) {
         ></input>
         <button className="login__form__button"> Log in </button>
         <div className="login__form__signup-line"></div>
-        <h1 className="login__form__signup" onClick={onToggleForm}>
+        <Link to="/signup" style={{textDecoration: "none"}}>
+          <h1 className="login__form__signup">
           No account yet? Sign up
-        </h1>
+          </h1>
+        </Link>
       </div>
     </form>
   );

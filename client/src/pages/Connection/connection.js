@@ -6,8 +6,8 @@ import { auth } from "../../helpers/firebase";
 import { useNavigate } from "react-router-dom";
 
 
-function Connection() {
-  const [showLogin, setShowLogin] = useState(true);
+function Connection(props) {
+  let status = props.status;
   const [currentUser, setCurrentUser] = useState(null);
   const navigate= useNavigate();
 
@@ -22,10 +22,10 @@ function Connection() {
     <div>
      {currentUser ? (
         navigate("/")
-      ) : showLogin ? (
-        <LoginForm onToggleForm={() => setShowLogin(!showLogin)} />
+      ) : status === "login" ? (
+        <LoginForm />
       ) : (
-        <SignupForm onToggleForm={() => setShowLogin(!showLogin)} />
+        <SignupForm />
       )}
     </div>
   );

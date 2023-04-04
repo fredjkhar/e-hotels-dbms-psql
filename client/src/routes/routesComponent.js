@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { useAppContext } from "../context/contextProvider"
+import { useAppContext } from "../context/contextProvider";
 
 import Home from "../pages/Home/home";
 import Hotels from "../pages/Hotels/hotels";
@@ -23,8 +23,9 @@ const RoutesComponent = () => {
       {chaines.map((chain, index) => (
         <Route key={index} path={`/${chain.name}`} element={<Hotels />} />
       ))}
-      
-      <Route path="/connection" element={<Connection />} />
+
+      <Route path="/login" element={<Connection status="login" />} />
+      <Route path="/signup" element={<Connection status="signup" />} />
     </Routes>
   );
 };

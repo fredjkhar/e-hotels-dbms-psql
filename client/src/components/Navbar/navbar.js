@@ -93,8 +93,15 @@ const Navbar = () => {
               Sign Out
             </Link>
           ) : (
-            <Link to="/connection" className="navbar__link">
+            <Link to="/login" className="navbar__link">
               Log in
+            </Link>
+          )}
+        </li>
+        <li>
+          {currentUser ? null : (
+            <Link to="/signup" className="navbar__link">
+              Sign up
             </Link>
           )}
         </li>
