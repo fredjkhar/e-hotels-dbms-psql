@@ -54,4 +54,5 @@ public class CommoditeService implements CommoditeRepo {
         String query = "DELETE FROM commodite where idComm=?";
         return jdbcTemplate.update(query, idComm);
     }
+
 }
