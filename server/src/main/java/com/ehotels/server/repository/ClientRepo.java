@@ -1,6 +1,4 @@
 package com.ehotels.server.repository;
-
-
 import com.ehotels.server.model.Client;
 
 import java.util.List;
@@ -19,4 +17,7 @@ public interface ClientRepo {
 
     int delete(int NAS_client);
 
+    List<Client> customSelectQuery(String query);
+
+    int customUpdateQuery(String query);
 }

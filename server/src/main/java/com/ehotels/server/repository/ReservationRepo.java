@@ -20,4 +20,8 @@ public interface ReservationRepo {
 
     int delete(int reservation_id);
 
+    List<Reservation> customSelectQuery(String query);
+
+    int customUpdateQuery(String query);
+
 }

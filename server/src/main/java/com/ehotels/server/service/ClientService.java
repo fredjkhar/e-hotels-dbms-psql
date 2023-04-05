@@ -55,4 +55,12 @@ public class ClientService implements ClientRepo {
         String query = "DELETE FROM client where NAS_client=?";
         return jdbcTemplate.update(query, NAS_client);
     }
+
+    public List<Client> customSelectQuery(String query) {
+        return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(Client.class));
+    }
+
+    public int customUpdateQuery(String query) {
+        return jdbcTemplate.update(query);
+    }
 }

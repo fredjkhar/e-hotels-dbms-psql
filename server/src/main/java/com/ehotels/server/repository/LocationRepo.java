@@ -19,4 +19,8 @@ public interface LocationRepo {
 
     int delete(int location_id);
 
+    List<Location> customSelectQuery(String query);
+
+    int customUpdateQuery(String query);
+
 }

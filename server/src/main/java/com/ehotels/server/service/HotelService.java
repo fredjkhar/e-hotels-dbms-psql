@@ -54,4 +54,12 @@ public class HotelService implements HotelRepo {
         String query = "DELETE FROM hotel where hotel_id=?";
         return jdbcTemplate.update(query, hotel_id);
     }
+
+    public List<Hotel> customSelectQuery(String query) {
+        return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(Hotel.class));
+    }
+
+    public int customUpdateQuery(String query) {
+        return jdbcTemplate.update(query);
+    }
 }

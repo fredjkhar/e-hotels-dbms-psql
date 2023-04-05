@@ -53,4 +53,12 @@ public class LocationService implements LocationRepo {
         String query = "DELETE FROM location where location_id=?";
         return jdbcTemplate.update(query, location_id);
     }
+
+    public List<Location> customSelectQuery(String query) {
+        return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(Location.class));
+    }
+
+    public int customUpdateQuery(String query) {
+        return jdbcTemplate.update(query);
+    }
 }

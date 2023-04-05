@@ -54,4 +54,12 @@ public class ApplianceService implements ApplianceRepo {
         String query = "DELETE FROM appliance where appliance_id=?";
         return jdbcTemplate.update(query, appliance_id);
     }
+
+    public List<Appliance> customSelectQuery(String query) {
+        return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(Appliance.class));
+    }
+
+    public int customUpdateQuery(String query) {
+        return jdbcTemplate.update(query);
+    }
 }

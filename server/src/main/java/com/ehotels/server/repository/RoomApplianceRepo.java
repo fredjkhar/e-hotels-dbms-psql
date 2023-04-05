@@ -1,5 +1,4 @@
 package com.ehotels.server.repository;
-
 import com.ehotels.server.model.RoomAppliance;
 
 import java.util.List;
@@ -16,4 +15,8 @@ public interface RoomApplianceRepo {
     int deleteAll();
 
     int delete(int room_number, int appliance_id);
+
+    List<RoomAppliance> customSelectQuery(String query);
+
+    int customUpdateQuery(String query);
 }

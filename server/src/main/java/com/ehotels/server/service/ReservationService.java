@@ -53,4 +53,12 @@ public class ReservationService implements ReservationRepo {
         String query = "DELETE FROM reservation where reservation_id=?";
         return jdbcTemplate.update(query, reservation_id);
     }
+
+    public List<Reservation> customSelectQuery(String query) {
+        return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(Reservation.class));
+    }
+
+    public int customUpdateQuery(String query) {
+        return jdbcTemplate.update(query);
+    }
 }

@@ -1,5 +1,6 @@
 package com.ehotels.server.controller;
 
+import com.ehotels.server.model.Employee;
 import com.ehotels.server.model.Hotel;
 import com.ehotels.server.service.HotelService;
 import org.slf4j.Logger;
@@ -118,4 +119,32 @@ public class HotelController {
         }
     }
 
+    @PostMapping(path = {"/custom/select"})
+    public ResponseEntity<List<Hotel>> customApplianceControllerSelectQuery(@RequestBody String query) {
+        List<Hotel> hotels = null;
+        try {
+            Objects.requireNonNull(query);
+            hotels = service.customSelectQuery(query);
+            return hotels.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(hotels);
+
+        } catch (Exception e) {
+            logger.error("Failed to execute select query: {}", query, e);
+            // Return a 500 Internal Server Error if server failed to create an appliance record
+            return ResponseEntity.internalServerError().body(hotels);
+        }
+    }
+
+    @PostMapping(path = {"/custom/update"})
+    public ResponseEntity<String> customApplianceControllerUpdateQuery(@RequestBody String query) {
+        try {
+            Objects.requireNonNull(query);
+            String message = String.format("query '%s' has been successfully executed with return message %s", query, service.customUpdateQuery(query));
+            return ResponseEntity.ok(message);
+
+        } catch (Exception e) {
+            logger.error("Failed to execute the following query query: {}", query, e);
+            // Return a 500 Internal Server Error if server failed to create an appliance record
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
 }

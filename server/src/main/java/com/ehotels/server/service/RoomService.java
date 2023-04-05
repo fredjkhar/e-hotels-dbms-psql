@@ -54,4 +54,12 @@ public class RoomService implements RoomRepo {
         String query = "DELETE FROM room where room_number=?";
         return jdbcTemplate.update(query, room_number);
     }
+
+    public List<Room> customSelectQuery(String query) {
+        return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(Room.class));
+    }
+
+    public int customUpdateQuery(String query) {
+        return jdbcTemplate.update(query);
+    }
 }
