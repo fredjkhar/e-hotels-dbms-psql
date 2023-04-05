@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS room_appliance;
+DROP TABLE IF EXISTS appliance;
 DROP TABLE IF EXISTS reservation;
 DROP TABLE IF EXISTS location;
 DROP TABLE IF EXISTS client;
@@ -110,3 +112,15 @@ CREATE TABLE reservation(
     FOREIGN KEY (room_number) REFERENCES room(room_number)
 );
 
+CREATE TABLE appliance(
+    appliance_id INT NOT NULL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE room_appliance (
+    room_number INT NOT NULL,
+    appliance_id INT NOT NULL,
+    PRIMARY KEY (room_number, appliance_id),
+    FOREIGN KEY (room_number) REFERENCES room(room_number),
+    FOREIGN KEY (appliance_id) REFERENCES appliance(appliance_id)
+);

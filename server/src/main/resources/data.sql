@@ -303,6 +303,201 @@ INSERT INTO room VALUES (540, 1393.50, 'Ocean View', 5, NULL, 40);
 
 
 
+
+--Appliances Insert Queries START
+INSERT INTO appliance (appliance_id, name) VALUES (1, 'TV');
+INSERT INTO appliance (appliance_id, name) VALUES (2, 'Bath Tub');
+INSERT INTO appliance (appliance_id, name) VALUES (3, 'Hair Dryer');
+INSERT INTO appliance (appliance_id, name) VALUES (4, 'Coffee Maker');
+INSERT INTO appliance (appliance_id, name) VALUES (5, 'Iron');
+--Appliances Insert Queries END
+
+
+
+
+--RoomAppliances Insert Queries START
+INSERT INTO room_appliance VALUES (101, 1);
+INSERT INTO room_appliance VALUES (101, 2);
+INSERT INTO room_appliance VALUES (101, 3);
+INSERT INTO room_appliance VALUES (101, 4);
+INSERT INTO room_appliance VALUES (101, 5);
+INSERT INTO room_appliance VALUES (201, 1);
+INSERT INTO room_appliance VALUES (201, 4);
+INSERT INTO room_appliance VALUES (301, 3);
+INSERT INTO room_appliance VALUES (301, 4);
+INSERT INTO room_appliance VALUES (301, 1);
+INSERT INTO room_appliance VALUES (401, 5);
+INSERT INTO room_appliance VALUES (401, 2);
+INSERT INTO room_appliance VALUES (401, 3);
+INSERT INTO room_appliance VALUES (501, 4);
+INSERT INTO room_appliance VALUES (501, 5);
+
+INSERT INTO room_appliance VALUES (102, 5);
+INSERT INTO room_appliance VALUES (102, 3);
+INSERT INTO room_appliance VALUES (202, 5);
+INSERT INTO room_appliance VALUES (202, 4);
+INSERT INTO room_appliance VALUES (302, 3);
+INSERT INTO room_appliance VALUES (302, 2);
+INSERT INTO room_appliance VALUES (302, 1);
+INSERT INTO room_appliance VALUES (402, 5);
+INSERT INTO room_appliance VALUES (402, 1);
+INSERT INTO room_appliance VALUES (402, 2);
+INSERT INTO room_appliance VALUES (502, 3);
+INSERT INTO room_appliance VALUES (502, 1);
+
+INSERT INTO room_appliance VALUES (103, 1);
+INSERT INTO room_appliance VALUES (103, 3);
+INSERT INTO room_appliance VALUES (203, 3);
+INSERT INTO room_appliance VALUES (203, 5);
+INSERT INTO room_appliance VALUES (303, 3);
+INSERT INTO room_appliance VALUES (303, 4);
+INSERT INTO room_appliance VALUES (303, 5);
+INSERT INTO room_appliance VALUES (403, 4);
+INSERT INTO room_appliance VALUES (403, 2);
+INSERT INTO room_appliance VALUES (403, 3);
+INSERT INTO room_appliance VALUES (503, 1);
+INSERT INTO room_appliance VALUES (503, 2);
+
+INSERT INTO room_appliance VALUES (104, 1);
+INSERT INTO room_appliance VALUES (104, 4);
+INSERT INTO room_appliance VALUES (204, 5);
+INSERT INTO room_appliance VALUES (204, 2);
+INSERT INTO room_appliance VALUES (304, 2);
+INSERT INTO room_appliance VALUES (304, 1);
+INSERT INTO room_appliance VALUES (304, 3);
+INSERT INTO room_appliance VALUES (404, 4);
+INSERT INTO room_appliance VALUES (404, 1);
+INSERT INTO room_appliance VALUES (404, 5);
+INSERT INTO room_appliance VALUES (504, 3);
+INSERT INTO room_appliance VALUES (504, 2);
+
+INSERT INTO room_appliance VALUES (105, 4);
+INSERT INTO room_appliance VALUES (105, 5);
+INSERT INTO room_appliance VALUES (205, 3);
+INSERT INTO room_appliance VALUES (205, 1);
+INSERT INTO room_appliance VALUES (305, 2);
+INSERT INTO room_appliance VALUES (305, 5);
+INSERT INTO room_appliance VALUES (305, 3);
+INSERT INTO room_appliance VALUES (405, 1);
+INSERT INTO room_appliance VALUES (405, 4);
+INSERT INTO room_appliance VALUES (405, 2);
+INSERT INTO room_appliance VALUES (505, 5);
+INSERT INTO room_appliance VALUES (505, 1);
+
+INSERT INTO room_appliance VALUES (106, 2);
+INSERT INTO room_appliance VALUES (106, 4);
+INSERT INTO room_appliance VALUES (206, 3);
+INSERT INTO room_appliance VALUES (206, 1);
+INSERT INTO room_appliance VALUES (306, 2);
+INSERT INTO room_appliance VALUES (306, 5);
+INSERT INTO room_appliance VALUES (306, 3);
+INSERT INTO room_appliance VALUES (406, 1);
+INSERT INTO room_appliance VALUES (406, 4);
+INSERT INTO room_appliance VALUES (406, 2);
+INSERT INTO room_appliance VALUES (506, 5);
+INSERT INTO room_appliance VALUES (506, 1);
+
+INSERT INTO room_appliance VALUES (107, 4);
+INSERT INTO room_appliance VALUES (107, 2);
+INSERT INTO room_appliance VALUES (207, 1);
+INSERT INTO room_appliance VALUES (207, 3);
+INSERT INTO room_appliance VALUES (307, 5);
+INSERT INTO room_appliance VALUES (307, 2);
+INSERT INTO room_appliance VALUES (307, 1);
+INSERT INTO room_appliance VALUES (407, 4);
+INSERT INTO room_appliance VALUES (407, 3);
+INSERT INTO room_appliance VALUES (407, 5);
+INSERT INTO room_appliance VALUES (507, 2);
+INSERT INTO room_appliance VALUES (507, 1);
+
+INSERT INTO room_appliance VALUES (108, 3);
+INSERT INTO room_appliance VALUES (108, 1);
+INSERT INTO room_appliance VALUES (208, 2);
+INSERT INTO room_appliance VALUES (208, 5);
+INSERT INTO room_appliance VALUES (308, 1);
+INSERT INTO room_appliance VALUES (308, 4);
+INSERT INTO room_appliance VALUES (308, 5);
+INSERT INTO room_appliance VALUES (408, 3);
+INSERT INTO room_appliance VALUES (408, 2);
+INSERT INTO room_appliance VALUES (408, 4);
+INSERT INTO room_appliance VALUES (508, 1);
+INSERT INTO room_appliance VALUES (508, 5);
+
+INSERT INTO room_appliance VALUES (109, 2);
+INSERT INTO room_appliance VALUES (109, 3);
+INSERT INTO room_appliance VALUES (209, 1);
+INSERT INTO room_appliance VALUES (209, 4);
+INSERT INTO room_appliance VALUES (309, 2);
+INSERT INTO room_appliance VALUES (309, 5);
+INSERT INTO room_appliance VALUES (409, 4);
+INSERT INTO room_appliance VALUES (409, 1);
+INSERT INTO room_appliance VALUES (409, 3);
+INSERT INTO room_appliance VALUES (509, 5);
+INSERT INTO room_appliance VALUES (509, 2);
+
+INSERT INTO room_appliance VALUES (110, 4);
+INSERT INTO room_appliance VALUES (110, 5);
+INSERT INTO room_appliance VALUES (210, 1);
+INSERT INTO room_appliance VALUES (210, 3);
+INSERT INTO room_appliance VALUES (310, 2);
+INSERT INTO room_appliance VALUES (310, 5);
+INSERT INTO room_appliance VALUES (410, 3);
+INSERT INTO room_appliance VALUES (410, 4);
+INSERT INTO room_appliance VALUES (510, 1);
+INSERT INTO room_appliance VALUES (510, 2);
+
+INSERT INTO room_appliance VALUES (111, 3);
+INSERT INTO room_appliance VALUES (111, 5);
+INSERT INTO room_appliance VALUES (211, 2);
+INSERT INTO room_appliance VALUES (211, 4);
+INSERT INTO room_appliance VALUES (311, 1);
+INSERT INTO room_appliance VALUES (311, 5);
+INSERT INTO room_appliance VALUES (411, 2);
+INSERT INTO room_appliance VALUES (411, 3);
+INSERT INTO room_appliance VALUES (511, 4);
+INSERT INTO room_appliance VALUES (511, 5);
+
+INSERT INTO room_appliance VALUES (112, 4);
+INSERT INTO room_appliance VALUES (112, 2);
+INSERT INTO room_appliance VALUES (212, 3);
+INSERT INTO room_appliance VALUES (212, 5);
+INSERT INTO room_appliance VALUES (312, 1);
+INSERT INTO room_appliance VALUES (312, 4);
+INSERT INTO room_appliance VALUES (412, 2);
+INSERT INTO room_appliance VALUES (412, 5);
+INSERT INTO room_appliance VALUES (512, 1);
+INSERT INTO room_appliance VALUES (512, 3);
+
+INSERT INTO room_appliance VALUES (113, 3);
+INSERT INTO room_appliance VALUES (113, 2);
+INSERT INTO room_appliance VALUES (213, 1);
+INSERT INTO room_appliance VALUES (213, 3);
+INSERT INTO room_appliance VALUES (313, 4);
+INSERT INTO room_appliance VALUES (313, 1);
+INSERT INTO room_appliance VALUES (413, 1);
+INSERT INTO room_appliance VALUES (413, 4);
+INSERT INTO room_appliance VALUES (413, 5);
+INSERT INTO room_appliance VALUES (513, 2);
+INSERT INTO room_appliance VALUES (513, 1);
+INSERT INTO room_appliance VALUES (513, 3);
+
+INSERT INTO room_appliance VALUES (131, 1);
+INSERT INTO room_appliance VALUES (131, 3);
+INSERT INTO room_appliance VALUES (231, 2);
+INSERT INTO room_appliance VALUES (231, 4);
+INSERT INTO room_appliance VALUES (331, 3);
+INSERT INTO room_appliance VALUES (331, 4);
+INSERT INTO room_appliance VALUES (331, 5);
+INSERT INTO room_appliance VALUES (431, 1);
+INSERT INTO room_appliance VALUES (431, 2);
+INSERT INTO room_appliance VALUES (431, 3);
+INSERT INTO room_appliance VALUES (531, 4);
+INSERT INTO room_appliance VALUES (531, 5);
+--RoomAppliances Insert Queries END
+
+
+
+
 -- Client Insert Queries START
 INSERT INTO client VALUES (10000001, 'Smith', 'John', 30, 123, 'Main St', 'Toronto', 'Ontario', 'Canada', 'M5V2R9', '555-555-5555', 'john.smith@email.com', '2022-03-15', 'j5Dp#h');
 INSERT INTO client VALUES (10000002, 'Johnson', 'Jane', 25, 456, 'Broadway', 'New York', 'New York', 'United States', '10001', '555-555-5555', 'jane.johnson@email.com', '2022-04-01', '3qZdKj8');
@@ -889,6 +1084,7 @@ INSERT INTO reservation VALUES (30, '2024-07-15', '2024-07-21', 100000015, 130);
 -- Location Insert Queries START
 
 -- Location Insert Queries END
+
 
 
 

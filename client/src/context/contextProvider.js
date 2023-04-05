@@ -26,6 +26,7 @@ const ContextProvider = ({ children }) => {
   const[roomPrice, setRoomPrice] = useState(1500);
   const[capacity, setCapacity] = useState(0);
   const[view, setView] = useState("All");
+  const[problems, setProblems] = useState("All");
 
   // Fetch hotelGroups from DB on website load.
   useEffect(() => {
@@ -72,7 +73,9 @@ const ContextProvider = ({ children }) => {
         capacity,
         setCapacity,
         view,
-        setView
+        setView,
+        problems,
+        setProblems
       }}
     >
       {chaines && hotels && children}

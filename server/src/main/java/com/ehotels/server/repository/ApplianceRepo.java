@@ -5,10 +5,10 @@ import com.ehotels.server.model.Appliance;
 
 import java.util.List;
 
-public interface CommoditeRepo {
+public interface ApplianceRepo {
     List<Appliance> selectAll();
 
-    Appliance select(int idComm);
+    Appliance select(int appliance_id);
 
     int insert(Appliance appliance);
 
@@ -16,5 +16,5 @@ public interface CommoditeRepo {
 
     int deleteAll();
 
-    int delete(int idComm);
+    int delete(int appliance_id);
 }

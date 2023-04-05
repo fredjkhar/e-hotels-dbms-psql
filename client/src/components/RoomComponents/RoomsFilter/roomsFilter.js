@@ -11,6 +11,9 @@ import {
   FormControlLabel,
   Typography,
   Slider,
+  Checkbox,
+  ToggleButton,
+  ToggleButtonGroup
 } from "@mui/material";
 
 import { blue } from "@mui/material/colors";
@@ -27,7 +30,9 @@ const RoomsFilter = () => {
     capacity,
     setCapacity,
     view,
-    setView
+    setView,
+    problems,
+    setProblems,
   } = useAppContext();
   const [price, setPrice] = useState(1500);
 
@@ -44,6 +49,10 @@ const RoomsFilter = () => {
       });
     }
     return views;
+  };
+
+  const handleCheckboxChange = (event) => {
+    setProblems(event.target.checked ? "All" : "Null");
   };
 
   return (
@@ -106,9 +115,14 @@ const RoomsFilter = () => {
         </FormControl>
       </div>
 
-
-
-
+      <div className="problem_checkbox">
+        <Checkbox
+          checked={problems === "All"}
+          onChange={handleCheckboxChange}
+          inputProps={{ "aria-label": "Filter rooms" }}
+        />
+        show rooms with problems
+      </div>
 
       <div className="price__filter">
         <Typography className="form__label" id="price__header" gutterBottom>
@@ -133,57 +147,41 @@ const RoomsFilter = () => {
         />
       </div>
 
-      <div className="capacity__radio-filter">
-        <Typography
-          className="form__label"
-          id="capacity__radio-filter-header"
-          gutterBottom
-        >
-          Capacity
-        </Typography>
-        <FormControl className="form__control">
-          <RadioGroup
-            aria-labelledby="capacity__radio-filter"
-            defaultValue="Any"
-            name="capacity__radio-filter"
-            value={capacity}
-            onChange={(e) => setCapacity(e.target.value)}
-          >
-            <FormControlLabel
-              value={0}
-              control={<Radio sx={{ color: blue[200] }} />}
-              label="Any capacity"
-            />
-            <FormControlLabel
-              value={5}
-              control={<Radio sx={{ color: blue[200] }} />}
-              label="For 5"
-            />
-            <FormControlLabel
-              value={4}
-              control={<Radio sx={{ color: blue[200] }} />}
-              label="For 4"
-            />
-            <FormControlLabel
-              value={3}
-              control={<Radio sx={{ color: blue[200] }} />}
-              label="For 3"
-            />
+      <div className="capacity__toggle-group">
+  <Typography
+    className="form__label"
+    id="capacity__toggle-group-header"
+    gutterBottom
+  >
+    Capacity
+  </Typography>
+  <ToggleButtonGroup
+    aria-label="capacity-toggle-group"
+    value={capacity}
+    onChange={(e, newValue) => setCapacity(newValue)}
+    exclusive
+  >
+    <ToggleButton value={0}>
+      Any
+    </ToggleButton>
+    <ToggleButton value={5}>
+      5
+    </ToggleButton>
+    <ToggleButton value={4}>
+      4
+    </ToggleButton>
+    <ToggleButton value={3}>
+      3
+    </ToggleButton>
+    <ToggleButton value={2}>
+      2
+    </ToggleButton>
+    <ToggleButton value={1}>
+      1
+    </ToggleButton>
+  </ToggleButtonGroup>
+</div>
 
-            <FormControlLabel
-              value={2}
-              control={<Radio sx={{ color: blue[200] }} />}
-              label="For 2"
-            />
-
-            <FormControlLabel
-              value={1}
-              control={<Radio sx={{ color: blue[200] }} />}
-              label="For 1"
-            />
-          </RadioGroup>
-        </FormControl>
-      </div>
     </div>
   );
 };
