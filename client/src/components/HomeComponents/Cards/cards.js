@@ -8,7 +8,9 @@ function Cards() {
 
   return (
     <div className="cards">
-      <h1 className="cards__header-1">Nos meilleures chaines</h1>
+      <h1 className="cards__header-1">
+        Get the best deal for your best vacation with our partners
+      </h1>
       <div className="cards__container">
         {chaines.map((chaine, index) => (
           <CardItem

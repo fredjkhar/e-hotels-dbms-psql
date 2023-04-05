@@ -25,22 +25,38 @@ const Navbar = () => {
         <div className="navbar__logo">
           <ApartmentIcon fontSize="inherit" color="inherit" />
         </div>
-        <Link to="/" className="navbar__title">
+        <Link
+          to="/"
+          className="navbar__title"
+          onClick={() => setOpenChaines(false)}
+        >
           E-Hotel
         </Link>
       </div>
       <ul className="navbar__rightSide">
         <li>
           {role === "manager" ? (
-            <Link to="/manager" className="navbar__link">
+            <Link
+              to="/manager"
+              className="navbar__link"
+              onClick={() => setOpenChaines(false)}
+            >
               Console
             </Link>
           ) : role === "employee" ? (
-            <Link to="/employee" className="navbar__link">
+            <Link
+              to="/employee"
+              className="navbar__link"
+              onClick={() => setOpenChaines(false)}
+            >
               Console
             </Link>
           ) : role === "user" ? (
-            <Link to="/user" className="navbar__link">
+            <Link
+              to="/user"
+              className="navbar__link"
+              onClick={() => setOpenChaines(false)}
+            >
               My reservations
             </Link>
           ) : null}
@@ -75,7 +91,10 @@ const Navbar = () => {
           <Link
             to="/hotels"
             className="navbar__link"
-            onClick={() => setChaineName("All")}
+            onClick={() => {
+              setChaineName("All");
+              setOpenChaines(false);
+            }}
           >
             Hotels
           </Link>
@@ -93,19 +112,28 @@ const Navbar = () => {
               onClick={() => {
                 auth.signOut();
                 setRole("");
+                setOpenChaines(false);
               }}
             >
               Sign Out
             </Link>
           ) : (
-            <Link to="/login" className="navbar__link">
+            <Link
+              to="/login"
+              className="navbar__link"
+              onClick={() => setOpenChaines(false)}
+            >
               Log in
             </Link>
           )}
         </li>
         <li>
           {currentUser ? null : (
-            <Link to="/signup" className="navbar__link">
+            <Link
+              to="/signup"
+              className="navbar__link"
+              onClick={() => setOpenChaines(false)}
+            >
               Sign up
             </Link>
           )}

@@ -31,15 +31,15 @@ public class ReservationService implements ReservationRepo {
 
     @Override
     public int insert(Reservation reservation) {
-        String query = "INSERT INTO reservation (Reservation_id, startDate, endDate, NAS_client, Num)"+
+        String query = "INSERT INTO reservation (reservation_id, start_date, end_date, NAS_client, room_number)"+
                 "VALUES(?, ?, ?, ?, ?)";
-        return jdbcTemplate.update(query, reservation.getReservation_id(), reservation.getStart_date(), reservation.getEnd_date(), reservation.getNAS_client(), reservation.getNum());
+        return jdbcTemplate.update(query, reservation.getReservation_id(), reservation.getStart_date(), reservation.getEnd_date(), reservation.getNAS_client(), reservation.getRoom_number());
     }
 
     @Override
     public int update(Reservation reservation) {
-        String query = "UPDATE reservation SET startDate=? endDate=? NAS_client=? Num=? WHERE reservation_id=?";
-        return jdbcTemplate.update(query, reservation.getStart_date(), reservation.getEnd_date(), reservation.getNAS_client(), reservation.getNum());
+        String query = "UPDATE reservation SET reservation_id=?, start_date=?, end_date=?, NAS_client=?, room_number=? WHERE reservation_id=?";
+        return jdbcTemplate.update(query, reservation.getReservation_id(), reservation.getStart_date(), reservation.getEnd_date(), reservation.getNAS_client(), reservation.getRoom_number(), reservation.getReservation_id());
     }
 
     @Override

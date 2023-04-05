@@ -1,57 +1,58 @@
 .manager__container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .manager__input {
-    width: 50%;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
+  width: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
 }
 
 .manager__input-left {
-    width: 50%;
-    height: 628px;
-    overflow: scroll;
-    margin-right: 10px;
+  width: 50%;
+  height: 628px;
+  overflow: scroll;
+  margin-right: 10px;
 }
 
 .manager__input-right {
-    width: 50%;
-    margin-left: 10px;
+  width: 50%;
+  margin-left: 10px;
 }
 
 .manager__output {
-    width: 50%;
-    padding: 10px;
+  width: 50%;
+  padding: 10px;
 }
 
 .query__button {
-    font-size: 1rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 5px;
-    padding: 10px 15px;
-    background-color: #98b7da;
-    cursor: pointer;
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: #98b7da;
+  cursor: pointer;
 }
 
 .manager__input-header {
-    font-size: 1.2rem;
-    margin: 20px 5px;
+  font-size: 1.2rem;
+  margin: 20px 5px;
 }
 
 .clear__button {
-    font-size: 1rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin: 5px 0;
-    padding: 10px 15px;
-    cursor: pointer;
-    text-align: center;
-    background-color: #98b7da;
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 5px 0;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: center;
+  background-color: #98b7da;
 }
 
-.clear__button:hover, .query__button:hover {
-    background-color: transparent;
+.clear__button:hover,
+.query__button:hover {
+  background-color: transparent;
 }

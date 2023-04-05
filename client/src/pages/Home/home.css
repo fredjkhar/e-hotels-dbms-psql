@@ -1,6 +1,5 @@
 .home__container {
   width: 100%;
-  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -13,8 +12,5 @@
 
 .left__panel {
   width: 50%;
-}
-
-.left__panel-map {
-  max-width: 90%;
+  position: relative;
 }

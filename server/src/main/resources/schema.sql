@@ -20,7 +20,6 @@ CREATE TABLE hotel_group (
   country VARCHAR(255) NOT NULL
 );
 
-
 CREATE TABLE hotel (
   hotel_id INT NOT NULL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
@@ -59,7 +58,7 @@ CREATE TABLE employee (
     city VARCHAR(255) NOT NULL,
     province VARCHAR(255) NOT NULL,
     country VARCHAR(255) NOT NULL,
-    postal_code VARCHAR(7) NOT NULL,
+    postal_code VARCHAR(10) NOT NULL,
     salary FLOAT NOT NULL,
     phone_number VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
@@ -89,7 +88,6 @@ CREATE TABLE client(
 );
 
 CREATE TABLE location(
-
       location_id INT NOT NULL PRIMARY KEY,
       startDate DATE NOT NULL,
       endDate DATE NOT NULL,
@@ -102,14 +100,12 @@ CREATE TABLE location(
 );
 
 CREATE TABLE reservation(
-
     reservation_id INT NOT NULL PRIMARY KEY,
-    startDate DATE NOT NULL,
-    endDate DATE NOT NULL,
+    start_date VARCHAR(255) NOT NULL,
+    end_date VARCHAR(255) NOT NULL,
     NAS_client INT NOT NULL,
     room_number INT NOT NULL,
     FOREIGN KEY (NAS_client) REFERENCES client(NAS_client),
     FOREIGN KEY (room_number) REFERENCES room(room_number)
-
 );
 
