@@ -46,7 +46,8 @@ CREATE TABLE room (
     problems VARCHAR(255),
     hotel_id INT NOT NULL,
     FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id),
-    CHECK (view IN ('City View', 'River View', 'Building View', 'Park View', 'Street View', 'Ocean View', 'Beach View', 'Garden View', 'Pool View', 'Mountain View', 'Lake View', 'Forest View'))
+    CHECK (view IN ('City View', 'River View', 'Building View', 'Park View', 'Street View', 'Ocean View', 'Beach View', 'Garden View', 'Pool View', 'Mountain View', 'Lake View', 'Forest View')),
+    CHECK (capacity >= 1 AND capacity <= 5)
 );
 
 CREATE TABLE employee (

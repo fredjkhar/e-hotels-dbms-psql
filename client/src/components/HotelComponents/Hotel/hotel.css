@@ -87,3 +87,7 @@
   color: grey;
   font-weight: 100;
 }
+
+.deals_link {
+  text-decoration: none;
+}
