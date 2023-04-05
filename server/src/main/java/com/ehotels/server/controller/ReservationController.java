@@ -1,5 +1,6 @@
 package com.ehotels.server.controller;
 
+import com.ehotels.server.model.Location;
 import com.ehotels.server.model.Reservation;
 import com.ehotels.server.service.ReservationService;
 import org.slf4j.Logger;
@@ -108,6 +109,35 @@ public class ReservationController {
         catch (Exception e){
             logger.error("Failed to update reservation with Id {}",reservation_id, e);
             // Return a 500 Internal Server Error if server failed to UPDATE a reservation record
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
+
+    @PostMapping(path = {"/custom/select"})
+    public ResponseEntity<List<Reservation>> customApplianceControllerSelectQuery(@RequestBody String query) {
+        List<Reservation> reservations = null;
+        try {
+            Objects.requireNonNull(query);
+            reservations = service.customSelectQuery(query);
+            return reservations.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(reservations);
+
+        } catch (Exception e) {
+            logger.error("Failed to execute select query: {}", query, e);
+            // Return a 500 Internal Server Error if server failed to create an appliance record
+            return ResponseEntity.internalServerError().body(reservations);
+        }
+    }
+
+    @PostMapping(path = {"/custom/update"})
+    public ResponseEntity<String> customApplianceControllerUpdateQuery(@RequestBody String query) {
+        try {
+            Objects.requireNonNull(query);
+            String message = String.format("query '%s' has been successfully executed with return message %s", query, service.customUpdateQuery(query));
+            return ResponseEntity.ok(message);
+
+        } catch (Exception e) {
+            logger.error("Failed to execute the following query query: {}", query, e);
+            // Return a 500 Internal Server Error if server failed to create an appliance record
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }

@@ -1,5 +1,6 @@
 package com.ehotels.server.controller;
 
+import com.ehotels.server.model.Client;
 import com.ehotels.server.model.Employee;
 import com.ehotels.server.service.EmployeeService;
 import org.slf4j.Logger;
@@ -108,6 +109,35 @@ public class EmployeeController {
         catch (Exception e){
             logger.error("Failed to update employee with NAS {}",employee_NAS, e);
             // Return a 500 Internal Server Error if server failed to UPDATE an employeerecord
+            return ResponseEntity.internalServerError().body(e.getMessage());
+        }
+    }
+
+    @PostMapping(path = {"/custom/select"})
+    public ResponseEntity<List<Employee>> customApplianceControllerSelectQuery(@RequestBody String query) {
+        List<Employee> employees = null;
+        try {
+            Objects.requireNonNull(query);
+            employees = service.customSelectQuery(query);
+            return employees.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(employees);
+
+        } catch (Exception e) {
+            logger.error("Failed to execute select query: {}", query, e);
+            // Return a 500 Internal Server Error if server failed to create an appliance record
+            return ResponseEntity.internalServerError().body(employees);
+        }
+    }
+
+    @PostMapping(path = {"/custom/update"})
+    public ResponseEntity<String> customApplianceControllerUpdateQuery(@RequestBody String query) {
+        try {
+            Objects.requireNonNull(query);
+            String message = String.format("query '%s' has been successfully executed with return message %s", query, service.customUpdateQuery(query));
+            return ResponseEntity.ok(message);
+
+        } catch (Exception e) {
+            logger.error("Failed to execute the following query query: {}", query, e);
+            // Return a 500 Internal Server Error if server failed to create an appliance record
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }

@@ -18,4 +18,8 @@ public interface  HotelRepo {
 
     int delete(int hotel_id);
 
+    List<Hotel> customSelectQuery(String query);
+
+    int customUpdateQuery(String query);
+
 }

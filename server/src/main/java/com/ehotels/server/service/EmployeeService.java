@@ -53,4 +53,12 @@ public class EmployeeService implements EmployeeRepo {
         String query = "DELETE FROM employee where employee_NAS=?";
         return jdbcTemplate.update(query, employee_NAS);
     }
+
+    public List<Employee> customSelectQuery(String query) {
+        return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(Employee.class));
+    }
+
+    public int customUpdateQuery(String query) {
+        return jdbcTemplate.update(query);
+    }
 }

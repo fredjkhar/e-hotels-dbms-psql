@@ -18,4 +18,8 @@ public interface RoomRepo {
 
     int delete(int room_number);
 
+    List<RoomRepo> customSelectQuery(String query);
+
+    int customUpdateQuery(String query);
+
 }

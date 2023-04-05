@@ -1,8 +1,5 @@
 package com.ehotels.server.repository;
-
-
 import com.ehotels.server.model.Appliance;
-
 import java.util.List;
 
 public interface ApplianceRepo {
@@ -17,4 +14,8 @@ public interface ApplianceRepo {
     int deleteAll();
 
     int delete(int appliance_id);
+
+    List<Appliance> customSelectQuery(String query);
+
+    int customUpdateQuery(String query);
 }

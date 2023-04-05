@@ -60,4 +60,12 @@ public class HotelGroupService implements HotelGroupRepo {
         String query = "DELETE FROM hotel_group";
         return jdbcTemplate.update(query, id);
     }
+
+    public List<HotelGroup> customSelectQuery(String query) {
+        return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(HotelGroup.class));
+    }
+
+    public int customUpdateQuery(String query) {
+        return jdbcTemplate.update(query);
+    }
 }

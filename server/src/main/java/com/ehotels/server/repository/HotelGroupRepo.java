@@ -16,4 +16,8 @@ public interface HotelGroupRepo {
     int deleteAll();
 
     int delete(int id);
+
+    List<HotelGroup> customSelectQuery(String query);
+
+    int customUpdateQuery(String query);
 }

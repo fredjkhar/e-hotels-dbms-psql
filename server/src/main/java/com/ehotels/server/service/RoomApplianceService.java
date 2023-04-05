@@ -1,5 +1,6 @@
 package com.ehotels.server.service;
 
+import com.ehotels.server.model.Reservation;
 import com.ehotels.server.model.RoomAppliance;
 import com.ehotels.server.repository.RoomApplianceRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,5 +55,13 @@ public class RoomApplianceService implements RoomApplianceRepo {
     public int delete(int room_number, int appliance_id) {
         String query = "DELETE FROM room_appliance where room_number=? AND appliance_id=?";
         return jdbcTemplate.update(query, room_number, appliance_id);
+    }
+
+    public List<RoomAppliance> customSelectQuery(String query) {
+        return jdbcTemplate.query(query, BeanPropertyRowMapper.newInstance(RoomAppliance.class));
+    }
+
+    public int customUpdateQuery(String query) {
+        return jdbcTemplate.update(query);
     }
 }

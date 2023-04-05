@@ -19,4 +19,8 @@ public interface EmployeeRepo {
 
      int delete(int employee_NAS);
 
+     List<Employee> customSelectQuery(String query);
+
+     int customUpdateQuery(String query);
+
 }
