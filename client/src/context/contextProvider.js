@@ -8,6 +8,7 @@ const ContextProvider = ({ children }) => {
   // Resources
   const [chaines, setChaines] = useState(null);
   const [hotels, setHotels] = useState(null);
+  const [rooms, setRooms] = useState(null);
 
   //Filter values
   const [chaineName, setChaineName] = useState("All");
@@ -18,7 +19,13 @@ const ContextProvider = ({ children }) => {
   const [star, setStar] = useState(0);
 
   //Role value (three possible values/states: ['manager', 'user', 'employee'] or empty string)
-  const [role, setRole] = useState("");
+  const [role, setRole] = useState(""); 
+
+  //Filter for rooms
+  const [hotelName, setHotelName] = useState("All");
+  const[roomPrice, setRoomPrice] = useState(1500);
+  const[capacity, setCapacity] = useState(0);
+  const[view, setView] = useState("All");
 
   // Fetch hotelGroups from DB on website load.
   useEffect(() => {
@@ -30,6 +37,11 @@ const ContextProvider = ({ children }) => {
     fetch(BASE_URL + "/api/hotels")
       .then((response) => response.json())
       .then((responseData) => setHotels(responseData))
+      .catch((error) => console.error("Error: ", error));
+
+    fetch(BASE_URL + "/api/rooms")
+      .then((response) => response.json())
+      .then((responseData) => setRooms(responseData))
       .catch((error) => console.error("Error: ", error));
   }, []);
 
@@ -51,7 +63,16 @@ const ContextProvider = ({ children }) => {
         star,
         setStar,
         role,
-        setRole
+        setRole,
+        rooms,
+        hotelName,
+        setHotelName,
+        roomPrice,
+        setRoomPrice,
+        capacity,
+        setCapacity,
+        view,
+        setView
       }}
     >
       {chaines && hotels && children}

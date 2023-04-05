@@ -8,6 +8,7 @@ import Connection from "../pages/Connection/connection";
 import Manager from "../pages/Manager/manager";
 import Employee from "../pages/Employee/employee";
 import User from "../pages/User/user";
+import Room from "../pages/Rooms/rooms"
 
 const RoutesComponent = () => {
   const { chaines } = useAppContext();
@@ -23,7 +24,7 @@ const RoutesComponent = () => {
       {chaines.map((chain, index) => (
         <Route key={index} path={`/${chain.name}`} element={<Hotels />} />
       ))}
-
+      <Route path="/rooms" element={<Room />} />
       <Route path="/login" element={<Connection status="login" />} />
       <Route path="/signup" element={<Connection status="signup" />} />
     </Routes>
