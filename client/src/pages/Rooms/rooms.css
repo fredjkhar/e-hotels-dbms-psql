@@ -1,0 +1,15 @@
+.rooms_wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 8rem; 
+  }
+  
+  
+  .rooms_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 80%;
+    margin-left: auto;
+  }
+  

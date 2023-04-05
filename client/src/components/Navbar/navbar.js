@@ -100,6 +100,11 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
+          <Link to="/rooms" className="navbar__link">
+            Rooms
+          </Link>
+        </li>
+        <li>
           {currentUser ? (
             <Link
               to="/"

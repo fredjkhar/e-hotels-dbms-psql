@@ -61,28 +61,28 @@ INSERT INTO hotel VALUES (40, 'Accor Ottawa Inn', 33, 'Nicholas St', 'Ottawa', '
 
 -- Room Insert Queries START
 INSERT INTO room VALUES (101, 150.00, 'City View', 1, 'Stained carpet', 1);
-INSERT INTO room VALUES (201, 200.00, 'Times Square View', 2, NULL, 1);
-INSERT INTO room VALUES (301, 250.00, 'Hudson River View', 3, 'Noisy plumbing', 1);
-INSERT INTO room VALUES (401, 300.00, 'Empire State Building View', 4, NULL, 1);
-INSERT INTO room VALUES (501, 350.00, 'Central Park View', 5, NULL, 1);
+INSERT INTO room VALUES (201, 200.00, 'City View', 2, NULL, 1);
+INSERT INTO room VALUES (301, 250.00, 'River View', 3, 'Noisy plumbing', 1);
+INSERT INTO room VALUES (401, 300.00, 'Building View', 4, NULL, 1);
+INSERT INTO room VALUES (501, 350.00, 'Park View', 5, NULL, 1);
 
 INSERT INTO room VALUES (102, 125.00, 'Street View', 1, 'Broken lamp', 2);
 INSERT INTO room VALUES (202, 175.00, 'City View', 2, NULL, 2);
-INSERT INTO room VALUES (302, 225.00, 'Empire State Building View', 3, 'Leaky faucet', 2);
+INSERT INTO room VALUES (302, 225.00, 'Building View', 3, 'Leaky faucet', 2);
 INSERT INTO room VALUES (402, 275.00, 'Street View', 4, 'Faulty air conditioning', 2);
 INSERT INTO room VALUES (502, 325.00, 'City View', 5, NULL, 2);
 
 INSERT INTO room VALUES (103, 130.00, 'Street View', 1, NULL, 3);
 INSERT INTO room VALUES (203, 180.00, 'City View', 2, NULL, 3);
-INSERT INTO room VALUES (303, 230.00, 'Times Square View', 3, NULL, 3);
-INSERT INTO room VALUES (403, 280.00, 'Empire State Building View', 4, 'Faulty air conditioning', 3);
-INSERT INTO room VALUES (503, 330.00, 'Central Park View', 5, NULL, 3);
+INSERT INTO room VALUES (303, 230.00, 'City View', 3, NULL, 3);
+INSERT INTO room VALUES (403, 280.00, 'Building View', 4, 'Faulty air conditioning', 3);
+INSERT INTO room VALUES (503, 330.00, 'Park View', 5, NULL, 3);
 
 INSERT INTO room VALUES (104, 120.00, 'Street View', 1, NULL, 4);
 INSERT INTO room VALUES (204, 170.00, 'City View', 2, NULL, 4);
-INSERT INTO room VALUES (304, 220.00, 'Times Square View', 3, NULL, 4);
-INSERT INTO room VALUES (404, 270.00, 'Empire State Building View', 4, NULL, 4);
-INSERT INTO room VALUES (504, 320.00, 'Central Park View', 5, NULL, 4);
+INSERT INTO room VALUES (304, 220.00, 'City View', 3, NULL, 4);
+INSERT INTO room VALUES (404, 270.00, 'Building View', 4, NULL, 4);
+INSERT INTO room VALUES (504, 320.00, 'Park View', 5, NULL, 4);
 
 INSERT INTO room VALUES (105, 150.00, 'City View', 1, NULL, 5);
 INSERT INTO room VALUES (205, 200.00, 'Street View', 2, 'Leaky shower', 5);
@@ -99,12 +99,12 @@ INSERT INTO room VALUES (506, 320.00, 'City View', 5, 'Faulty TV', 6);
 INSERT INTO room VALUES (107, 100.00, 'City View', 1, NULL, 7);
 INSERT INTO room VALUES (207, 150.00, 'Street View', 2, 'Broken TV', 7);
 INSERT INTO room VALUES (307, 200.00, 'City View', 3, 'Leaky shower', 7);
-INSERT INTO room VALUES (407, 250.00, 'Empire State Building View', 4, NULL, 7);
+INSERT INTO room VALUES (407, 250.00, 'Building View', 4, NULL, 7);
 INSERT INTO room VALUES (507, 300.00, 'City View', 5, 'Faulty hairdryer', 7);
 
 INSERT INTO room VALUES (108, 125.00, 'Street View', 1, 'Broken lamp', 8);
 INSERT INTO room VALUES (208, 175.00, 'City View', 2, NULL, 8);
-INSERT INTO room VALUES (308, 225.00, 'Empire State Building View', 3, 'Leaky faucet', 8);
+INSERT INTO room VALUES (308, 225.00, 'Building View', 3, 'Leaky faucet', 8);
 INSERT INTO room VALUES (408, 275.00, 'Street View', 4, 'Faulty air conditioning', 8);
 INSERT INTO room VALUES (508, 325.00, 'City View', 5, NULL, 8);
 
@@ -270,7 +270,7 @@ INSERT INTO room VALUES (335, 455.50, 'City View', 3, 'Broken shower head', 35);
 INSERT INTO room VALUES (435, 508.00, 'Park View', 4, 'Faulty air conditioning', 35);
 INSERT INTO room VALUES (535, 560.50, 'City View', 5, NULL, 35);
 
-INSERT INTO room VALUES (136, 360.00, 'Ocean View', 1, 'Stained bed sheets', 36);
+INSERT INTO room VALUES (136, 360.00, 'Ocean View', 1, 'Stained bed sheets, Clogged toilet', 36);
 INSERT INTO room VALUES (236, 413.50, 'City View', 2, NULL, 36);
 INSERT INTO room VALUES (336, 466.00, 'Ocean View', 3, 'Leaky faucet', 36);
 INSERT INTO room VALUES (436, 518.50, 'City View', 4, 'Noisy neighbors', 36);
@@ -282,23 +282,23 @@ INSERT INTO room VALUES (337, 476.50, 'Forest View', 3, 'Clogged toilet', 37);
 INSERT INTO room VALUES (437, 530.00, 'Mountain View', 4, 'Broken shower head', 37);
 INSERT INTO room VALUES (537, 583.50, 'Lake View', 5, NULL, 37);
 
-INSERT INTO room VALUES (638, 642.50, 'City View', 6, 'Leaky faucet', 38);
-INSERT INTO room VALUES (738, 906.00, 'Park View', 7, NULL, 38);
-INSERT INTO room VALUES (838, 1147.50, 'City View', 8, 'Broken lamp', 38);
-INSERT INTO room VALUES (938, 1302.00, 'Park View', 9, 'Clogged toilet', 38);
-INSERT INTO room VALUES (1038, 1461.50, 'City View', 10, NULL, 38);
+INSERT INTO room VALUES (138, 642.50, 'City View', 1, 'Leaky faucet', 38);
+INSERT INTO room VALUES (238, 906.00, 'Park View', 2, NULL, 38);
+INSERT INTO room VALUES (338, 1147.50, 'City View', 3, 'Broken lamp', 38);
+INSERT INTO room VALUES (438, 1302.00, 'Park View', 4, 'Clogged toilet', 38);
+INSERT INTO room VALUES (538, 1461.50, 'City View', 5, NULL, 38);
 
-INSERT INTO room VALUES (639, 651.00, 'Mountain View', 6, 'Faulty air conditioning', 39);
-INSERT INTO room VALUES (739, 915.50, 'Lake View', 7, NULL, 39);
-INSERT INTO room VALUES (839, 1179.00, 'Forest View', 8, 'Broken shower head', 39);
-INSERT INTO room VALUES (939, 1305.50, 'Mountain View', 9, 'Leaky faucet', 39);
-INSERT INTO room VALUES (1039, 1467.00, 'Lake View', 10, NULL, 39);
+INSERT INTO room VALUES (139, 651.00, 'Mountain View', 1, 'Faulty air conditioning', 39);
+INSERT INTO room VALUES (239, 915.50, 'Lake View', 2, NULL, 39);
+INSERT INTO room VALUES (339, 1179.00, 'Forest View', 3, 'Broken shower head', 39);
+INSERT INTO room VALUES (439, 1305.50, 'Mountain View', 4, 'Leaky faucet', 39);
+INSERT INTO room VALUES (539, 1467.00, 'Lake View', 5, NULL, 39);
 
-INSERT INTO room VALUES (640, 660.50, 'Ocean View', 6, 'Noisy neighbors', 40);
-INSERT INTO room VALUES (740, 816.00, 'City View', 7, NULL, 40);
-INSERT INTO room VALUES (840, 1071.50, 'Ocean View', 8, NULL, 40);
-INSERT INTO room VALUES (940, 1230.00, 'City View', 9, 'Faulty air conditioning', 40);
-INSERT INTO room VALUES (1040, 1393.50, 'Ocean View', 10, NULL, 40);
+INSERT INTO room VALUES (140, 660.50, 'Ocean View', 1, 'Broken shower head', 40);
+INSERT INTO room VALUES (240, 816.00, 'City View', 2, NULL, 40);
+INSERT INTO room VALUES (340, 1071.50, 'Ocean View', 3, NULL, 40);
+INSERT INTO room VALUES (440, 1230.00, 'City View', 4, 'Faulty air conditioning', 40);
+INSERT INTO room VALUES (540, 1393.50, 'Ocean View', 5, NULL, 40);
 -- Room Insert Queries END
 
 

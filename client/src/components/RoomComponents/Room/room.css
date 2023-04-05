@@ -1,0 +1,33 @@
+.room__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 10px;
+  }
+  
+  .room__details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .room__name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  
+  .room__hotel__name {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .room__capacity {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
