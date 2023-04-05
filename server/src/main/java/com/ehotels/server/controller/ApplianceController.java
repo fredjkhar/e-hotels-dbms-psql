@@ -1,7 +1,7 @@
 package com.ehotels.server.controller;
 
-import com.ehotels.server.model.Commodite;
-import com.ehotels.server.service.CommoditeService;
+import com.ehotels.server.model.Appliance;
+import com.ehotels.server.service.ApplianceService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,40 +18,40 @@ public class CommoditeController {
 
     private static final Logger logger = LoggerFactory.getLogger(CommoditeController.class);
 
-    private final CommoditeService service;
+    private final ApplianceService service;
 
     @Autowired
-    public CommoditeController(CommoditeService service){
+    public CommoditeController(ApplianceService service){
         Objects.requireNonNull(service);
         this.service = service;
     }
 
     @GetMapping
-    public ResponseEntity<List<Commodite>> getAllCommodites(){
-        List<Commodite> commodites = service.selectAll();
+    public ResponseEntity<List<Appliance>> getAllCommodites(){
+        List<Appliance> appliances = service.selectAll();
         //Return 404 not found if no amenties are found
-        return commodites.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(commodites);
+        return appliances.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(appliances);
     }
 
     @GetMapping("/{idComm}")
-    public ResponseEntity<Commodite> getCommoditeById(@PathVariable("idComm") int idComm){
-        Commodite commodite = service.select(idComm);
-        //Return 404 not found if no commodite are found
-        return commodite == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(commodite);
+    public ResponseEntity<Appliance> getCommoditeById(@PathVariable("idComm") int idComm){
+        Appliance appliance = service.select(idComm);
+        //Return 404 not found if no appliance are found
+        return appliance == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(appliance);
     }
 
     @PostMapping
-    public ResponseEntity<String> createCommodite(@RequestBody Commodite commodite){
+    public ResponseEntity<String> createCommodite(@RequestBody Appliance appliance){
         try{
-            Objects.requireNonNull(commodite);
-            service.insert(commodite);
-            String message = String.format("%s has been added to Commodite repository", commodite);
+            Objects.requireNonNull(appliance);
+            service.insert(appliance);
+            String message = String.format("%s has been added to Appliance repository", appliance);
             logger.info(message);
             //Return an "ok" response with the message
             return ResponseEntity.ok(message);
         } catch(Exception e){
-            logger.error("Failed to create Commodite: {}", commodite, e);
-            // Return a 500 Internal Server Error if server failed to create a commodite record
+            logger.error("Failed to create Appliance: {}", appliance, e);
+            // Return a 500 Internal Server Error if server failed to create a appliance record
             return ResponseEntity.internalServerError().body(e.getMessage());
         }
     }
@@ -74,9 +74,9 @@ public class CommoditeController {
     @DeleteMapping(path={"/{idComm}"})
     public ResponseEntity<String> deleteCommoditeById(@PathVariable("idComm") int idComm){
         try{
-            Commodite commodite = service.select(idComm);
+            Appliance appliance = service.select(idComm);
             service.delete(idComm);
-            String message = String.format("Successfully deleted %s from commodite", commodite);
+            String message = String.format("Successfully deleted %s from appliance", appliance);
             logger.info(message);
             //Return an "ok" response with the message
             return ResponseEntity.ok(message);
@@ -89,17 +89,17 @@ public class CommoditeController {
     }
 
     @PutMapping(path = {"/{idComm}"})
-    public ResponseEntity<String> updateCommoditeByNas(@PathVariable("idComm") int idComm, @RequestBody Commodite commodite){
+    public ResponseEntity<String> updateCommoditeByNas(@PathVariable("idComm") int idComm, @RequestBody Appliance appliance){
         try {
-            Objects.requireNonNull(commodite);
+            Objects.requireNonNull(appliance);
             Objects.requireNonNull(service.select(idComm));
 
-            if(commodite.getIdComm() != idComm){
-                commodite.setIdComm(idComm);
+            if(appliance.getIdComm() != idComm){
+                appliance.setIdComm(idComm);
             }
 
-            service.update(commodite);
-            String message = String.format("commodites with NAS %s has been updated", commodite);
+            service.update(appliance);
+            String message = String.format("commodites with NAS %s has been updated", appliance);
             logger.info(message);
 
             //Return an "ok" response with the message
