@@ -1,10 +1,13 @@
 import React from "react";
 import Stars from "../Stars/stars";
 import Rating from "../Rating/rating";
+import { Link } from "react-router-dom";
+import { useAppContext } from "../../../context/contextProvider";
 
 import "./hotel.css";
 
 const Hotel = (props) => {
+  const { setHotelName} = useAppContext();
   const hotel = props.hotel;
   return (
     <div className="hotel__container">
@@ -30,7 +33,9 @@ const Hotel = (props) => {
         <div className="hotel__price-tag">
           <p>Starting from</p> ${hotel.min_price}
         </div>
-        <div className="view-deals__btn">
+        <Link className='deals_link' to='/rooms'>
+        <div className="view-deals__btn" onClick={() => setHotelName(hotel.name)}>
+       
           <span>View deals</span>
           <img
             className="hotel__more-than"
@@ -38,6 +43,7 @@ const Hotel = (props) => {
             alt="more than icon"
           />
         </div>
+        </Link>
       </div>
     </div>
   );
