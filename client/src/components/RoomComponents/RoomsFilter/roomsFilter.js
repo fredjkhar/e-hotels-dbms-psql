@@ -27,7 +27,7 @@ const RoomsFilter = () => {
     capacity,
     setCapacity,
     view,
-    setView
+    setView,
   } = useAppContext();
   const [price, setPrice] = useState(1500);
 
@@ -105,10 +105,6 @@ const RoomsFilter = () => {
           </Select>
         </FormControl>
       </div>
-
-
-
-
 
       <div className="price__filter">
         <Typography className="form__label" id="price__header" gutterBottom>

@@ -17,8 +17,8 @@ export default function LoginForm() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
-        if (email.includes("@ehotels.com")) setRole("manager");
-        else if (email.includes("ehotel.com")) setRole("employee");
+        if (email.includes("@hotels.com")) setRole("manager");
+        else if (email.includes("hotel.com")) setRole("employee");
         else setRole("user");
       })
       .catch((error) => {
