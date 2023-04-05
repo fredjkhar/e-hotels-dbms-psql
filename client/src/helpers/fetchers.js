@@ -44,6 +44,12 @@ export const getRequestById = (setRes, URL_suffix, args) => {
 };
 
 export const postRequest = (e, setRes, URL_suffix, args) => {
+  if (!args && args.length === 0) {
+    let msg = "Error: Please specify a record to be created";
+    setRes(msg);
+    console.error(msg);
+    return;
+  }
   let err = false;
   fetch(BASE_URL + URL_suffix, {
     method: "POST",
@@ -75,6 +81,12 @@ export const postRequest = (e, setRes, URL_suffix, args) => {
 };
 
 export const deleteRequestById = (setRes, URL_suffix, args) => {
+  if (!args && args.length === 0) {
+    let msg = "Error: Please specify a record to be updated";
+    setRes(msg);
+    console.error(msg);
+    return;
+  }
   if (!args || args.length === 0) {
     let msg =
       "Error: Please specify the id of the record to be deleted in the arguments textField.";

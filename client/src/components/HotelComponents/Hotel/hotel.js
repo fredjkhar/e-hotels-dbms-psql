@@ -27,7 +27,9 @@ const Hotel = (props) => {
         <Rating number={hotel.rating} />
       </div>
       <div className="hotel__price">
-        <div className="hotel__price-tag"><p>Starting from</p> ${hotel.min_price}</div>
+        <div className="hotel__price-tag">
+          <p>Starting from</p> ${hotel.min_price}
+        </div>
         <div className="view-deals__btn">
           <span>View deals</span>
           <img

@@ -1,13 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import './employee.css'
+import "./employee.css";
 
 const Employee = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+  return <div></div>;
 };
 
 export default Employee;
