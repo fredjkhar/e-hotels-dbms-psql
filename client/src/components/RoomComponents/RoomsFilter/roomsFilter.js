@@ -32,7 +32,7 @@ const RoomsFilter = () => {
     view,
     setView,
     problems,
-    setProblems,
+    setProblems
   } = useAppContext();
   const [price, setPrice] = useState(1500);
 

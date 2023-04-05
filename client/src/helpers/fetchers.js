@@ -167,9 +167,9 @@ const createUser = (e, URL_suffix, email, password) => {
   if (
     URL_suffix.includes("/employees") &&
     email &&
-    !email.includes("@ehotels.com")
+    !email.includes("@hotel.com")
   ) {
-    email = email.substring(0, email.indexOf("@")) + "@ehotels.com";
+    email = email.substring(0, email.indexOf("@")) + "@hotel.com";
   }
   signUp(e, email, password);
 };
