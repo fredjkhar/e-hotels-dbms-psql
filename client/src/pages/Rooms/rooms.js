@@ -7,7 +7,7 @@ import Room from "../../components/RoomComponents/Room/room";
 import "./rooms.css";
 
 const Rooms = () => {
-  const { rooms, hotels, hotelName, roomPrice, capacity, view } =
+  const { rooms, hotels, hotelName, roomPrice, capacity, view, problems } =
     useAppContext();
   const [displayedRooms, setDisplayedRooms] = useState(rooms);
 
@@ -23,7 +23,8 @@ const Rooms = () => {
               room.price <= roomPrice &&
               //eslint-disable-next-line
               (capacity == 0 ? true : room.capacity == capacity) &&
-              (view === "All" ? true : room.view === view)
+              (view === "All" ? true : room.view === view) && 
+              (problems === "All" ? room : room.problems === null)
           )
         );
       } else {
@@ -33,12 +34,13 @@ const Rooms = () => {
               room.price <= roomPrice &&
               // eslint-disable-next-line
               (capacity == 0 ? true : room.capacity == capacity) &&
-              (view === "All" ? true : room.view === view)
+              (view === "All" ? true : room.view === view) &&
+              (problems === "All" ? room : room.problems === null)
           )
         );
       }
     }
-  }, [roomPrice, capacity, view, hotelName, hotels, rooms]);
+  }, [roomPrice, capacity, view, problems, hotelName, hotels, rooms]);
 
   return (
     <div className="rooms_wrapper">
