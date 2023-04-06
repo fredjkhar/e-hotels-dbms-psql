@@ -1,7 +1,7 @@
 const BASE_URL = "http://localhost:8080";
 
-export const query = (query, suffix, setRes) => {
-  fetch(BASE_URL + suffix, {
+export const query = async (query, suffix, setRes) => {
+  await fetch(BASE_URL + suffix, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: query,

@@ -1,0 +1,9 @@
+.employee__wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.employee__container {
+    width: 90%;
+}
