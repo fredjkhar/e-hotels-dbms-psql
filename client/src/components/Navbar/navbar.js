@@ -3,19 +3,25 @@ import { Link } from "react-router-dom";
 import { useAppContext } from "../../context/contextProvider";
 import ApartmentIcon from "@mui/icons-material/Apartment";
 import { auth } from "../../helpers/firebase";
+import { query } from "../../helpers/_fetchers";
 
 import "./navbar.css";
 
 const Navbar = () => {
-  var { chaines, setChaineName, role, setRole } = useAppContext();
+  const { role, setRole, setGroupName } = useAppContext();
   const [openChaines, setOpenChaines] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [chaines, setChaines] = useState([]);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
     });
-
+    query(
+      "SELECT * FROM hotel_group",
+      "/api/hotel_groups/custom/select",
+      setChaines
+    );
     return unsubscribe;
   }, []);
 
@@ -71,20 +77,21 @@ const Navbar = () => {
             Chaines
           </h1>
           <ul className={`navbar__dropdown ${!openChaines && "inactive"}`}>
-            {chaines.map((chaine, index) => (
-              <li key={index}>
-                <Link
-                  className={"navbar__dropdownItem"}
-                  to={`/${chaine.name}`}
-                  onClick={() => {
-                    setOpenChaines(false);
-                    setChaineName(chaine.name);
-                  }}
-                >
-                  {chaine.name}
-                </Link>
-              </li>
-            ))}
+            {chaines &&
+              chaines.map((group, index) => (
+                <li key={index}>
+                  <Link
+                    className={"navbar__dropdownItem"}
+                    to={`/${group.name}`}
+                    onClick={() => {
+                      setOpenChaines(false);
+                      setGroupName(group.name);
+                    }}
+                  >
+                    {group.name}
+                  </Link>
+                </li>
+              ))}
           </ul>
         </li>
         <li>
@@ -92,7 +99,6 @@ const Navbar = () => {
             to="/hotels"
             className="navbar__link"
             onClick={() => {
-              setChaineName("All");
               setOpenChaines(false);
             }}
           >

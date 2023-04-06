@@ -7,7 +7,7 @@ import { useAppContext } from "../../../context/contextProvider";
 import "./hotel.css";
 
 const Hotel = (props) => {
-  const { setHotelName} = useAppContext();
+  const { setHotelName } = useAppContext();
   const hotel = props.hotel;
   return (
     <div className="hotel__container">

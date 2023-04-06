@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAppContext } from "../../../context/contextProvider";
 import { Link } from "react-router-dom";
+import { query } from "../../../helpers/_fetchers";
 
 import {
   FormControlLabel,
@@ -18,23 +19,36 @@ import "./filters.css";
 
 const Filters = () => {
   const {
-    hotels,
     setPriceRange,
     minRating,
     setMinRating,
-    chaines,
-    chaineName,
-    setChaineName,
+    groupName,
+    setGroupName,
     areaName,
     setAreaName,
     star,
     setStar,
   } = useAppContext();
+  const [chaines, setChaines] = useState();
+  const [hotels, setHotels] = useState();
   const [price, setPrice] = useState(400);
 
   const valueText = (number) => {
     return `$${number}`;
   };
+
+  useEffect(() => {
+    query(
+      "SELECT * FROM hotel_group",
+      "/api/hotel_groups/custom/select",
+      setChaines
+    );
+    query(
+      "SELECT * FROM hotel",
+      "/api/hotels/custom/select",
+      setHotels
+    );
+  }, [])
 
   const createStars = () => {
     const stars = [];
@@ -79,16 +93,16 @@ const Filters = () => {
         </Typography>
         <FormControl sx={{ marginBottom: 1, minWidth: 190 }}>
           <Select
-            value={chaineName}
+            value={groupName}
             inputProps={{ "aria-label": "Without label" }}
-            onChange={(e) => setChaineName(e.target.value)}
+            onChange={(e) => setGroupName(e.target.value)}
           >
             <MenuItem value="All">
               <Link className="filters__link" to="/hotels">
                 <em>All</em>
               </Link>
             </MenuItem>
-            {chaines.map((chaine, index) => (
+            {chaines && chaines.map((chaine, index) => (
               <MenuItem key={index} value={chaine.name}>
                 <Link className="filters__link" to={`/${chaine.name}`}>
                   {chaine.name}
@@ -117,7 +131,7 @@ const Filters = () => {
             <MenuItem value="All">
               <em>All</em>
             </MenuItem>
-            {getAreas().map((area, index) => (
+            {hotels && getAreas().map((area, index) => (
               <MenuItem key={index} value={area}>
                 {area}
               </MenuItem>

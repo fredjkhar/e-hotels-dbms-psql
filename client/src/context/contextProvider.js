@@ -6,16 +6,13 @@ const BASE_URL = "http://localhost:8080";
 
 const ContextProvider = ({ children }) => {
   // Resources
-  const [chaines, setChaines] = useState(null);
-  const [hotels, setHotels] = useState(null);
   const [rooms, setRooms] = useState(null);
 
   //Filter values
-  const [chaineName, setChaineName] = useState("All");
+  const [groupName, setGroupName] = useState("All");
   const [areaName, setAreaName] = useState("All");
-  const [priceRange, setPriceRange] = useState(400);
+  const [minPrice, setMinPrice] = useState(400);
   const [minRating, setMinRating] = useState(0);
-  const [groupName, setGroupName] = useState(null);
   const [star, setStar] = useState(0);
 
   //Role value (three possible values/states: ['manager', 'user', 'employee'] or empty string)
@@ -30,16 +27,6 @@ const ContextProvider = ({ children }) => {
 
   // Fetch hotelGroups from DB on website load.
   useEffect(() => {
-    fetch(BASE_URL + "/api/hotelGroups")
-      .then((response) => response.json())
-      .then((responseData) => setChaines(responseData))
-      .catch((error) => console.error("Error: ", error));
-
-    fetch(BASE_URL + "/api/hotels")
-      .then((response) => response.json())
-      .then((responseData) => setHotels(responseData))
-      .catch((error) => console.error("Error: ", error));
-
     fetch(BASE_URL + "/api/rooms")
       .then((response) => response.json())
       .then((responseData) => setRooms(responseData))
@@ -49,16 +36,12 @@ const ContextProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        chaines,
-        hotels,
-        priceRange,
-        setPriceRange,
+        minPrice,
+        setMinPrice,
         minRating,
         setMinRating,
         groupName,
         setGroupName,
-        chaineName,
-        setChaineName,
         areaName,
         setAreaName,
         star,
@@ -78,7 +61,7 @@ const ContextProvider = ({ children }) => {
         setProblems
       }}
     >
-      {chaines && hotels && children}
+      {children}
     </AppContext.Provider>
   );
 };
