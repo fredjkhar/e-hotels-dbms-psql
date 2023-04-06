@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import "./home.css";
 import Cards from "../../components/HomeComponents/Cards/cards";
-import { useAppContext } from "../../context/contextProvider";
 import Map from "../../components/HomeComponents/Map/map";
+import { useAppContext } from "../../context/contextProvider";
 
 const Home = () => {
-  const { setAreaName, setChaineName } = useAppContext();
+  const { setGroupName, setAreaName } = useAppContext();
   useEffect(() => {
+    setGroupName("All");
     setAreaName("All");
-    setChaineName("All");
   }, []);
 
   return (

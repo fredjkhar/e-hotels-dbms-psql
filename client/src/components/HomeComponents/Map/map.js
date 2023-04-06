@@ -5,7 +5,7 @@ import "./map.css";
 import { useAppContext } from "../../../context/contextProvider";
 
 const Map = () => {
-  const { setAreaName, areaName } = useAppContext();
+  const { setAreaName } = useAppContext();
 
   return (
     <div className="map__container">

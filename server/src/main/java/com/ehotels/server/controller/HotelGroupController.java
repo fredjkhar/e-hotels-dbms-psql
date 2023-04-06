@@ -21,7 +21,7 @@ import java.util.Objects;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/hotelGroups") //Base URI
+@RequestMapping("/api/hotel_groups") //Base URI
 public class HotelGroupController {
 
     private static final Logger logger = LoggerFactory.getLogger(HotelGroupController.class);

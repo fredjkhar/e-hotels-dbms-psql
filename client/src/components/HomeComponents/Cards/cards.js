@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./cards.css";
 import CardItem from "../CardItem/cardItem";
-import { useAppContext } from "../../../context/contextProvider";
+import { query } from "../../../helpers/_fetchers";
 
 function Cards() {
-  const { chaines } = useAppContext();
+  const [chaines, setChaines] = useState([]);
+
+  useEffect(() => {
+    query(
+      "SELECT * FROM hotel_group",
+      "/api/hotel_groups/custom/select",
+      setChaines
+    );
+  }, []);
 
   return (
     <div className="cards">

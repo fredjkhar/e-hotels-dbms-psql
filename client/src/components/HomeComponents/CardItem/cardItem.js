@@ -5,7 +5,7 @@ import { useAppContext } from "../../../context/contextProvider";
 import "./cardItem.css";
 
 const CardItem = (props) => {
-  const { setChaineName } = useAppContext();
+  const { setGroupName } = useAppContext();
 
   return (
     <div className="card__item">
@@ -14,7 +14,7 @@ const CardItem = (props) => {
           className="card__item__img"
           alt={`chaine-${props.id} logo`}
           src={props.src}
-          onClick={() => setChaineName(props.name)}
+          onClick={() => setGroupName(props.name)}
         />
       </Link>
     </div>
