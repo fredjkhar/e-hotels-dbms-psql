@@ -19,7 +19,7 @@ const Navbar = () => {
     });
     query(
       "SELECT * FROM hotel_group",
-      "/api/hotel_groups/custom/select",
+      "/api/sql",
       setChaines
     );
     return unsubscribe;
