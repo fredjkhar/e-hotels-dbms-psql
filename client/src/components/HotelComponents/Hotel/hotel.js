@@ -35,7 +35,6 @@ const Hotel = (props) => {
         </div>
         <Link className='deals_link' to='/rooms'>
         <div className="view-deals__btn" onClick={() => setHotelName(hotel.name)}>
-       
           <span>View deals</span>
           <img
             className="hotel__more-than"

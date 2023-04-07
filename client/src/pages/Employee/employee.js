@@ -3,37 +3,30 @@ import { query } from "../../helpers/_fetchers";
 import Reservation from "../../components/EmployeeComponents/reservation/reservation";
 
 import "./employee.css";
+import { useAppContext } from "../../context/contextProvider";
 
 const Employee = () => {
+  const { nas } = useAppContext();
   const [reservations, setReservations] = useState([]);
-  const [clients, setClients] = useState([]);
-
-  var arr = [];
-
-  useEffect(() => {
-    query(
-      "SELECT * FROM reservation, client WHERE reservation.nas_client = client.nas_client ",
-      "/api/reservations/custom/select",
-      setReservations
-    );
-  }, []);
+  const [deleteStatus, setDeleteStatus] = useState();
+  const [createStatus, setCreateStatus] = useState();
 
   useEffect(() => {
-    reservations.forEach((reservation) => {
-      const q = `SELECT * FROM client WHERE nas_client = ${reservation.nas_client}`;
-      query(q, "/api/clients/custom/select", setClients);
-      
-      arr.push(clients);
-    });
-    console.log(arr);
-  }, [reservations]);
+    query("SELECT * FROM reservation_view", "/api/sql", setReservations);
+  }, [deleteStatus, createStatus]);
 
   return (
     <div className="employee__wrapper">
       <div className="employee__container">
-        {reservations && arr.length !== 0 && 
+        {reservations &&
           reservations.map((reservation, index) => (
-            <Reservation key={index} reservation={reservation} client={arr[index]}/>
+            <Reservation
+              key={index}
+              reservation={reservation}
+              setDeleteStatus={setDeleteStatus}
+              setCreateStatus={setCreateStatus}
+              nas={nas[0].employee_nas}
+            />
           ))}
       </div>
     </div>

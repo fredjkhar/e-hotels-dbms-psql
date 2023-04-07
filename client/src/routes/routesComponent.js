@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { useAppContext } from "../context/contextProvider";
 import { query } from "../helpers/_fetchers";
 
 import Home from "../pages/Home/home";
@@ -17,7 +16,7 @@ const RoutesComponent = () => {
   useEffect(() => {
     query(
       "SELECT * FROM hotel_group",
-      "/api/hotel_groups/custom/select",
+      "/api/sql",
       setChaines
     );
   }, []);
