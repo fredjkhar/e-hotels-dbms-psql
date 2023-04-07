@@ -29,8 +29,7 @@ const Hotels = () => {
     if (areaName !== "All") q = q +  ` AND city='${city}' AND country='${country}'`;
     if (groupName !== "All") q = q + ` AND EXISTS (SELECT * FROM hotel_group WHERE hotel.hotel_group_id = hotel_group.id AND hotel_group.name = '${groupName}')`;
     
-    query(q, "/api/hotels/custom/select", setHotels);
-
+    query(q, "/api/sql", setHotels);
   }, [minPrice, minRating, groupName, areaName, star]);
 
   return (

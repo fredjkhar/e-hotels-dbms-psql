@@ -1,3 +1,7 @@
+-- Drop Views
+DROP VIEW IF EXISTS reservation_view;
+
+-- Drop tables
 DROP TABLE IF EXISTS room_appliance;
 DROP TABLE IF EXISTS appliance;
 DROP TABLE IF EXISTS reservation;
@@ -91,23 +95,23 @@ CREATE TABLE client(
 );
 
 CREATE TABLE location(
-      location_id INT NOT NULL PRIMARY KEY,
-      startDate DATE NOT NULL,
-      endDate DATE NOT NULL,
+      start_date VARCHAR(255) NOT NULL,
+      end_date VARCHAR(255) NOT NULL,
       NAS_client INT NOT NULL,
       employee_NAS INT NOT NULL,
       room_number INT NOT NULL,
+      PRIMARY KEY (start_date, end_date, NAS_client, room_number),
       FOREIGN KEY (NAS_client) REFERENCES client(NAS_client),
       FOREIGN KEY (employee_NAS) REFERENCES employee(employee_NAS),
       FOREIGN KEY (room_number) REFERENCES room(room_number)
 );
 
 CREATE TABLE reservation(
-    reservation_id INT NOT NULL PRIMARY KEY,
     start_date VARCHAR(255) NOT NULL,
     end_date VARCHAR(255) NOT NULL,
     NAS_client INT NOT NULL,
     room_number INT NOT NULL,
+    PRIMARY KEY (start_date, end_date, NAS_client, room_number),
     FOREIGN KEY (NAS_client) REFERENCES client(NAS_client),
     FOREIGN KEY (room_number) REFERENCES room(room_number)
 );

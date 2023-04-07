@@ -1,5 +1,6 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
+import { query } from "../../../helpers/_fetchers";
 import { useAppContext } from "../../../context/contextProvider";
 import { auth } from "../../../helpers/firebase";
 import { Link } from "react-router-dom";
@@ -8,7 +9,7 @@ import Alert from "@mui/material/Alert";
 import "./loginForm.css";
 
 export default function LoginForm() {
-  const { setRole } = useAppContext();
+  const { setRole, setNas } = useAppContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(true);
@@ -16,10 +17,17 @@ export default function LoginForm() {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
         if (email.includes("@hotels.com")) setRole("manager");
-        else if (email.includes("hotel.com")) setRole("employee");
-        else setRole("user");
+        else if (email.includes("hotel.com")) {
+          setRole("employee");
+          const q = `SELECT employee_nas FROM employee WHERE email = '${email}' AND password = '${password}'`;
+          console.log(q);
+          query(
+            q,
+            "/api/sql",
+            setNas
+          );
+        } else setRole("user");
       })
       .catch((error) => {
         console.log(error);
