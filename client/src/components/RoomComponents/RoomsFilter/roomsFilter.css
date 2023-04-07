@@ -1,21 +1,28 @@
-.rooms__filters__container {
-    max-width: 100px;
-    margin-top: 2rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    padding-left: 1rem;
-  }
-  
-  .rooms__filters__container > div,
- 
-  
-  .rooms__filter-header {
-    width: 100%;
-    font-size: 1.2rem;
-    padding-bottom: 1rem;
-    margin-top: 5px;
-  }
-  
-  .form__label {
-    padding-top: 1rem;
-    width: fit-content;
-  }
+.rooms__filter__container{
+  min-width: 200px;
+  margin-top: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-left: 1rem;
+}
+
+.rooms__filter__container > div,
+.filters__price {
+  width: 200px;
+}
+
+.rooms__filter-header{
+  width: 100%;
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+  margin-top: 5px;
+}
+
+.form__label {
+  padding-top: 1rem;
+  width: fit-content;
+}
+
+.filters__link {
+  text-decoration: none;
+  color: black;
+}

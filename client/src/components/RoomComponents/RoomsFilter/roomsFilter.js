@@ -1,19 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useAppContext } from "../../../context/contextProvider";
 import { Link } from "react-router-dom";
+import { query } from "../../../helpers/_fetchers";
 
 import {
   FormControl,
   Select,
   MenuItem,
-  Radio,
-  RadioGroup,
-  FormControlLabel,
   Typography,
   Slider,
-  Checkbox,
   ToggleButton,
-  ToggleButtonGroup
+  ToggleButtonGroup,
 } from "@mui/material";
 
 import { blue } from "@mui/material/colors";
@@ -22,8 +19,6 @@ import "./roomsFilter.css";
 
 const RoomsFilter = () => {
   const {
-    rooms,
-    hotels,
     hotelName,
     setHotelName,
     setRoomPrice,
@@ -31,14 +26,23 @@ const RoomsFilter = () => {
     setCapacity,
     view,
     setView,
-    problems,
-    setProblems
+    areaName,
+    setAreaName,
   } = useAppContext();
+  const [chaines, setChaines] = useState();
+  const [hotels, setHotels] = useState();
+  const [rooms, setRooms] = useState();
   const [price, setPrice] = useState(1500);
 
   const valueText = (number) => {
     return `$${number}`;
   };
+
+  useEffect(() => {
+    query( "SELECT * FROM hotel_group", "/api/sql", setChaines);
+    query("SELECT * FROM hotel", "/api/sql", setHotels);
+    query("SELECT * FROM room", "/api/sql", setRooms);
+  }, []);
 
   const getViews = () => {
     let views = [];
@@ -51,14 +55,18 @@ const RoomsFilter = () => {
     return views;
   };
 
-  const handleCheckboxChange = (event) => {
-    setProblems(event.target.checked ? "All" : "Null");
+  const getAreas = () => {
+    let areas = [];
+    hotels.forEach((hotel) => {
+      let str = hotel.city + ", " + hotel.country;
+      if (!areas.includes(str)) areas.push(str);
+    });
+    return areas;
   };
 
   return (
-    <div className="rooms__filter_container">
+    <div className="rooms__filter__container">
       <div className="rooms__filter-header">Filter by</div>
-
       <div className="hotel__dropdown-filter">
         <Typography
           className="form__label"
@@ -67,20 +75,58 @@ const RoomsFilter = () => {
         >
           Hotel
         </Typography>
-        <FormControl sx={{ marginBottom: 1, minWidth: 190 }}>
+        <FormControl sx={{ marginBottom: 1, minWidth: 190, maxWidth: 190 }}>
           <Select
             value={hotelName}
             inputProps={{ "aria-label": "Without label" }}
             onChange={(e) => setHotelName(e.target.value)}
+            MenuProps={{
+              PaperProps: {
+                style: {
+                  maxWidth: 190,
+                  overflowX: "auto",
+                  wordWrap: "break-word",
+                },
+              },
+            }}
           >
             <MenuItem value="All">
               <Link className="filters__link" to="/rooms">
                 <em>All</em>
               </Link>
             </MenuItem>
-            {hotels.map((hotel, index) => (
-              <MenuItem key={index} value={hotel.name}>
-                <p className="filters__hotelName">{hotel.name}</p>
+            {hotels &&
+              hotels.map((hotel, index) => (
+                <MenuItem key={index} value={hotel.name}>
+                  <Link className="filters__link">{hotel.name}</Link>
+                </MenuItem>
+              ))}
+          </Select>
+        </FormControl>
+      </div>
+
+      <div className="location__radio-filter">
+        <Typography
+          className="form__label"
+          id="location__radio-filter-header"
+          gutterBottom
+        >
+          Area
+        </Typography>
+        <FormControl sx={{ marginBottom: 1, minWidth: 190 }}>
+          <Select
+            value={areaName}
+            inputProps={{ "aria-label": "Without label" }}
+            onChange={(e) => {
+              setAreaName(e.target.value);
+            }}
+          >
+            <MenuItem value="All">
+              <em>All</em>
+            </MenuItem>
+            {hotels && getAreas().map((area, index) => (
+              <MenuItem key={index} value={area}>
+                {area}
               </MenuItem>
             ))}
           </Select>
@@ -108,20 +154,11 @@ const RoomsFilter = () => {
             </MenuItem>
             {getViews().map((views, index) => (
               <MenuItem key={index} value={views}>
-                {views}
+                <Link className="filters__link">{views}</Link>
               </MenuItem>
             ))}
           </Select>
         </FormControl>
-      </div>
-
-      <div className="problem_checkbox">
-        <Checkbox
-          checked={problems === "All"}
-          onChange={handleCheckboxChange}
-          inputProps={{ "aria-label": "Filter rooms" }}
-        />
-        show rooms with problems
       </div>
 
       <div className="price__filter">
@@ -148,40 +185,28 @@ const RoomsFilter = () => {
       </div>
 
       <div className="capacity__toggle-group">
-  <Typography
-    className="form__label"
-    id="capacity__toggle-group-header"
-    gutterBottom
-  >
-    Capacity
-  </Typography>
-  <ToggleButtonGroup
-    aria-label="capacity-toggle-group"
-    value={capacity}
-    onChange={(e, newValue) => setCapacity(newValue)}
-    exclusive
-  >
-    <ToggleButton value={0}>
-      Any
-    </ToggleButton>
-    <ToggleButton value={5}>
-      5
-    </ToggleButton>
-    <ToggleButton value={4}>
-      4
-    </ToggleButton>
-    <ToggleButton value={3}>
-      3
-    </ToggleButton>
-    <ToggleButton value={2}>
-      2
-    </ToggleButton>
-    <ToggleButton value={1}>
-      1
-    </ToggleButton>
-  </ToggleButtonGroup>
-</div>
-
+        <Typography
+          className="form__label"
+          id="capacity__toggle-group-header"
+          gutterBottom
+        >
+          Capacity
+        </Typography>
+        <ToggleButtonGroup
+          aria-label="capacity-toggle-group"
+          value={capacity}
+          onChange={(e, newValue) =>
+            setCapacity(newValue === null ? 0 : newValue)
+          }
+          exclusive
+        >
+          <ToggleButton value={1}>1</ToggleButton>
+          <ToggleButton value={2}>2</ToggleButton>
+          <ToggleButton value={3}>3</ToggleButton>
+          <ToggleButton value={4}>4</ToggleButton>
+          <ToggleButton value={5}>5</ToggleButton>
+        </ToggleButtonGroup>
+      </div>
     </div>
   );
 };
