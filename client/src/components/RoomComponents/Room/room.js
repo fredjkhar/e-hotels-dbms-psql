@@ -6,7 +6,7 @@ import { query } from "../../../helpers/_fetchers";
 const Room = (props) => {
   const { room } = props;
 
-  const [hotels, setHotels] = useState({});
+  const [hotels, setHotels] = useState([]);
 
   useEffect(() => {
     query(
@@ -14,15 +14,19 @@ const Room = (props) => {
       "/api/sql",
       setHotels
     );
-  }, []);
+  }, [room]);
+ 
 
   const hotel = hotels[0];
+
+
+  //const hotel = hotels.find((hotel) => hotel.hotel_id === room.hotel_id);
 
   return (
     <div className="room__container">
       <img
         className="room__img"
-        src={require(`../../../assets/images/room1.jpg`)}
+        src={require(`../../../assets/images/room-${room.hotel_id}.jpg`)}
         alt="room pic"
       />
       <div className="room__right">

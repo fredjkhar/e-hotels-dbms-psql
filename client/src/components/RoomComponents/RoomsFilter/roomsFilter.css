@@ -26,3 +26,25 @@
   text-decoration: none;
   color: black;
 }
+
+.rooms__date__filter input {
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #bbbbbb;;
+  background-color: transparent;
+  width:80%;
+  
+}
+
+.rooms__date__filter label{
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+}
+
+.rooms__filter__error{
+  color:#bbbbbb ;
+  font-weight: 100;
+  font-size: smaller;
+}

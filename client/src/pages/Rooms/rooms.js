@@ -9,7 +9,7 @@ import { query } from "../../helpers/_fetchers";
 import "./rooms.css";
 
 const Rooms = () => {
-  const { hotelName, roomPrice, capacity, view, areaName} = useAppContext();
+  const { hotelName, roomPrice, capacity, view, areaName, startDate, endDate} = useAppContext();
   const [rooms, setRooms] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState(null);
 
@@ -35,8 +35,15 @@ const Rooms = () => {
     if (view !== "All") q = q + ` AND view = '${view}'`;
     if (hotelName !== "All") q = q + ` AND EXISTS (SELECT * FROM hotel WHERE hotel.hotel_id = room.hotel_id AND hotel.name = '${hotelName}')`;
     if (areaName !== "All") q = q +  ` AND EXISTS (SELECT * FROM hotel Where hotel.hotel_id = room.hotel_id AND hotel.city='${city}' AND hotel.country='${country}' )`;
+    if(startDate !== "" && endDate !=="") q = q + ` AND NOT  EXISTS (
+      SELECT *
+      FROM reservation
+      WHERE reservation.room_number = room.room_number 
+      AND reservation.start_date <= '${endDate}' 
+      AND reservation.end_date >= '${startDate}'
+    )`;
     query(q, "/api/sql", setRooms);
-  }, [roomPrice, capacity, view, hotelName, areaName]);
+  }, [roomPrice, capacity, view, hotelName, areaName, startDate, endDate]);
 
   return (
     <div className="rooms__wrapper">

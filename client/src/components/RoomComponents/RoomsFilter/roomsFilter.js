@@ -28,18 +28,23 @@ const RoomsFilter = () => {
     setView,
     areaName,
     setAreaName,
+    startDate,
+    setStartDate,
+    endDate,
+    setEndDate,
   } = useAppContext();
   const [chaines, setChaines] = useState();
   const [hotels, setHotels] = useState();
   const [rooms, setRooms] = useState();
   const [price, setPrice] = useState(1500);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const valueText = (number) => {
     return `$${number}`;
   };
 
   useEffect(() => {
-    query( "SELECT * FROM hotel_group", "/api/sql", setChaines);
+    query("SELECT * FROM hotel_group", "/api/sql", setChaines);
     query("SELECT * FROM hotel", "/api/sql", setHotels);
     query("SELECT * FROM room", "/api/sql", setRooms);
   }, []);
@@ -64,9 +69,44 @@ const RoomsFilter = () => {
     return areas;
   };
 
+  const handleEndDateChange = (e) => {
+    if (startDate === "") {
+      setErrorMessage("Please select a start date first");
+    }
+    else if (startDate && e.target.value < startDate) {
+      setErrorMessage("End date should be after start date");
+    } else {
+      setErrorMessage("");
+      setEndDate(e.target.value);
+    }
+  };
+
   return (
     <div className="rooms__filter__container">
       <div className="rooms__filter-header">Filter by</div>
+      <div className="rooms__date__filter">
+        <label htmlFor="start_date">Check in</label>
+        <input
+          type="date"
+          id="start_date"
+          name="start_date"
+          onChange={(e) => setStartDate(e.target.value)}
+          onReset={() => setStartDate("")}
+        />
+
+        <label htmlFor="end_date">Check out</label>
+        <input
+          type="date"
+          id="end_date"
+          name="end_date"
+          onChange={handleEndDateChange}
+          disabled={!startDate}
+          onReset={() => setEndDate("")}
+        />
+        <br />
+        {errorMessage && <div className="rooms__filter__error">{errorMessage}</div>}
+      </div>
+
       <div className="hotel__dropdown-filter">
         <Typography
           className="form__label"
@@ -124,11 +164,12 @@ const RoomsFilter = () => {
             <MenuItem value="All">
               <em>All</em>
             </MenuItem>
-            {hotels && getAreas().map((area, index) => (
-              <MenuItem key={index} value={area}>
-                {area}
-              </MenuItem>
-            ))}
+            {hotels &&
+              getAreas().map((area, index) => (
+                <MenuItem key={index} value={area}>
+                  {area}
+                </MenuItem>
+              ))}
           </Select>
         </FormControl>
       </div>

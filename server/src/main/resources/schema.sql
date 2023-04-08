@@ -108,7 +108,6 @@ CREATE TABLE location(
 );
 
 CREATE TABLE reservation(
-    reservation_id INT NOT NULL PRIMARY KEY,
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
     NAS_client INT NOT NULL,

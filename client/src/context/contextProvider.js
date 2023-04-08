@@ -23,6 +23,9 @@ const ContextProvider = ({ children }) => {
   const [view, setView] = useState("All");
   const [problems, setProblems] = useState("All");
 
+  const[startDate, setStartDate] = useState("");
+  const[endDate, setEndDate] = useState("");
+
   return (
     <AppContext.Provider
       value={{
@@ -53,7 +56,11 @@ const ContextProvider = ({ children }) => {
         mail,
         setMail,
         pass,
-        setPass
+        setPass,
+        startDate, 
+        setStartDate,
+        endDate, 
+        setEndDate
       }}
     >
       {children}
