@@ -36,7 +36,7 @@ const RoomsFilter = () => {
   const [chaines, setChaines] = useState();
   const [hotels, setHotels] = useState();
   const [rooms, setRooms] = useState();
-  const [price, setPrice] = useState(1500);
+  const [price, setPrice] = useState(500);
   const [errorMessage, setErrorMessage] = useState("");
 
   const valueText = (number) => {
@@ -44,9 +44,9 @@ const RoomsFilter = () => {
   };
 
   useEffect(() => {
-    query("SELECT * FROM hotel_group", "/api/sql", setChaines);
-    query("SELECT * FROM hotel", "/api/sql", setHotels);
-    query("SELECT * FROM room", "/api/sql", setRooms);
+    query("SELECT * FROM hotel_group", "/api/sql/select", setChaines);
+    query("SELECT * FROM hotel", "/api/sql/select", setHotels);
+    query("SELECT * FROM room", "/api/sql/select", setRooms);
   }, []);
 
   const getViews = () => {

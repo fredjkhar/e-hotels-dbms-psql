@@ -14,6 +14,10 @@
   align-items: center;
 }
 
+.signup__form__box-expanded {
+  height: 400px;
+}
+
 h1.signup__form__header {
   text-align: center;
   display: block;

@@ -9,7 +9,7 @@ function Cards() {
   useEffect(() => {
     query(
       "SELECT * FROM hotel_group",
-      "/api/sql",
+      "/api/sql/select",
       setChaines
     );
   }, []);

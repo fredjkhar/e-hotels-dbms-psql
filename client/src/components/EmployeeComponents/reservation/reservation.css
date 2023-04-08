@@ -1,5 +1,5 @@
 .reservation__container {
-  width: 90%;
+  width: 60%;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   display: flex;
@@ -44,7 +44,7 @@
   background-color: red;
 }
 
-.checkin__btn:hover,
+.check_in__btn:hover,
 .delete__btn:hover {
   transform: scale(1.03);
   transition: all 0.5s ease-in-out;
@@ -52,4 +52,8 @@
 
 i {
   font-weight: bold;
+}
+
+.disabled {
+    background-color: gray;
 }

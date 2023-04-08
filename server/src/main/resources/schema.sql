@@ -1,5 +1,6 @@
 -- Drop Views
 DROP VIEW IF EXISTS reservation_view;
+DROP VIEW IF EXISTS location_view;
 
 -- Drop tables
 DROP TABLE IF EXISTS room_appliance;
@@ -9,6 +10,7 @@ DROP TABLE IF EXISTS location;
 DROP TABLE IF EXISTS client;
 DROP TABLE IF EXISTS employee;
 DROP TABLE IF EXISTS room;
+DROP TABLE IF EXISTS problem;
 DROP TABLE IF EXISTS hotel;
 DROP TABLE IF EXISTS hotel_group;
 
@@ -44,13 +46,19 @@ CREATE TABLE hotel (
   FOREIGN KEY (hotel_group_id) REFERENCES hotel_group(id)
 );
 
+CREATE TABLE problem (
+    problem_id INT NOT NULL PRIMARY KEY,
+    problem VARCHAR(255)
+);
+
 CREATE TABLE room (
     room_number INT NOT NULL PRIMARY KEY,
     price DECIMAL(10,2) NOT NULL,
     view VARCHAR(255) NOT NULL,
     capacity INT NOT NULL,
-    problems VARCHAR(255),
+    problem_id INT NOT NULL,
     hotel_id INT NOT NULL,
+    FOREIGN KEY (problem_id) REFERENCES problem(problem_id),
     FOREIGN KEY (hotel_id) REFERENCES hotel(hotel_id),
     CHECK (view IN ('City View', 'River View', 'Building View', 'Park View', 'Street View', 'Ocean View', 'Beach View', 'Garden View', 'Pool View', 'Mountain View', 'Lake View', 'Forest View')),
     CHECK (capacity >= 1 AND capacity <= 5)
@@ -101,6 +109,7 @@ CREATE TABLE location(
       NAS_client INT NOT NULL,
       employee_NAS INT NOT NULL,
       room_number INT NOT NULL,
+      checked_out INT NOT NULL,
       PRIMARY KEY (start_date, end_date, NAS_client, room_number),
       FOREIGN KEY (NAS_client) REFERENCES client(NAS_client),
       FOREIGN KEY (employee_NAS) REFERENCES employee(employee_NAS),
@@ -112,6 +121,7 @@ CREATE TABLE reservation(
     end_date DATE NOT NULL,
     NAS_client INT NOT NULL,
     room_number INT NOT NULL,
+    checked_in INT NOT NULL,
     PRIMARY KEY (start_date, end_date, NAS_client, room_number),
     FOREIGN KEY (NAS_client) REFERENCES client(NAS_client),
     FOREIGN KEY (room_number) REFERENCES room(room_number)

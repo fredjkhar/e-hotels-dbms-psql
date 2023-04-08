@@ -1,33 +1,59 @@
 import React, { useState, useEffect } from "react";
 import { query } from "../../helpers/_fetchers";
 import Reservation from "../../components/EmployeeComponents/reservation/reservation";
+import Location from "../../components/EmployeeComponents/locations/location";
 
 import "./employee.css";
 import { useAppContext } from "../../context/contextProvider";
 
-const Employee = () => {
-  const { nas } = useAppContext();
+const Employee = (props) => {
+  const { cookies } = useAppContext();
+
+  const [employeeNas, setEmployeeNas] = useState(0);
   const [reservations, setReservations] = useState([]);
-  const [deleteStatus, setDeleteStatus] = useState();
-  const [createStatus, setCreateStatus] = useState();
+  const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-    query("SELECT * FROM reservation_view", "/api/sql", setReservations);
-  }, [deleteStatus, createStatus]);
+    const q = `SELECT employee_nas FROM employee WHERE email = '${cookies.credentials.email}' AND password = '${cookies.credentials.password}'`;
+    query(q, "/api/sql/select", setEmployeeNas);
+    updateReservations();
+    updateLocations();
+  }, []);
+
+  const updateReservations = () => {
+    const q = "SELECT * FROM reservation_view";
+    query(q, "/api/sql/select", setReservations);
+  };
+
+  const updateLocations = () => {
+    const q = "SELECT * FROM location_view";
+    query(q, "/api/sql/select", setLocations);
+  };
 
   return (
     <div className="employee__wrapper">
       <div className="employee__container">
-        {reservations &&
-          reservations.map((reservation, index) => (
-            <Reservation
-              key={index}
-              reservation={reservation}
-              setDeleteStatus={setDeleteStatus}
-              setCreateStatus={setCreateStatus}
-              nas={nas[0].employee_nas}
-            />
-          ))}
+        {props.route === "reservations"
+          ? reservations.length !== 0 &&
+            employeeNas[0].employee_nas &&
+            reservations.map((reservation, index) => (
+              <Reservation
+                key={index}
+                reservation={reservation}
+                employee_nas={employeeNas[0].employee_nas}
+                updateReservations={updateReservations}
+              />
+            ))
+          : locations.length !== 0 &&
+            employeeNas[0].employee_nas &&
+            locations.map((location, index) => (
+              <Location
+                key={index}
+                location={location}
+                employee_nas={employeeNas[0].employee_nas}
+                updateLocations={updateLocations}
+              />
+            ))}
       </div>
     </div>
   );

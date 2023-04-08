@@ -16,7 +16,7 @@ const RoutesComponent = () => {
   useEffect(() => {
     query(
       "SELECT * FROM hotel_group",
-      "/api/sql",
+      "/api/sql/select",
       setChaines
     );
   }, []);
@@ -26,7 +26,8 @@ const RoutesComponent = () => {
       <Route path="/" element={<Home />} />
       <Route path="/hotels" element={<Hotels />} />
       <Route path="/manager" element={<Manager />} />
-      <Route path="/employee" element={<Employee />} />
+      <Route path="/locations" element={<Employee route="locations" />} />
+      <Route path="/reservations" element={<Employee route="reservations" />} />
       <Route path="/user" element={<User />} />
 
       {chaines && chaines.map((chain, index) => (
