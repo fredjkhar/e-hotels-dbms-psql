@@ -7,7 +7,15 @@ import { useAppContext } from "../../../context/contextProvider";
 import "./hotel.css";
 
 const Hotel = (props) => {
-  const { setHotelName } = useAppContext();
+  const {
+    setHotelName,
+    setRoomPrice,
+    setCapacity,
+    setView,
+    setAreaName,
+    setStartDate,
+    setEndDate,
+  } = useAppContext();
   const hotel = props.hotel;
   return (
     <div className="hotel__container">
@@ -33,15 +41,26 @@ const Hotel = (props) => {
         <div className="hotel__price-tag">
           <p>Starting from</p> ${hotel.min_price}
         </div>
-        <Link className='deals_link' to='/rooms'>
-        <div className="view-deals__btn" onClick={() => setHotelName(hotel.name)}>
-          <span>View deals</span>
-          <img
-            className="hotel__more-than"
-            src={require("../../../assets/icons/more-than-24.png")}
-            alt="more than icon"
-          />
-        </div>
+        <Link className="deals_link" to="/rooms">
+          <div
+            className="view-deals__btn"
+            onClick={() => {
+              setHotelName(hotel.name);
+              setRoomPrice(1500);
+              setCapacity(0);
+              setView("All");
+              setAreaName("All");
+              setStartDate("");
+              setEndDate("");
+            }}
+          >
+            <span>View deals</span>
+            <img
+              className="hotel__more-than"
+              src={require("../../../assets/icons/more-than-24.png")}
+              alt="more than icon"
+            />
+          </div>
         </Link>
       </div>
     </div>

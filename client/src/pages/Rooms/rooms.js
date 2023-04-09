@@ -3,52 +3,64 @@ import { useAppContext } from "../../context/contextProvider";
 
 import RoomsFilter from "../../components/RoomComponents/RoomsFilter/roomsFilter";
 import Room from "../../components/RoomComponents/Room/room";
+import ReservationForm from "../../components/RoomComponents/ReservationForm/ReservationForm";
+import { query } from "../../helpers/_fetchers";
 
 import "./rooms.css";
 
 const Rooms = () => {
-  const { rooms, hotels, hotelName, roomPrice, capacity, view, problems } =
-    useAppContext();
-  const [displayedRooms, setDisplayedRooms] = useState(rooms);
+  const { hotelName, roomPrice, capacity, view, areaName, startDate, endDate} = useAppContext();
+  const [rooms, setRooms] = useState([]);
+  const [selectedRoom, setSelectedRoom] = useState(null);
+
+   //AreaName is of the following form: "Vancouver, Canada", "San Francisco, USA",... or "All"
+   const city =
+   areaName !== "All" ? areaName.substring(0, areaName.indexOf(", ")) : "";
+ const country =
+   areaName !== "All"
+     ? areaName.substring(areaName.indexOf(", ") + 2, areaName.length)
+     : "";
+
+  const handleReserveClick = (room, index) => {
+    if (selectedRoom && selectedRoom.index === index) {
+      setSelectedRoom(null);
+    } else {
+      setSelectedRoom({ room, index });
+    }
+  };
 
   useEffect(() => {
-    if (rooms && hotels) {
-      // check if rooms and hotels are not null
-      if (hotelName !== "All") {
-        let _hotels = hotels.filter((hotel) => hotel.name === hotelName);
-        setDisplayedRooms(
-          rooms.filter(
-            (room) =>
-              room.hotel_id === _hotels[0].hotel_id &&
-              room.price <= roomPrice &&
-              //eslint-disable-next-line
-              (capacity == 0 ? true : room.capacity == capacity) &&
-              (view === "All" ? true : room.view === view) && 
-              (problems === "All" ? room : room.problems === null)
-          )
-        );
-      } else {
-        setDisplayedRooms(
-          rooms.filter(
-            (room) =>
-              room.price <= roomPrice &&
-              // eslint-disable-next-line
-              (capacity == 0 ? true : room.capacity == capacity) &&
-              (view === "All" ? true : room.view === view) &&
-              (problems === "All" ? room : room.problems === null)
-          )
-        );
-      }
-    }
-  }, [roomPrice, capacity, view, problems, hotelName, hotels, rooms]);
+    let q = `SELECT * FROM room WHERE price <= ${roomPrice}`;
+    if (capacity !== 0) q = q + ` AND capacity = ${capacity}`;
+    if (view !== "All") q = q + ` AND view = '${view}'`;
+    if (hotelName !== "All") q = q + ` AND EXISTS (SELECT * FROM hotel WHERE hotel.hotel_id = room.hotel_id AND hotel.name = '${hotelName}')`;
+    if (areaName !== "All") q = q +  ` AND EXISTS (SELECT * FROM hotel Where hotel.hotel_id = room.hotel_id AND hotel.city='${city}' AND hotel.country='${country}' )`;
+    if(startDate !== "" && endDate !=="") q = q + ` AND NOT  EXISTS (
+      SELECT *
+      FROM reservation
+      WHERE reservation.room_number = room.room_number 
+      AND reservation.start_date <= '${endDate}' 
+      AND reservation.end_date >= '${startDate}'
+    )`;
+    query(q, "/api/sql", setRooms);
+  }, [roomPrice, capacity, view, hotelName, areaName, startDate, endDate]);
 
   return (
-    <div className="rooms_wrapper">
-      <RoomsFilter />
-      <div className="rooms_container">
-        {displayedRooms &&
-          displayedRooms.map((room, index) => (
-            <Room key={index} room={room} hotels={hotels} />
+    <div className="rooms__wrapper">
+        <RoomsFilter />  
+      <div className="rooms__container">
+        {rooms && rooms.length > 0 &&
+          rooms.map((room, index) => (
+            <div key={index}>
+              <Room
+                key={index}
+                room={room}
+                onReserveClick={() => handleReserveClick(room, index)}
+              />
+              {selectedRoom && selectedRoom.index === index && (
+                <ReservationForm room={selectedRoom.room} />
+              )}
+            </div>
           ))}
       </div>
     </div>

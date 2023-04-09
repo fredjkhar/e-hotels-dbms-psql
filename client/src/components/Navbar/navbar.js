@@ -8,7 +8,7 @@ import { query } from "../../helpers/_fetchers";
 import "./navbar.css";
 
 const Navbar = () => {
-  const { role, setRole, setGroupName } = useAppContext();
+  const { role, setRole, setGroupName, setMail, setPass } = useAppContext();
   const [openChaines, setOpenChaines] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [chaines, setChaines] = useState([]);
@@ -113,6 +113,8 @@ const Navbar = () => {
               onClick={() => {
                 auth.signOut();
                 setRole("");
+                setMail("");
+                setPass("");
                 setOpenChaines(false);
               }}
             >

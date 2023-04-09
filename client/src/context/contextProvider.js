@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 const AppContext = React.createContext();
 
@@ -13,6 +13,8 @@ const ContextProvider = ({ children }) => {
   //Role value (three possible values/states: ['manager', 'user', 'employee'] or empty string)
   const [role, setRole] = useState("");
   const [nas, setNas] = useState(0);
+  const[mail, setMail] = useState("");
+  const[pass, setPass] = useState("");
 
   //Filter for rooms
   const [hotelName, setHotelName] = useState("All");
@@ -20,6 +22,9 @@ const ContextProvider = ({ children }) => {
   const [capacity, setCapacity] = useState(0);
   const [view, setView] = useState("All");
   const [problems, setProblems] = useState("All");
+
+  const[startDate, setStartDate] = useState("");
+  const[endDate, setEndDate] = useState("");
 
   return (
     <AppContext.Provider
@@ -47,7 +52,15 @@ const ContextProvider = ({ children }) => {
         problems,
         setProblems,
         nas,
-        setNas
+        setNas,
+        mail,
+        setMail,
+        pass,
+        setPass,
+        startDate, 
+        setStartDate,
+        endDate, 
+        setEndDate
       }}
     >
       {children}

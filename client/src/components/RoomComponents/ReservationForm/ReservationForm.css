@@ -1,0 +1,78 @@
+.form__background {
+  display: flex;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin: 5px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.reservation__form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 2px solid #bbbbbb;
+  align-items: center;
+}
+
+h1 {
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+}
+
+.reservation__form label {
+  font-weight: 200;
+  margin-bottom: 0.5rem;
+}
+
+.reservation__form input {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #bbbbbb;
+  background-color: transparent;
+}
+
+.reservation__client__box{
+  display: flex;
+  flex-direction: row;
+}
+
+.input__box{
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+
+.form__background button {
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: none;
+  height: 100%;
+  width: 20%;
+  background-color: #bbbbbb;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+button:hover {
+  background-color:  #908e8e;
+  color:white;
+}
+
+.reservation__confirmation__message{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+
+ 
+}

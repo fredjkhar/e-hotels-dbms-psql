@@ -90,8 +90,9 @@ CREATE TABLE client(
       postal_code VARCHAR(7) NOT NULL,
       phone_num VARCHAR(255) NOT NULL,
       email VARCHAR(255) NOT NULL,
-      registration_date VARCHAR(255) NOT NULL,
-      password VARCHAR(255) NOT NULL
+      registration_date DATE NOT NULL,
+      password VARCHAR(255) NOT NULL,
+      CHECK (age >= 18)
 );
 
 CREATE TABLE location(
@@ -107,8 +108,8 @@ CREATE TABLE location(
 );
 
 CREATE TABLE reservation(
-    start_date VARCHAR(255) NOT NULL,
-    end_date VARCHAR(255) NOT NULL,
+    start_date DATE NOT NULL,
+    end_date DATE NOT NULL,
     NAS_client INT NOT NULL,
     room_number INT NOT NULL,
     PRIMARY KEY (start_date, end_date, NAS_client, room_number),
