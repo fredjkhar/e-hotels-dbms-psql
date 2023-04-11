@@ -18,9 +18,9 @@ export default function LoginForm() {
       .then((userCredential) => {
         const role = email.includes("@hotels.com")
           ? "manager"
-          : email.includes("hotel.com")
+          : (email.includes("hotel.com")
           ? "employee"
-          : "user";
+          : "user");
 
         setCookie(
           "credentials",

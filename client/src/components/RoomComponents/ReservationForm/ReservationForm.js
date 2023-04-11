@@ -26,51 +26,55 @@ const ReservationForm = (props) => {
 
   const [confirmationMessage, setConfirmationMessage] = useState("");
 
-  const { mail, pass, startDate, endDate } = useAppContext();
+  const { startDate, endDate, cookies } = useAppContext();
 
   const [client, setClient] = useState([]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     console.log("info:");
-    console.log(mail);
-    console.log(pass);
   };
+
+  let email = null, password = null;
+
+  if (cookies.credentials) {
+    email = cookies.credentials.email;
+    password = cookies.credentials.password;
+  }
 
   const HandleSubmit = (e) => {
     e.preventDefault();
-      //check if the client is alreay in db
-      if (client.length === 0) {
-        //check if the client has an email/password
-        if (mail === "" && pass === "") {
-          query(
-            `INSERT INTO client VALUES( ${formData.NAS_client}, '${formData.first_name}','${formData.last_name}', ${formData.age}, ${formData.street_num}, '${formData.street}', '${formData.city}', '${formData.province}', '${formData.country}', '${formData.postal_code}', '${formData.phone_num}', '${formData.email}', '${formData.registration_date}', '${formData.password}' )`,
-            "/api/sql"
-          );
-        } else {
-          query(
-            `INSERT INTO client VALUES( ${formData.NAS_client}, '${formData.first_name}','${formData.last_name}', ${formData.age}, ${formData.street_num}, '${formData.street}', '${formData.city}', '${formData.province}', '${formData.country}', '${formData.postal_code}', '${formData.phone_num}', '${mail}', '${formData.registration_date}', '${pass}' )`,
-            "/api/sql"
-          );
-        }
-      } 
-      // else {
-      //   alert("client in db");
-      // }
-
-      //create a reservation
-      if (startDate === "" || endDate === "") {
-        //alert("Please enter both a start and end date.");
-        setConfirmationMessage("Please enter both a start and end date.");
-        return;
-      } else { 
+    //check if the client is already in db
+    if (client.length === 0) {
+      //check if the client has an email/password
+      if (email && password) {
         query(
-          `INSERT INTO reservation VALUES ('${startDate}','${endDate}',${formData.NAS_client},${room.room_number} )`,
+          `INSERT INTO client VALUES( ${formData.NAS_client}, '${formData.first_name}','${formData.last_name}', ${formData.age}, ${formData.street_num}, '${formData.street}', '${formData.city}', '${formData.province}', '${formData.country}', '${formData.postal_code}', '${formData.phone_num}', '${formData.email}', '${formData.registration_date}', '${formData.password}' )`,
           "/api/sql"
-        )
-        setConfirmationMessage("Room booked!");
-
+        );
+      } else {
+        query(
+          `INSERT INTO client VALUES( ${formData.NAS_client}, '${formData.first_name}','${formData.last_name}', ${formData.age}, ${formData.street_num}, '${formData.street}', '${formData.city}', '${formData.province}', '${formData.country}', '${formData.postal_code}', '${formData.phone_num}', '${email}', '${formData.registration_date}', '${password}' )`,
+          "/api/sql"
+        );
       }
+    }
+    // else {
+    //   alert("client in db");
+    // }
+
+    //create a reservation
+    if (startDate === "" || endDate === "") {
+      //alert("Please enter both a start and end date.");
+      setConfirmationMessage("Please enter both a start and end date.");
+      return;
+    } else {
+      query(
+        `INSERT INTO reservation VALUES ('${startDate}','${endDate}',${formData.NAS_client},${room.room_number} )`,
+        "/api/sql"
+      );
+      setConfirmationMessage("Room booked!");
+    }
   };
 
   useEffect(() => {
@@ -93,7 +97,7 @@ const ReservationForm = (props) => {
               id="NAS_client"
               name="NAS_client"
               value={formData.NAS_client}
-              onChange={handleChange}
+              onChange={() => handleChange}
               required
             />
           </div>
@@ -105,7 +109,7 @@ const ReservationForm = (props) => {
               id="first_name"
               name="first_name"
               value={formData.first_name}
-              onChange={handleChange}
+              onChange={() => handleChange}
               required
             />
           </div>
@@ -117,7 +121,7 @@ const ReservationForm = (props) => {
               id="last_name"
               name="last_name"
               value={formData.last_name}
-              onChange={handleChange}
+              onChange={() => handleChange}
               required
             />
           </div>
@@ -129,7 +133,7 @@ const ReservationForm = (props) => {
               id="age"
               name="age"
               value={formData.age}
-              onChange={handleChange}
+              onChange={() => handleChange}
               min="18"
               required
             />
@@ -144,7 +148,7 @@ const ReservationForm = (props) => {
               id="street_num"
               name="street_num"
               value={formData.street_num}
-              onChange={handleChange}
+              onChange={() => handleChange}
               required
             />
           </div>
@@ -156,7 +160,7 @@ const ReservationForm = (props) => {
               id="street"
               name="street"
               value={formData.street}
-              onChange={handleChange}
+              onChange={() => handleChange}
               required
             />
           </div>
@@ -168,7 +172,7 @@ const ReservationForm = (props) => {
               id="city"
               name="city"
               value={formData.city}
-              onChange={handleChange}
+              onChange={() => handleChange}
               required
             />
           </div>
@@ -180,7 +184,7 @@ const ReservationForm = (props) => {
               id="province"
               name="province"
               value={formData.province}
-              onChange={handleChange}
+              onChange={() => handleChange}
               required
             />
           </div>
@@ -194,7 +198,7 @@ const ReservationForm = (props) => {
               id="country"
               name="country"
               value={formData.country}
-              onChange={handleChange}
+              onChange={() => handleChange}
               required
             />
           </div>
@@ -206,7 +210,7 @@ const ReservationForm = (props) => {
               id="postal_code"
               name="postal_code"
               value={formData.postal_code}
-              onChange={handleChange}
+              onChange={() => handleChange}
               required
             />
           </div>
@@ -217,14 +221,14 @@ const ReservationForm = (props) => {
               id="phone_num"
               name="phone_num"
               value={formData.phone_num}
-              onChange={handleChange}
+              onChange={() => handleChange}
               required
             />
           </div>
         </div>
 
         <div className="reservation__client__box">
-          {mail === "" && pass === "" && (
+          {!email && !password && (
             <>
               <div className="input__box">
                 <label htmlFor="email">Email:</label>
@@ -233,7 +237,7 @@ const ReservationForm = (props) => {
                   id="email"
                   name="email"
                   value={formData.email}
-                  onChange={handleChange}
+                  onChange={() => handleChange}
                   required
                 />
               </div>
@@ -245,13 +249,17 @@ const ReservationForm = (props) => {
                   id="password"
                   name="password"
                   value={formData.password}
-                  onChange={handleChange}
+                  onChange={() => handleChange}
                   required
                 />
               </div>
             </>
           )}
-          {confirmationMessage && <div className="reservation__confirmation__message">{confirmationMessage}</div>}
+          {confirmationMessage && (
+            <div className="reservation__confirmation__message">
+              {confirmationMessage}
+            </div>
+          )}
         </div>
 
         <button type="submit">Reserve</button>
