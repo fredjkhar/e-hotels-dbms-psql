@@ -11,16 +11,12 @@ const Room = (props) => {
   useEffect(() => {
     query(
       `SELECT * FROM hotel where hotel_id = ${room.hotel_id}`,
-      "/api/sql",
+      "/api/sql/select",
       setHotels
     );
   }, [room]);
- 
 
   const hotel = hotels[0];
-
-
-  //const hotel = hotels.find((hotel) => hotel.hotel_id === room.hotel_id);
 
   return (
     <div className="room__container">

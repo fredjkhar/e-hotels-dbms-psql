@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -27,12 +28,22 @@ public class SqlApiController {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    @PostMapping
-    public ResponseEntity<List<Map<String, Object>>> executeQuery(@RequestBody String sql) {
+    @PostMapping("/select")
+    public ResponseEntity<List<Map<String, Object>>> executeSelectQuery(@RequestBody String sql) {
         try {
             Objects.requireNonNull(sql);
-            List<Map<String, Object>> result = jdbcTemplate.queryForList(sql);
-            return ResponseEntity.ok(result);
+            return ResponseEntity.ok(jdbcTemplate.queryForList(sql));
+        } catch (Exception e) {
+            logger.error("Error executing SQL query: {}", sql, e);
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error executing SQL query");
+        }
+    }
+
+    @PostMapping("/update")
+    public ResponseEntity<String> executeUpdateQuery(@RequestBody String sql) {
+        try {
+            Objects.requireNonNull(sql);
+            return ResponseEntity.ok(String.valueOf(jdbcTemplate.update(sql)));
         } catch (Exception e) {
             logger.error("Error executing SQL query: {}", sql, e);
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error executing SQL query");

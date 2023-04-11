@@ -40,12 +40,12 @@ const Filters = () => {
   useEffect(() => {
     query(
       "SELECT * FROM hotel_group",
-      "/api/sql",
+      "/api/sql/select",
       setChaines
     );
     query(
       "SELECT * FROM hotel",
-      "/api/sql",
+      "/api/sql/select",
       setHotels
     );
   }, [])

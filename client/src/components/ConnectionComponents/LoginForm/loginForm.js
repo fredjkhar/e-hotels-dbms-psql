@@ -1,6 +1,5 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { query } from "../../../helpers/_fetchers";
 import { useAppContext } from "../../../context/contextProvider";
 import { auth } from "../../../helpers/firebase";
 import { Link } from "react-router-dom";
@@ -9,7 +8,7 @@ import Alert from "@mui/material/Alert";
 import "./loginForm.css";
 
 export default function LoginForm() {
-  const { setRole, setNas, setMail, setPass } = useAppContext();
+  const { setCookie } = useAppContext();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(true);
@@ -17,17 +16,17 @@ export default function LoginForm() {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        if (email.includes("@hotels.com")) setRole("manager");
-        else if (email.includes("hotel.com")) {
-          setRole("employee");
-          const q = `SELECT employee_nas FROM employee WHERE email = '${email}' AND password = '${password}'`;
-          console.log(q);
-          query( q, "/api/sql", setNas);
-        } else {
-          setRole("user");
-          setMail(email);
-          setPass(password);
-        };
+        const role = email.includes("@hotels.com")
+          ? "manager"
+          : email.includes("hotel.com")
+          ? "employee"
+          : "user";
+
+        setCookie(
+          "credentials",
+          { role: role, email: email, password: password },
+          { path: "/" }
+        );
       })
       .catch((error) => {
         console.log(error);

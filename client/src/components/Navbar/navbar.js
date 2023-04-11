@@ -8,20 +8,18 @@ import { query } from "../../helpers/_fetchers";
 import "./navbar.css";
 
 const Navbar = () => {
-  const { role, setRole, setGroupName, setMail, setPass } = useAppContext();
+  const { setGroupName, cookies, removeCookie } = useAppContext();
   const [openChaines, setOpenChaines] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [chaines, setChaines] = useState([]);
+
+  const role = cookies.credentials ? cookies.credentials.role : "";
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
     });
-    query(
-      "SELECT * FROM hotel_group",
-      "/api/sql",
-      setChaines
-    );
+    query("SELECT * FROM hotel_group", "/api/sql/select", setChaines);
     return unsubscribe;
   }, []);
 
@@ -50,13 +48,22 @@ const Navbar = () => {
               Console
             </Link>
           ) : role === "employee" ? (
-            <Link
-              to="/employee"
-              className="navbar__link"
-              onClick={() => setOpenChaines(false)}
-            >
-              Console
-            </Link>
+            <>
+              <Link
+                to="/reservations"
+                className="navbar__link"
+                onClick={() => setOpenChaines(false)}
+              >
+                Reservations
+              </Link>
+              <Link
+                to="/locations"
+                className="navbar__link"
+                onClick={() => setOpenChaines(false)}
+              >
+                Locations
+              </Link>
+            </>
           ) : role === "user" ? (
             <Link
               to="/user"
@@ -112,9 +119,7 @@ const Navbar = () => {
               className="navbar__link"
               onClick={() => {
                 auth.signOut();
-                setRole("");
-                setMail("");
-                setPass("");
+                removeCookie("credentials")
                 setOpenChaines(false);
               }}
             >

@@ -1,20 +1,15 @@
 import React, { useState } from "react";
+import { useCookies } from "react-cookie";
 
 const AppContext = React.createContext();
 
 const ContextProvider = ({ children }) => {
-  //Filter values
+  //Filters for hotels
   const [groupName, setGroupName] = useState("All");
   const [areaName, setAreaName] = useState("All");
   const [minPrice, setMinPrice] = useState(400);
   const [minRating, setMinRating] = useState(0);
   const [star, setStar] = useState(0);
-
-  //Role value (three possible values/states: ['manager', 'user', 'employee'] or empty string)
-  const [role, setRole] = useState("");
-  const [nas, setNas] = useState(0);
-  const[mail, setMail] = useState("");
-  const[pass, setPass] = useState("");
 
   //Filter for rooms
   const [hotelName, setHotelName] = useState("All");
@@ -22,9 +17,11 @@ const ContextProvider = ({ children }) => {
   const [capacity, setCapacity] = useState(0);
   const [view, setView] = useState("All");
   const [problems, setProblems] = useState("All");
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
 
-  const[startDate, setStartDate] = useState("");
-  const[endDate, setEndDate] = useState("");
+  //Credentials and role cookie
+  const [cookies, setCookie, removeCookie] = useCookies(["credentials"]);
 
   return (
     <AppContext.Provider
@@ -39,8 +36,6 @@ const ContextProvider = ({ children }) => {
         setAreaName,
         star,
         setStar,
-        role,
-        setRole,
         hotelName,
         setHotelName,
         roomPrice,
@@ -51,16 +46,13 @@ const ContextProvider = ({ children }) => {
         setView,
         problems,
         setProblems,
-        nas,
-        setNas,
-        mail,
-        setMail,
-        pass,
-        setPass,
-        startDate, 
+        startDate,
         setStartDate,
-        endDate, 
-        setEndDate
+        endDate,
+        setEndDate,
+        cookies,
+        setCookie,
+        removeCookie
       }}
     >
       {children}
