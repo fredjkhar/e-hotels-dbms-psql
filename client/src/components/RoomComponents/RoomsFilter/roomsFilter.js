@@ -51,6 +51,7 @@ const RoomsFilter = () => {
 
   const getViews = () => {
     let views = [];
+    console.log(rooms);
     if (rooms) {
       rooms.forEach((room) => {
         let str = room.view;
