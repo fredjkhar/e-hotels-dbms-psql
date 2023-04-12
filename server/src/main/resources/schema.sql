@@ -3,6 +3,7 @@ DROP VIEW IF EXISTS reservation_view;
 DROP VIEW IF EXISTS location_view;
 
 -- Drop tables
+
 DROP TABLE IF EXISTS reservation;
 DROP TABLE IF EXISTS location;
 DROP TABLE IF EXISTS client;

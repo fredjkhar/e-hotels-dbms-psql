@@ -9,7 +9,7 @@ import { query } from "../../helpers/_fetchers";
 import "./rooms.css";
 
 const Rooms = () => {
-  const { hotelName, roomPrice, capacity, view, areaName, startDate, endDate } =
+  const { hotelName, roomPrice, capacity, view, areaName, startDate, endDate, size } =
     useAppContext();
   const [rooms, setRooms] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState(null);
@@ -31,7 +31,7 @@ const Rooms = () => {
   };
 
   useEffect(() => {
-    let q = `SELECT * FROM room WHERE price <= ${roomPrice}`;
+    let q = `SELECT * FROM room WHERE price <= ${roomPrice} AND area >= ${size}`;
     if (capacity !== 0) q = q + ` AND capacity = ${capacity}`;
     if (view !== "All") q = q + ` AND view = '${view}'`;
     if (hotelName !== "All")
@@ -53,7 +53,7 @@ const Rooms = () => {
       AND reservation.end_date >= '${startDate}'
     )`;
     query(q, "/api/sql/select", setRooms);
-  }, [roomPrice, capacity, view, hotelName, areaName, startDate, endDate]);
+  }, [roomPrice, capacity, view, hotelName, areaName, startDate, endDate, size]);
 
   return (
     <div className="rooms__wrapper">

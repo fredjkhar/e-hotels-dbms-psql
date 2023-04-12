@@ -32,6 +32,8 @@ const RoomsFilter = () => {
     setStartDate,
     endDate,
     setEndDate,
+    size,
+    setSize
   } = useAppContext();
   const [chaines, setChaines] = useState();
   const [hotels, setHotels] = useState();
@@ -203,6 +205,8 @@ const RoomsFilter = () => {
         </FormControl>
       </div>
 
+      
+
       <div className="price__filter">
         <Typography className="form__label" id="price__header" gutterBottom>
           Price per night
@@ -214,14 +218,37 @@ const RoomsFilter = () => {
           sx={{ color: blue[200], width: 180 }}
           className="price__filter"
           aria-label="Price"
-          defaultValue={1500}
+          defaultValue={500}
           getAriaValueText={valueText}
           valueLabelDisplay="off"
           min={40}
-          max={1500}
+          max={500}
           onChange={(e, value) => {
             setPrice(value);
             setRoomPrice(value);
+          }}
+        />
+      </div>
+
+
+      <div className="size__filter">
+        <Typography className="form__label" id="price__header" gutterBottom>
+         Minimum size of room
+        </Typography>
+        <Typography id="size__filter-subheader" gutterBottom>
+          <i>{size } m <sup>2</sup> </i>
+        </Typography>
+        <Slider
+          sx={{ color: blue[200], width: 180 }}
+          className="size__filter"
+          aria-label="Size"
+          defaultValue={10}
+          getAriaValueText={valueText}
+          valueLabelDisplay="off"
+          min={10}
+          max={200}
+          onChange={(e, value) => {
+            setSize(value);
           }}
         />
       </div>
