@@ -84,6 +84,22 @@
     padding-left: 2rem;
   }
 
+
+  .room__size{
+    font-weight: lighter;
+    font-size: 17px;
+    padding-top: 1rem;
+    padding-left: 2rem;
+  }
+
+  .room__problems{
+    font-weight: lighter;
+    color: red;
+    font-size: 17px;
+    padding-top: 1rem;
+    padding-left: 2rem;
+  }
+
   .reserve__btn {
     width:fit-content;
     font-family: Verdana, Geneva, Tahoma, sans-serif;

@@ -5,7 +5,12 @@ import "./reservation.css";
 const Reservation = (props) => {
   const reservation = props.reservation;
 
-  const createLocation = async (nas_client, room_number, start_date, end_date) => {
+  const createLocation = async (
+    nas_client,
+    room_number,
+    start_date,
+    end_date
+  ) => {
     let q = `INSERT INTO location VALUES('${start_date}', '${end_date}', ${nas_client}, ${props.employee_nas}, ${room_number}, 0)`;
     await update(q, "/api/sql/update");
 
@@ -50,19 +55,23 @@ const Reservation = (props) => {
           }
           onClick={() => {
             reservation.checked_in === 0 &&
-            createLocation(
-              reservation.nas_client,
-              reservation.room_number,
-              reservation.start_date,
-              reservation.end_date
-            );
+              createLocation(
+                reservation.nas_client,
+                reservation.room_number,
+                reservation.start_date,
+                reservation.end_date
+              );
           }}
         >
           <span>
             {reservation.checked_in === 0 ? "Check in" : "Checked in"}
           </span>
         </div>
+        <div className="payment__btn" onClick={props.onPaymentClick}>
+        <span>Insert payment </span>
       </div>
+      </div>
+    
     </div>
   );
 };

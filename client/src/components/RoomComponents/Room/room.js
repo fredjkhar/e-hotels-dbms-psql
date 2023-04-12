@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useAppContext } from "../../../context/contextProvider";
 
 import "./room.css";
 import { query } from "../../../helpers/_fetchers";
 
 const Room = (props) => {
   const { room } = props;
-
+  const {cookies, removeCookie } = useAppContext();
   const [hotels, setHotels] = useState([]);
+  const role = cookies.credentials ? cookies.credentials.role : "";
 
   useEffect(() => {
     query(
@@ -48,6 +50,10 @@ const Room = (props) => {
             </div>
             <div className="room__view">{room.view}</div>
             <div className="room__capacity"> Room for {room.capacity}</div>
+            <div className="room__size"> {room.area} m <sup>2</sup> </div>
+            {(role === "employee" || role === "manager") && (
+              <div className="room__problems"> {room.problems}</div>
+            )}
           </div>
 
           <div className="reservation">

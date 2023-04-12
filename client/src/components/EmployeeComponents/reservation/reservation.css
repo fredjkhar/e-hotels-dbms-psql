@@ -1,5 +1,5 @@
 .reservation__container {
-  width: 60%;
+  width: 100%;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   display: flex;
@@ -56,4 +56,25 @@ i {
 
 .disabled {
     background-color: gray;
+}
+
+
+.payment__btn {
+  width: fit-content;
+  padding: 15px;
+  background-color: #98b7da;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.payment__btn:hover {
+  transform: scale(1.03);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
 }

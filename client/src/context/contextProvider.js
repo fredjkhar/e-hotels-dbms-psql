@@ -13,12 +13,13 @@ const ContextProvider = ({ children }) => {
 
   //Filter for rooms
   const [hotelName, setHotelName] = useState("All");
-  const [roomPrice, setRoomPrice] = useState(1500);
+  const [roomPrice, setRoomPrice] = useState(500);
   const [capacity, setCapacity] = useState(0);
   const [view, setView] = useState("All");
   const [problems, setProblems] = useState("All");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [size, setSize] = useState(10);
 
   //Credentials and role cookie
   const [cookies, setCookie, removeCookie] = useCookies(["credentials"]);
@@ -52,7 +53,9 @@ const ContextProvider = ({ children }) => {
         setEndDate,
         cookies,
         setCookie,
-        removeCookie
+        removeCookie,
+        size, 
+        setSize
       }}
     >
       {children}
