@@ -40,13 +40,29 @@ const Navbar = () => {
       <ul className="navbar__rightSide">
         <li>
           {role === "manager" ? (
-            <Link
-              to="/manager"
-              className="navbar__link"
-              onClick={() => setOpenChaines(false)}
-            >
-              Console
-            </Link>
+            <>
+              <Link
+                to="/manager"
+                className="navbar__link"
+                onClick={() => setOpenChaines(false)}
+              >
+                Console
+              </Link>
+              <Link
+                to="/reservations"
+                className="navbar__link"
+                onClick={() => setOpenChaines(false)}
+              >
+                Reservations
+              </Link>
+              <Link
+                to="/locations"
+                className="navbar__link"
+                onClick={() => setOpenChaines(false)}
+              >
+                Locations
+              </Link>
+            </>
           ) : role === "employee" ? (
             <>
               <Link
@@ -119,7 +135,7 @@ const Navbar = () => {
               className="navbar__link"
               onClick={() => {
                 auth.signOut();
-                removeCookie("credentials")
+                removeCookie("credentials");
                 setOpenChaines(false);
               }}
             >

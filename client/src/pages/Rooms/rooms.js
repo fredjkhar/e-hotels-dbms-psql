@@ -41,7 +41,7 @@ const Rooms = () => {
     if (areaName !== "All")
       q =
         q +
-        ` AND EXISTS (SELECT * FROM hotel Where hotel.hotel_id = room.hotel_id AND hotel.city='${city}' AND hotel.country='${country}' )`;
+        ` AND EXISTS (SELECT * FROM hotel WHERE hotel.hotel_id = room.hotel_id AND hotel.city='${city}' AND hotel.country='${country}' )`;
     if (startDate !== "" && endDate !== "")
       q =
         q +

@@ -7,20 +7,6 @@
 .manager__input {
   width: 50%;
   padding: 10px;
-  display: flex;
-  flex-direction: row;
-}
-
-.manager__input-left {
-  width: 50%;
-  height: 628px;
-  overflow: scroll;
-  margin-right: 10px;
-}
-
-.manager__input-right {
-  width: 50%;
-  margin-left: 10px;
 }
 
 .manager__output {
