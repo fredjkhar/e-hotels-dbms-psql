@@ -16,12 +16,11 @@ export default function SignupForm() {
   const passwordInput = useRef(null);
   const repeatPasswordInput = useRef(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
       if (password.length > 5) {
-        const error = signUp(e, email, password);
-        console.log("hi", error)
+        const error = await signUp(e, email, password);
         if (!error) {
           const role = email.includes("@hotels.com")
             ? "manager"
