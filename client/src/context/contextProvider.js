@@ -13,7 +13,7 @@ const ContextProvider = ({ children }) => {
 
   //Filter for rooms
   const [hotelName, setHotelName] = useState("All");
-  const [roomPrice, setRoomPrice] = useState(500);
+  const [roomPrice, setRoomPrice] = useState(1500);
   const [capacity, setCapacity] = useState(0);
   const [view, setView] = useState("All");
   const [problems, setProblems] = useState("All");
