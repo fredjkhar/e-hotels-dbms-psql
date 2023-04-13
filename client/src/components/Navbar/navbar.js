@@ -80,14 +80,6 @@ const Navbar = () => {
                 Locations
               </Link>
             </>
-          ) : role === "user" ? (
-            <Link
-              to="/user"
-              className="navbar__link"
-              onClick={() => setOpenChaines(false)}
-            >
-              My reservations
-            </Link>
           ) : null}
         </li>
         <li>
