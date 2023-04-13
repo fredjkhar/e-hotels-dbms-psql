@@ -38,7 +38,7 @@ const RoomsFilter = () => {
   const [chaines, setChaines] = useState();
   const [hotels, setHotels] = useState();
   const [rooms, setRooms] = useState();
-  const [price, setPrice] = useState(500);
+  const [price, setPrice] = useState(1500);
   const [errorMessage, setErrorMessage] = useState("");
 
   const valueText = (number) => {
@@ -218,11 +218,11 @@ const RoomsFilter = () => {
           sx={{ color: blue[200], width: 180 }}
           className="price__filter"
           aria-label="Price"
-          defaultValue={500}
+          defaultValue={1500}
           getAriaValueText={valueText}
           valueLabelDisplay="off"
           min={40}
-          max={500}
+          max={1500}
           onChange={(e, value) => {
             setPrice(value);
             setRoomPrice(value);

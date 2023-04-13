@@ -97,7 +97,7 @@ const ReservationForm = (props) => {
               id="NAS_client"
               name="NAS_client"
               value={formData.NAS_client}
-              onChange={() => handleChange}
+              onChange={ handleChange}
               required
             />
           </div>
@@ -109,7 +109,7 @@ const ReservationForm = (props) => {
               id="first_name"
               name="first_name"
               value={formData.first_name}
-              onChange={() => handleChange}
+              onChange={handleChange}
               required
             />
           </div>
@@ -121,7 +121,7 @@ const ReservationForm = (props) => {
               id="last_name"
               name="last_name"
               value={formData.last_name}
-              onChange={() => handleChange}
+              onChange={ handleChange}
               required
             />
           </div>
@@ -133,7 +133,7 @@ const ReservationForm = (props) => {
               id="age"
               name="age"
               value={formData.age}
-              onChange={() => handleChange}
+              onChange={handleChange}
               min="18"
               required
             />
@@ -148,7 +148,7 @@ const ReservationForm = (props) => {
               id="street_num"
               name="street_num"
               value={formData.street_num}
-              onChange={() => handleChange}
+              onChange={ handleChange}
               required
             />
           </div>
@@ -160,7 +160,7 @@ const ReservationForm = (props) => {
               id="street"
               name="street"
               value={formData.street}
-              onChange={() => handleChange}
+              onChange={ handleChange}
               required
             />
           </div>
@@ -172,7 +172,7 @@ const ReservationForm = (props) => {
               id="city"
               name="city"
               value={formData.city}
-              onChange={() => handleChange}
+              onChange={handleChange}
               required
             />
           </div>
@@ -184,7 +184,7 @@ const ReservationForm = (props) => {
               id="province"
               name="province"
               value={formData.province}
-              onChange={() => handleChange}
+              onChange={handleChange}
               required
             />
           </div>
@@ -198,7 +198,7 @@ const ReservationForm = (props) => {
               id="country"
               name="country"
               value={formData.country}
-              onChange={() => handleChange}
+              onChange={handleChange}
               required
             />
           </div>
@@ -210,7 +210,7 @@ const ReservationForm = (props) => {
               id="postal_code"
               name="postal_code"
               value={formData.postal_code}
-              onChange={() => handleChange}
+              onChange={ handleChange}
               required
             />
           </div>
@@ -221,7 +221,7 @@ const ReservationForm = (props) => {
               id="phone_num"
               name="phone_num"
               value={formData.phone_num}
-              onChange={() => handleChange}
+              onChange={ handleChange}
               required
             />
           </div>
@@ -237,7 +237,7 @@ const ReservationForm = (props) => {
                   id="email"
                   name="email"
                   value={formData.email}
-                  onChange={() => handleChange}
+                  onChange={ handleChange}
                   required
                 />
               </div>
@@ -249,7 +249,7 @@ const ReservationForm = (props) => {
                   id="password"
                   name="password"
                   value={formData.password}
-                  onChange={() => handleChange}
+                  onChange={ handleChange}
                   required
                 />
               </div>
