@@ -23,7 +23,7 @@ const Employee = (props) => {
   }, []);
 
   const updateReservations = () => {
-    const q = "SELECT * FROM reservation_view WHERE  room_number=100";
+    const q = "SELECT * FROM reservation_view";
     query(q, "/api/sql/select", setReservations);
   };
 
