@@ -1,9 +1,10 @@
 -- Drop Views
 DROP VIEW IF EXISTS reservation_view;
 DROP VIEW IF EXISTS location_view;
+DROP VIEW IF EXISTS available_rooms_by_zone;
+DROP VIEW IF EXISTS room_capacity_by_hotel;
 
 -- Drop tables
-
 DROP TABLE IF EXISTS reservation;
 DROP TABLE IF EXISTS location;
 DROP TABLE IF EXISTS client;
