@@ -19,7 +19,7 @@ import "./filters.css";
 
 const Filters = () => {
   const {
-    setPriceRange,
+    setMinPrice,
     minRating,
     setMinRating,
     groupName,
@@ -161,7 +161,7 @@ const Filters = () => {
           max={400}
           onChange={(e, value) => {
             setPrice(value);
-            setPriceRange(value);
+            setMinPrice(value);
           }}
         />
       </div>
