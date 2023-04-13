@@ -4688,5 +4688,16 @@ SELECT location.nas_client, start_date, end_date, room_number, first_name, last_
 FROM location
 JOIN client
 ON location.nas_client = client.nas_client;
+
+CREATE VIEW available_rooms_by_zone
+AS SELECT city, COUNT(capacity)
+FROM room JOIN hotel
+ON room.hotel_id=hotel.hotel_id GROUP BY city;
+
+CREATE VIEW room_capacity_by_hotel
+AS SELECT hotel.name,
+SUM(room.capacity) AS total_capacity
+FROM hotel JOIN room ON hotel.hotel_id = room.hotel_id
+GROUP BY hotel.hotel_id;
 -- View queries END
 
